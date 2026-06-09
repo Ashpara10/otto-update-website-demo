@@ -53,7 +53,26 @@ export function BookDemoForm({ onSuccess }: { onSuccess: () => void }) {
         const data = await res.json().catch(() => null);
         throw new Error(data?.error ?? "Something went wrong. Please try again.");
       }
-      toast.success("Request sent — we'll be in touch shortly.");
+      toast.custom(
+        () => (
+          <div className="flex w-[356px] max-w-[calc(100vw-2rem)] items-start gap-3 rounded-2xl border border-[rgba(0,255,133,0.35)] bg-[#0d0e10] p-4 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.85),0_0_40px_-12px_rgba(0,255,133,0.45)]">
+            <span className="mt-0.5 grid size-8 shrink-0 place-items-center rounded-full bg-[rgba(0,255,133,0.14)] text-[#00FF85]">
+              <svg viewBox="0 0 24 24" className="size-4" fill="none" stroke="currentColor" strokeWidth={2.6} strokeLinecap="round" strokeLinejoin="round">
+                <path d="M5 12l4 4L19 6" />
+              </svg>
+            </span>
+            <div className="min-w-0">
+              <p className="text-[15px] font-semibold tracking-tight text-[#f6f8f6]">
+                Request sent
+              </p>
+              <p className="mt-0.5 text-[13px] leading-snug text-[#8a908b]">
+                We&apos;ll reach out shortly to set up your 15-minute demo.
+              </p>
+            </div>
+          </div>
+        ),
+        { duration: 5000 },
+      );
       setValues(EMPTY);
       onSuccess();
     } catch (err) {

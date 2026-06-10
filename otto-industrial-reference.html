@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Otto — Won in the field. Lost in the follow-up.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --neon:#00FF85;--neon-dim:#0bbf66;--neon-deep:#063;
+    --bg:#070708;--bg-2:#0d0e10;--bg-3:#121316;
+    --ink:#f6f8f6;--muted:#8a908b;--muted-2:#5f645f;
+    --line:rgba(255,255,255,0.08);--line-2:rgba(255,255,255,0.14);
+    --card:rgba(255,255,255,0.022);
+    --maxw:1240px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Outfit',sans-serif;background:var(--bg);color:var(--ink);line-height:1.5;overflow-x:hidden;-webkit-font-smoothing:antialiased;font-feature-settings:"ss01" on}
+  ::selection{background:var(--neon);color:#06110b}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+  a{color:inherit;text-decoration:none}
+  .grain{position:fixed;inset:0;z-index:60;pointer-events:none;opacity:0.04;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+  /* ---------- NAV ---------- */
+  nav{position:fixed;top:0;left:0;right:0;z-index:50;transition:.3s;border-bottom:1px solid transparent}
+  nav.scrolled{background:rgba(7,7,8,0.82);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+  .nav-in{max-width:var(--maxw);margin:0 auto;padding:18px 32px;display:flex;align-items:center;justify-content:space-between}
+  .logo{display:flex;align-items:center;gap:11px;font-weight:700;font-size:22px;letter-spacing:-0.02em}
+  .logo img{width:28px;height:28px;display:block}
+  .nav-links{display:flex;gap:34px;align-items:center}
+  .nav-links a{font-size:14.5px;color:var(--muted);font-weight:400;transition:.2s}
+  .nav-links a:hover{color:var(--ink)}
+  .nav-cta{font-size:14px;font-weight:600;color:#06110b;background:var(--neon);padding:10px 20px;border-radius:100px;transition:.25s}
+  .nav-cta:hover{box-shadow:0 0 28px -4px var(--neon);transform:translateY(-1px)}
+  @media(max-width:860px){.nav-links a:not(.nav-cta){display:none}}
+
+  /* ---------- HERO (full bleed) ---------- */
+  .hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;overflow:hidden}
+  .hero-bg{position:absolute;inset:0;z-index:0}
+  .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
+  .hero-bg::after{content:"";position:absolute;inset:0;background:
+     linear-gradient(180deg,rgba(7,7,8,0.62) 0%,rgba(7,7,8,0.12) 32%,rgba(7,7,8,0.55) 68%,rgba(7,7,8,0.98) 100%),
+     linear-gradient(90deg,rgba(7,7,8,0.78) 0%,rgba(7,7,8,0.30) 40%,transparent 70%)}
+  .hero-scan{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.5;
+     background:repeating-linear-gradient(0deg,transparent 0 3px,rgba(0,0,0,0.18) 3px 4px)}
+  .hero-content{position:relative;z-index:3;width:100%;padding:0 0 88px}
+  .hero-tag{display:inline-flex;align-items:center;gap:9px;font-size:12.5px;font-weight:500;letter-spacing:.04em;color:var(--neon);border:1px solid rgba(0,255,133,0.28);background:rgba(0,255,133,0.05);backdrop-filter:blur(8px);padding:8px 16px;border-radius:100px;margin-bottom:28px;text-transform:uppercase;opacity:0;animation:rise .8s .1s forwards}
+  .dot{width:6px;height:6px;border-radius:50%;background:var(--neon);box-shadow:0 0 10px var(--neon);animation:blink 2s infinite}
+  @keyframes blink{0%,100%{opacity:1}50%{opacity:.35}}
+  h1.hero-h{font-size:clamp(3rem,8vw,6.6rem);font-weight:700;line-height:0.98;letter-spacing:-0.04em;max-width:16ch;margin-bottom:30px}
+  h1.hero-h .l1{display:block;opacity:0;animation:rise .8s .2s forwards}
+  h1.hero-h .l2{display:block;color:var(--neon);opacity:0;animation:rise .8s .34s forwards;text-shadow:0 0 60px rgba(0,255,133,0.35)}
+  .hero-sub{font-size:clamp(1.1rem,1.9vw,1.4rem);color:#c8cdc9;font-weight:300;max-width:60ch;margin-bottom:40px;opacity:0;animation:rise .8s .48s forwards}
+  .hero-sub b{color:var(--ink);font-weight:500}
+  .hero-cta{display:flex;gap:18px;align-items:center;flex-wrap:wrap;opacity:0;animation:rise .8s .6s forwards}
+  .btn-primary{font-family:inherit;font-size:16px;font-weight:600;color:#06110b;cursor:pointer;background:var(--neon);border:none;padding:17px 34px;border-radius:100px;display:inline-flex;align-items:center;gap:10px;box-shadow:0 0 44px -8px rgba(0,255,133,0.65);transition:.25s}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 56px -6px rgba(0,255,133,0.9)}
+  .btn-primary .arr{transition:.25s}.btn-primary:hover .arr{transform:translateX(5px)}
+  .btn-ghost{font-size:15px;font-weight:500;color:var(--ink);display:inline-flex;align-items:center;gap:9px;padding:15px 8px;transition:.2s}
+  .btn-ghost:hover{color:var(--neon)}
+  .btn-ghost .pl{width:30px;height:30px;border-radius:50%;border:1px solid var(--line-2);display:grid;place-items:center;font-size:11px;transition:.2s}
+  .btn-ghost:hover .pl{border-color:var(--neon);background:rgba(0,255,133,0.1)}
+  .hero-float{position:absolute;right:32px;bottom:88px;z-index:4;display:flex;align-items:center;gap:13px;background:rgba(7,7,8,0.7);backdrop-filter:blur(14px);border:1px solid rgba(0,255,133,0.3);border-radius:16px;padding:13px 18px;opacity:0;animation:rise .8s .8s forwards}
+  .hero-float .pulse{width:38px;height:38px;border-radius:10px;background:rgba(0,255,133,0.13);display:grid;place-items:center;padding:7px}
+  .hero-float .pulse img{width:100%;height:100%}
+  .hero-float .ht{font-size:14px;font-weight:600}
+  .hero-float .hs{font-size:12px;color:var(--neon);display:flex;align-items:center;gap:6px;margin-top:2px}
+  @media(max-width:860px){.hero-float{display:none}.hero-content{padding-bottom:60px}}
+  @keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+
+  /* ---------- STAT STRIP ---------- */
+  .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--bg-2);position:relative;z-index:5}
+  .strip-in{max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr)}
+  .stat{padding:40px 32px;border-right:1px solid var(--line);position:relative}
+  .stat:last-child{border-right:none}
+  .stat .num{font-size:3rem;font-weight:700;letter-spacing:-0.03em;color:var(--neon);line-height:1}
+  .stat .lab{font-size:14.5px;color:var(--muted);font-weight:300;margin-top:10px;max-width:24ch}
+  @media(max-width:720px){.strip-in{grid-template-columns:1fr}.stat{border-right:none;border-bottom:1px solid var(--line)}}
+
+  /* ---------- SECTIONS ---------- */
+  section{position:relative;z-index:5;padding:120px 0}
+  .eyebrow{font-size:12.5px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--neon);margin-bottom:20px;display:flex;align-items:center;gap:10px}
+  .eyebrow::before{content:"";width:28px;height:1px;background:var(--neon)}
+  .eyebrow.ctr{justify-content:center}
+  .sec-h{font-size:clamp(2rem,4.6vw,3.4rem);font-weight:700;letter-spacing:-0.035em;line-height:1.04;max-width:18ch}
+  .sec-h.ctr{margin:0 auto;text-align:center}
+  .sec-p{font-size:1.15rem;color:var(--muted);font-weight:300;max-width:54ch;margin-top:20px;line-height:1.6}
+  .sec-p.ctr{margin-left:auto;margin-right:auto;text-align:center}
+  .hl{color:var(--neon)}
+
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+  @media(max-width:880px){.split{grid-template-columns:1fr;gap:44px}}
+
+  /* breakage list */
+  .break-list{margin-top:36px;display:flex;flex-direction:column}
+  .break-list .row{display:flex;align-items:center;gap:18px;padding:18px 0;border-bottom:1px solid var(--line);font-size:1.08rem;opacity:0;transform:translateX(-14px);transition:.6s}
+  .break-list.in .row{opacity:1;transform:none}
+  .break-list .row:nth-child(1){transition-delay:.05s}.break-list .row:nth-child(2){transition-delay:.12s}
+  .break-list .row:nth-child(3){transition-delay:.19s}.break-list .row:nth-child(4){transition-delay:.26s}
+  .break-list .row:nth-child(5){transition-delay:.33s}.break-list .row:nth-child(6){transition-delay:.40s}
+  .break-list .row .what{font-weight:400}
+  .break-list .row .res{margin-left:auto;font-size:.92rem;color:#ff6b6b;font-weight:500;display:flex;align-items:center;gap:7px;white-space:nowrap}
+  .break-list .row .res .rd{width:6px;height:6px;border-radius:50%;background:#ff6b6b}
+  .break-foot{margin-top:30px;font-size:1.05rem;color:var(--ink);font-weight:400;padding-left:18px;border-left:2px solid var(--neon)}
+
+  /* phone / call demo */
+  .phone{background:linear-gradient(165deg,var(--bg-3),#0a0b0d);border:1px solid var(--line-2);border-radius:30px;padding:28px;box-shadow:0 50px 110px -34px rgba(0,0,0,0.85);position:relative;overflow:hidden}
+  .phone::before{content:"";position:absolute;top:-60px;right:-60px;width:200px;height:200px;background:radial-gradient(circle,rgba(0,255,133,0.16),transparent 70%);filter:blur(12px)}
+  .call-head{display:flex;align-items:center;gap:13px;margin-bottom:22px;position:relative}
+  .call-ast{width:44px;height:44px;border-radius:13px;background:rgba(0,255,133,0.13);display:grid;place-items:center;padding:8px}
+  .call-ast img{width:100%;height:100%}
+  .call-head .ch-t{font-weight:600;font-size:15.5px}
+  .call-head .ch-s{font-size:12px;color:var(--neon);display:flex;align-items:center;gap:6px;margin-top:1px}
+  .wave{display:flex;align-items:center;gap:3px;margin-left:auto}
+  .wave span{width:3px;background:var(--neon);border-radius:2px;animation:wv 1s infinite ease-in-out}
+  .wave span:nth-child(1){height:10px;animation-delay:0s}.wave span:nth-child(2){height:18px;animation-delay:.15s}
+  .wave span:nth-child(3){height:26px;animation-delay:.3s}.wave span:nth-child(4){height:14px;animation-delay:.45s}
+  .wave span:nth-child(5){height:20px;animation-delay:.6s}
+  @keyframes wv{0%,100%{transform:scaleY(.5)}50%{transform:scaleY(1)}}
+  .bubble{padding:14px 17px;border-radius:15px;margin-bottom:11px;font-size:14.5px;max-width:90%;line-height:1.45}
+  .b-rep{background:rgba(255,255,255,0.055);border:1px solid var(--line);margin-left:auto;border-bottom-right-radius:5px}
+  .b-otto{background:rgba(0,255,133,0.09);border:1px solid rgba(0,255,133,0.22);border-bottom-left-radius:5px}
+  .b-otto .who{font-size:10.5px;color:var(--neon);font-weight:700;margin-bottom:4px;letter-spacing:.06em}
+  .done-row{display:flex;align-items:center;gap:9px;margin-top:18px;font-size:13px;color:var(--muted)}
+  .check{width:19px;height:19px;border-radius:50%;background:var(--neon);display:grid;place-items:center;color:#06110b;font-size:11px;flex-shrink:0;font-weight:700}
+
+  /* just-call-otto two col */
+  .callgrid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:56px}
+  @media(max-width:880px){.callgrid{grid-template-columns:1fr}}
+  .callcol{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:34px}
+  .callcol .ctitle{font-size:12.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:24px;display:flex;align-items:center;gap:10px}
+  .callcol.says .ctitle{color:#c8cdc9}
+  .callcol.does .ctitle{color:var(--neon)}
+  .says-line{font-size:1.12rem;color:var(--ink);font-weight:400;padding:11px 0;padding-left:22px;position:relative;line-height:1.4}
+  .says-line::before{content:"";position:absolute;left:0;top:19px;width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,0.2)}
+  .does-item{display:flex;align-items:center;gap:13px;padding:13px 0;border-bottom:1px solid var(--line);font-size:1.05rem}
+  .does-item:last-child{border-bottom:none}
+  .does-item .dc{width:22px;height:22px;border-radius:6px;background:rgba(0,255,133,0.13);display:grid;place-items:center;flex-shrink:0}
+  .does-item .dc svg{width:13px;height:13px;stroke:var(--neon);fill:none;stroke-width:2.2}
+
+  /* sales brain */
+  .brain{background:linear-gradient(180deg,var(--bg-2),var(--bg));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .brain-cols{display:grid;grid-template-columns:1fr auto 1fr;gap:40px;align-items:center;margin-top:60px}
+  @media(max-width:880px){.brain-cols{grid-template-columns:1fr;gap:28px}}
+  .brain-box{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:30px}
+  .brain-box h4{font-size:12.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;margin-bottom:20px}
+  .brain-box.in h4{color:var(--muted)}.brain-box.out h4{color:var(--neon)}
+  .chip{display:inline-flex;align-items:center;margin:0 7px 9px 0;padding:8px 14px;border-radius:9px;font-size:13.5px;font-weight:400;border:1px solid var(--line)}
+  .brain-box.in .chip{background:rgba(255,255,255,0.03);color:#c8cdc9}
+  .brain-box.out .chip{background:rgba(0,255,133,0.07);border-color:rgba(0,255,133,0.2);color:var(--neon)}
+  .brain-core{width:96px;height:96px;border-radius:24px;background:radial-gradient(circle,rgba(0,255,133,0.2),rgba(0,255,133,0.04));border:1px solid rgba(0,255,133,0.35);display:grid;place-items:center;padding:22px;position:relative}
+  .brain-core img{width:100%;height:100%}
+  .brain-core::after{content:"";position:absolute;inset:-8px;border-radius:30px;border:1px solid rgba(0,255,133,0.15);animation:ping 2.6s infinite}
+  @keyframes ping{0%{transform:scale(1);opacity:.8}100%{transform:scale(1.25);opacity:0}}
+  @media(max-width:880px){.brain-core{transform:rotate(90deg);margin:0 auto}}
+
+  /* workflow timeline */
+  .flow{margin-top:64px;display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative}
+  @media(max-width:980px){.flow{grid-template-columns:1fr;gap:18px}}
+  .flow-step{padding:0 22px;position:relative}
+  @media(min-width:981px){.flow-step:not(:last-child)::after{content:"";position:absolute;top:19px;right:0;width:100%;height:1px;background:linear-gradient(90deg,rgba(0,255,133,0.4),rgba(0,255,133,0.1))}}
+  .flow-num{width:40px;height:40px;border-radius:11px;background:rgba(0,255,133,0.1);border:1px solid rgba(0,255,133,0.28);display:grid;place-items:center;font-weight:700;color:var(--neon);font-size:15px;position:relative;z-index:2;margin-bottom:22px}
+  .flow-step h4{font-size:1.12rem;font-weight:600;letter-spacing:-0.02em;margin-bottom:9px}
+  .flow-step p{font-size:.95rem;color:var(--muted);font-weight:300;line-height:1.5}
+
+  /* quote risk */
+  .leak{background:linear-gradient(180deg,var(--bg),#0a0606);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .quote-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:54px}
+  @media(max-width:760px){.quote-grid{grid-template-columns:1fr}}
+  .qcard{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 24px;display:flex;align-items:center;gap:18px;transition:.3s}
+  .qcard:hover{border-color:rgba(255,107,107,0.4);background:rgba(255,107,107,0.03)}
+  .qcard .qbar{width:4px;align-self:stretch;border-radius:4px;background:linear-gradient(180deg,#ffb84d,#ff6b6b)}
+  .qcard .qt{font-size:1.05rem;font-weight:500}
+  .qcard .qs{font-size:.9rem;color:var(--muted);margin-top:3px}
+  .qcard .qstat{margin-left:auto;font-size:.82rem;font-weight:600;color:#ff8a8a;background:rgba(255,107,107,0.1);padding:5px 11px;border-radius:100px;white-space:nowrap}
+  .leak-foot{margin-top:40px;text-align:center;font-size:1.3rem;font-weight:500;max-width:40ch;margin-left:auto;margin-right:auto}
+
+  /* manager dashboard mock */
+  .dash{background:linear-gradient(165deg,var(--bg-3),#0a0b0d);border:1px solid var(--line-2);border-radius:24px;padding:8px;box-shadow:0 50px 110px -36px rgba(0,0,0,0.85);overflow:hidden}
+  .dash-bar{display:flex;align-items:center;gap:8px;padding:14px 18px}
+  .dash-bar .d{width:11px;height:11px;border-radius:50%}
+  .dash-bar .d1{background:#ff5f57}.dash-bar .d2{background:#febc2e}.dash-bar .d3{background:#28c840}
+  .dash-bar .dttl{margin-left:14px;font-size:13px;color:var(--muted);font-weight:400}
+  .dash-body{background:var(--bg);border-radius:18px;padding:24px}
+  .dash-row{display:flex;align-items:center;gap:16px;padding:15px 16px;border-radius:12px;margin-bottom:9px;background:var(--card);border:1px solid var(--line)}
+  .dash-row .acc{font-weight:600;font-size:15px;min-width:130px}
+  .dash-row .meta{font-size:13px;color:var(--muted)}
+  .dash-row .flag{margin-left:auto;font-size:12px;font-weight:600;padding:5px 12px;border-radius:100px}
+  .flag.risk{background:rgba(255,107,107,0.12);color:#ff8a8a}
+  .flag.warn{background:rgba(255,184,77,0.12);color:#ffb84d}
+  .flag.ok{background:rgba(0,255,133,0.12);color:var(--neon)}
+
+  .vis-list{margin-top:34px;display:grid;grid-template-columns:1fr 1fr;gap:14px 30px}
+  @media(max-width:680px){.vis-list{grid-template-columns:1fr}}
+  .vis-list .v{display:flex;align-items:center;gap:13px;font-size:1.02rem;color:#d4d8d4}
+  .vis-list .v .vc{width:22px;height:22px;border-radius:6px;background:rgba(0,255,133,0.12);display:grid;place-items:center;flex-shrink:0}
+  .vis-list .v .vc svg{width:12px;height:12px;stroke:var(--neon);fill:none;stroke-width:2.4}
+
+  /* adoption */
+  .adopt-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:56px}
+  @media(max-width:880px){.adopt-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:520px){.adopt-grid{grid-template-columns:1fr}}
+  .adopt{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px;transition:.3s}
+  .adopt:hover{border-color:rgba(0,255,133,0.3);transform:translateY(-4px)}
+  .adopt .ai{width:46px;height:46px;border-radius:12px;background:rgba(0,255,133,0.1);display:grid;place-items:center;margin-bottom:18px}
+  .adopt .ai svg{width:23px;height:23px;stroke:var(--neon);fill:none;stroke-width:1.8}
+  .adopt h4{font-size:1.1rem;font-weight:600;letter-spacing:-0.02em;margin-bottom:8px}
+  .adopt p{font-size:.93rem;color:var(--muted);font-weight:300;line-height:1.5}
+
+  /* integrations */
+  .intg{background:linear-gradient(180deg,var(--bg-2),var(--bg));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .intg-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:50px}
+  @media(max-width:880px){.intg-grid{grid-template-columns:repeat(2,1fr)}}
+  .intg-cell{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:24px;text-align:center;font-size:1.02rem;font-weight:500;color:#d4d8d4;transition:.25s;display:flex;align-items:center;justify-content:center;gap:10px;min-height:84px}
+  .intg-cell:hover{border-color:rgba(0,255,133,0.3);color:var(--neon)}
+  .intg-cell .idot{width:7px;height:7px;border-radius:50%;background:var(--neon);opacity:.6}
+
+  /* final cta */
+  .final{position:relative;overflow:hidden}
+  .final::before{content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:800px;height:800px;background:radial-gradient(circle,rgba(0,255,133,0.1),transparent 60%);filter:blur(30px);pointer-events:none}
+  .final-in{text-align:center;position:relative;z-index:2}
+  .final h2{font-size:clamp(2.2rem,5.5vw,4rem);font-weight:700;letter-spacing:-0.04em;line-height:1.02;max-width:20ch;margin:0 auto 24px}
+  .final p{font-size:1.2rem;color:var(--muted);font-weight:300;max-width:54ch;margin:0 auto 42px;line-height:1.6}
+  .final .micro2{font-size:13.5px;color:var(--muted-2);margin-top:22px}
+
+  /* footer */
+  footer{border-top:1px solid var(--line);padding:48px 0 40px}
+  .foot-in{max-width:var(--maxw);margin:0 auto;padding:0 32px;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:30px}
+  .foot-logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:19px}
+  .foot-logo img{width:25px;height:25px}
+  .foot-tag{font-size:14px;color:var(--muted);font-weight:300;margin-top:14px;max-width:34ch;line-height:1.5}
+  .foot-note{font-size:12.5px;color:var(--muted-2);font-weight:300}
+
+  /* positioning */
+  .pos{background:linear-gradient(180deg,var(--bg),var(--bg-2));border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+
+  /* where Otto sits diagram */
+  .fit-map{margin-top:54px;display:flex;align-items:stretch;gap:0;position:relative;flex-wrap:nowrap}
+  @media(max-width:860px){.fit-map{flex-direction:column;gap:14px}}
+  .fit-node{flex:1;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px 18px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:12px;min-width:0}
+  .fit-node .fi{width:46px;height:46px;border-radius:12px;background:rgba(255,255,255,0.04);display:grid;place-items:center}
+  .fit-node .fi svg{width:23px;height:23px;stroke:var(--muted);fill:none;stroke-width:1.7}
+  .fit-node .fl{font-size:.96rem;font-weight:500;color:#d4d8d4}
+  .fit-node .fsub{font-size:.8rem;color:var(--muted-2);font-weight:300}
+  .fit-otto{flex:1.15;background:linear-gradient(165deg,rgba(0,255,133,0.1),rgba(0,255,133,0.02));border:1px solid rgba(0,255,133,0.4);box-shadow:0 0 40px -14px rgba(0,255,133,0.5)}
+  .fit-otto .fi{background:rgba(0,255,133,0.14)}
+  .fit-otto .fi svg{stroke:var(--neon)}
+  .fit-otto .fl{color:var(--neon);font-weight:600}
+  .fit-arrow{display:flex;align-items:center;justify-content:center;padding:0 6px;color:var(--muted-2);flex:0 0 auto}
+  .fit-arrow svg{width:20px;height:20px;stroke:var(--neon);fill:none;stroke-width:2;opacity:.55}
+  @media(max-width:860px){.fit-arrow{transform:rotate(90deg)}}
+
+  /* 4-step flow with icons */
+  .pos-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:30px;position:relative}
+  @media(max-width:760px){.pos-flow{grid-template-columns:1fr 1fr}}
+  @media(max-width:460px){.pos-flow{grid-template-columns:1fr}}
+  .pos-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px 22px;transition:.3s;position:relative;overflow:hidden}
+  .pos-card:hover{border-color:rgba(0,255,133,0.32);transform:translateY(-4px)}
+  .pos-card .pn{font-size:11px;font-weight:700;color:var(--neon);letter-spacing:.14em;margin-bottom:16px}
+  .pos-card .pic{width:48px;height:48px;border-radius:13px;background:rgba(0,255,133,0.1);display:grid;place-items:center;margin-bottom:18px}
+  .pos-card .pic svg{width:24px;height:24px;stroke:var(--neon);fill:none;stroke-width:1.7}
+  .pos-card .pt{font-size:1.08rem;font-weight:600;letter-spacing:-0.02em;margin-bottom:7px}
+  .pos-card .pp{font-size:.9rem;color:var(--muted);font-weight:300;line-height:1.5}
+
+
+  /* coordinator */
+  .coord-card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:40px;margin-top:46px;display:grid;grid-template-columns:1fr 1fr;gap:40px}
+  @media(max-width:760px){.coord-card{grid-template-columns:1fr;gap:24px;padding:30px}}
+  .coord-col h4{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:18px}
+  .coord-col.old h4{color:var(--muted)}
+  .coord-col.new h4{color:var(--neon)}
+  .coord-col .ci{display:flex;align-items:center;gap:11px;padding:11px 0;font-size:1rem;color:#d4d8d4;border-bottom:1px solid var(--line)}
+  .coord-col .ci:last-child{border-bottom:none}
+  .coord-col .ci .cm{flex-shrink:0;width:18px;text-align:center;font-weight:700}
+  .coord-col.old .ci .cm{color:var(--muted-2)}
+  .coord-col.new .ci .cm{color:var(--neon)}
+
+  /* before / after */
+  .ba{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:50px}
+  @media(max-width:760px){.ba{grid-template-columns:1fr}}
+  .ba-col{border-radius:20px;padding:34px}
+  .ba-col.before{background:rgba(255,107,107,0.04);border:1px solid rgba(255,107,107,0.18)}
+  .ba-col.after{background:rgba(0,255,133,0.05);border:1px solid rgba(0,255,133,0.22)}
+  .ba-col h4{font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:20px}
+  .ba-col.before h4{color:#ff8a8a}
+  .ba-col.after h4{color:var(--neon)}
+  .ba-col .bl{display:flex;align-items:center;gap:12px;padding:10px 0;font-size:1.02rem;color:#d4d8d4}
+  .ba-col .bl .bd{flex-shrink:0}
+  .ba-col.before .bl .bd{color:#ff8a8a}
+  .ba-col.after .bl .bd{color:var(--neon)}
+
+  /* ICP */
+  .icp-grid{display:flex;flex-wrap:wrap;gap:12px;margin-top:40px;justify-content:center}
+  .icp-tag{background:var(--card);border:1px solid var(--line);border-radius:100px;padding:11px 20px;font-size:.98rem;font-weight:400;color:#d4d8d4;transition:.25s}
+  .icp-tag:hover{border-color:rgba(0,255,133,0.3);color:var(--neon)}
+  .icp-foot{margin-top:36px;text-align:center;font-size:1.08rem;color:var(--muted);font-weight:300;max-width:48ch;margin-left:auto;margin-right:auto}
+
+  /* trust */
+  .trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:46px}
+  @media(max-width:760px){.trust-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:460px){.trust-grid{grid-template-columns:1fr}}
+  .trust-cell{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:13px;padding:18px 20px;font-size:.98rem;color:#d4d8d4}
+  .trust-cell .tc{width:20px;height:20px;flex-shrink:0;display:grid;place-items:center}
+  .trust-cell .tc svg{width:18px;height:18px;stroke:var(--neon);fill:none;stroke-width:1.8}
+
+  .reveal{opacity:0;transform:translateY(30px);transition:.8s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+
+<nav id="nav">
+  <div class="nav-in">
+    <a href="#" class="logo"><img src="./otto-logo.png" alt="Otto"> Otto</a>
+    <div class="nav-links">
+      <a href="#how">How it works</a>
+      <a href="#leak">Quote risk</a>
+      <a href="#manager">For managers</a>
+      <a href="#icp">Who it's for</a>
+      <a href="#book" class="nav-cta">Book a demo</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="hero-bg"><img src="./ottoupdate-background.png" alt="Industrial field sales rep calling Otto from the truck at a plant site"></div>
+  <div class="hero-scan"></div>
+  <div class="hero-content">
+    <div class="wrap">
+      <div class="hero-tag"><span class="dot"></span> For industrial field sales teams</div>
+      <h1 class="hero-h"><span class="l1">Your reps call Otto</span><span class="l2">after every visit.</span></h1>
+      <p class="hero-sub">Otto is an AI sales coordinator reps talk to on the phone. <b>Your CRM stays current, quotes keep moving, and nothing slips after a visit.</b></p>
+      <div class="hero-cta">
+        <a href="#book" class="btn-primary">Book a demo <span class="arr">&rarr;</span></a>
+        <a href="#how" class="btn-ghost"><span class="pl">&#9658;</span> See how it works</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-float">
+    <div class="pulse"><img src="./otto-logo.png" alt="Otto"></div>
+    <div>
+      <div class="ht">On a call with Otto</div>
+      <div class="hs"><span class="dot"></span> Logging the visit, hands free</div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ STAT STRIP ============ -->
+<div class="strip">
+  <div class="strip-in">
+    <div class="stat"><div class="num">30%</div><div class="lab">of a rep's week is actually spent selling. The rest is admin.</div></div>
+    <div class="stat"><div class="num">37%</div><div class="lab">of reps admit to entering false data just to clear the CRM.</div></div>
+    <div class="stat"><div class="num">27%</div><div class="lab">of selling time is lost to records that are out of date.</div></div>
+  </div>
+</div>
+
+<!-- ============ 2. POST-VISIT PROBLEM ============ -->
+<section id="problem">
+  <div class="wrap split">
+    <div>
+      <div class="eyebrow reveal">The problem</div>
+      <h2 class="sec-h reveal">The day moves faster than the paperwork.</h2>
+      <p class="sec-p reveal">A good rep leaves a visit with a lot in their head: the pricing the customer asked for, the competitor they named, the follow-up they promised. Then they are driving to the next plant. There is no good moment to write it all down, so some of it waits, and some of it slips.</p>
+      <div class="break-foot reveal">It is not the rep. The day just does not leave room for it.</div>
+    </div>
+    <div class="break-list">
+      <div class="row"><span class="what">The pricing they asked for</span><span class="res"><span class="rd"></span> forgotten</span></div>
+      <div class="row"><span class="what">The competitor they mentioned</span><span class="res"><span class="rd"></span> never written down</span></div>
+      <div class="row"><span class="what">The follow-up they promised</span><span class="res"><span class="rd"></span> missed</span></div>
+      <div class="row"><span class="what">The quote waiting on approval</span><span class="res"><span class="rd"></span> still sitting</span></div>
+      <div class="row"><span class="what">The CRM entry</span><span class="res"><span class="rd"></span> never filled in</span></div>
+      <div class="row"><span class="what">The manager</span><span class="res"><span class="rd"></span> has no idea</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3. JUST CALL OTTO ============ -->
+<section id="how" style="padding-top:40px">
+  <div class="wrap">
+    <div class="eyebrow reveal">How it works</div>
+    <h2 class="sec-h reveal">The rep talks. <span class="hl">Otto does the work.</span></h2>
+    <p class="sec-p reveal">The rep does what they are good at, the visit. Then they call Otto and say what happened. Otto handles the rest.</p>
+    <div class="callgrid">
+      <div class="callcol says reveal">
+        <div class="ctitle">&#9210; You say</div>
+        <div class="says-line">"Just left Apex Welding."</div>
+        <div class="says-line">"They need revised pricing by Friday."</div>
+        <div class="says-line">"They care more about delivery than discount."</div>
+        <div class="says-line">"Competitor quoted lower on the argon mix."</div>
+        <div class="says-line">"Follow up Tuesday, update the CRM, send my manager a summary."</div>
+      </div>
+      <div class="callcol does reveal">
+        <div class="ctitle">&#10037; Otto then does this for you</div>
+        <div class="does-item"><span class="dc"><svg viewBox="0 0 24 24"><path d="M5 12l4 4L19 6"/></svg></span> CRM updated with the visit</div>
+        <div class="does-item"><span class="dc"><svg viewBox="0 0 24 24"><path d="M5 12l4 4L19 6"/></svg></span> Follow-up task set for Tuesday</div>
+        <div class="does-item"><span class="dc"><svg viewBox="0 0 24 24"><path d="M5 12l4 4L19 6"/></svg></span> Quote flagged, pricing due Friday</div>
+        <div class="does-item"><span class="dc"><svg viewBox="0 0 24 24"><path d="M5 12l4 4L19 6"/></svg></span> Competitor intel logged to the account</div>
+        <div class="does-item"><span class="dc"><svg viewBox="0 0 24 24"><path d="M5 12l4 4L19 6"/></svg></span> Manager summary sent</div>
+        <div class="does-item"><span class="dc"><svg viewBox="0 0 24 24"><path d="M5 12l4 4L19 6"/></svg></span> Account memory updated</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 4. SALES BRAIN ============ -->
+<section class="brain" id="brain">
+  <div class="wrap">
+    <div class="eyebrow ctr reveal" style="justify-content:center">What Otto knows</div>
+    <h2 class="sec-h ctr reveal">Otto knows each account.</h2>
+    <p class="sec-p ctr reveal">A CRM can only hold what someone has time to type in. Otto keeps track of what actually happens across the account, and hands the rep the next step.</p>
+    <div class="brain-cols">
+      <div class="brain-box in reveal">
+        <h4>Otto keeps track of</h4>
+        <span class="chip">Visits</span><span class="chip">Calls</span><span class="chip">Emails</span><span class="chip">Quotes</span><span class="chip">Orders</span><span class="chip">ERP activity</span><span class="chip">Service issues</span><span class="chip">Competitor mentions</span><span class="chip">Rep notes</span><span class="chip">CRM history</span>
+      </div>
+      <div class="brain-core reveal"><img src="./otto-logo.png" alt="Otto"></div>
+      <div class="brain-box out reveal">
+        <h4>So it can tell you</h4>
+        <span class="chip">Pre-visit briefs</span><span class="chip">Follow-up reminders</span><span class="chip">Quote-risk alerts</span><span class="chip">Reorder signals</span><span class="chip">Manager summaries</span><span class="chip">Next best action</span>
+      </div>
+    </div>
+    <p class="sec-p ctr reveal" style="margin-top:48px;color:#d4d8d4">A CRM shows last week. <span class="hl">Otto shows now.</span></p>
+  </div>
+</section>
+
+
+<!-- ============ POSITIONING ============ -->
+<section class="pos" id="positioning">
+  <div class="wrap">
+    <div class="eyebrow reveal">Where Otto fits</div>
+    <h2 class="sec-h reveal">Not another CRM. Not another dashboard.</h2>
+    <p class="sec-p reveal">You already have a CRM. The problem was never where the data goes. It is getting what happened in the field into the system before it disappears. Otto sits between the field and the tools you already run.</p>
+
+    <!-- where Otto sits -->
+    <div class="fit-map reveal">
+      <div class="fit-node">
+        <div class="fi"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div>
+        <div class="fl">The rep</div>
+        <div class="fsub">In the field</div>
+      </div>
+      <div class="fit-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="fit-node fit-otto">
+        <div class="fi"><svg viewBox="0 0 24 24"><path d="M7 4h10a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-4l-4 3v-3H7a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><path d="M9 10h.01M12 10h.01M15 10h.01"/></svg></div>
+        <div class="fl">Otto</div>
+        <div class="fsub">Captures &amp; structures the visit</div>
+      </div>
+      <div class="fit-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="fit-node">
+        <div class="fi"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg></div>
+        <div class="fl">CRM &amp; ERP</div>
+        <div class="fsub">Always current</div>
+      </div>
+    </div>
+
+    <!-- the four jobs, with icons -->
+    <div class="pos-flow">
+      <div class="pos-card reveal">
+        <div class="pn">01</div>
+        <div class="pic"><svg viewBox="0 0 24 24"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></div>
+        <div class="pt">Captures the field</div>
+        <div class="pp">The rep talks. Otto listens and gets every detail of the visit.</div>
+      </div>
+      <div class="pos-card reveal">
+        <div class="pn">02</div>
+        <div class="pic"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h10"/></svg></div>
+        <div class="pt">Structures the update</div>
+        <div class="pp">Turns the conversation into clean notes, fields, and next steps.</div>
+      </div>
+      <div class="pos-card reveal">
+        <div class="pn">03</div>
+        <div class="pic"><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M8 3v4M16 3v4M4 10h16M9 14l2 2 4-4"/></svg></div>
+        <div class="pt">Creates the follow-up</div>
+        <div class="pp">Sets the tasks, reminders, and quote nudges automatically.</div>
+      </div>
+      <div class="pos-card reveal">
+        <div class="pn">04</div>
+        <div class="pic"><svg viewBox="0 0 24 24"><path d="M3 12h4l3-8 4 16 3-8h4"/></svg></div>
+        <div class="pt">Keeps the account moving</div>
+        <div class="pp">Everyone knows what happened and what needs to happen next.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5. WORKFLOW ============ -->
+<section id="workflow">
+  <div class="wrap">
+    <div class="eyebrow reveal">Through the day</div>
+    <h2 class="sec-h reveal">Otto runs the whole day.</h2>
+    <div class="flow">
+      <div class="flow-step reveal"><div class="flow-num">1</div><h4>Morning</h4><p>Which accounts to see today, and why.</p></div>
+      <div class="flow-step reveal"><div class="flow-num">2</div><h4>Before a visit</h4><p>The last order, any open quote, the history.</p></div>
+      <div class="flow-step reveal"><div class="flow-num">3</div><h4>After a visit</h4><p>One call. Everything logged, follow-ups set.</p></div>
+      <div class="flow-step reveal"><div class="flow-num">4</div><h4>On quotes</h4><p>Which quotes went quiet and need a nudge.</p></div>
+      <div class="flow-step reveal"><div class="flow-num">5</div><h4>For the manager</h4><p>Which accounts and deals need attention.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 6. QUOTE RISK / LEAKAGE ============ -->
+<section class="leak" id="leak">
+  <div class="wrap">
+    <div class="eyebrow ctr reveal" style="justify-content:center">Quotes that slip</div>
+    <h2 class="sec-h ctr reveal">Quotes are not lost. They are forgotten.</h2>
+    <p class="sec-p ctr reveal">A quote rarely gets a no. It just goes quiet, and with a full route to cover, it is easy to miss. Otto watches for the cases below and flags them.</p>
+    <div class="quote-grid">
+      <div class="qcard reveal"><div class="qbar"></div><div><div class="qt">A quote sent two weeks ago</div><div class="qs">The buyer has not replied</div></div><div class="qstat">Follow up</div></div>
+      <div class="qcard reveal"><div class="qbar"></div><div><div class="qt">The delivery date changed</div><div class="qs">The customer was not told</div></div><div class="qstat">Tell them</div></div>
+      <div class="qcard reveal"><div class="qbar"></div><div><div class="qt">A competitor was mentioned</div><div class="qs">You have not responded yet</div></div><div class="qstat">Respond</div></div>
+      <div class="qcard reveal"><div class="qbar"></div><div><div class="qt">A PO is stuck in approval</div><div class="qs">It is past the close date</div></div><div class="qstat">Chase it</div></div>
+      <div class="qcard reveal"><div class="qbar"></div><div><div class="qt">A reorder is overdue</div><div class="qs">This account usually buys by now</div></div><div class="qstat">Check in</div></div>
+      <div class="qcard reveal"><div class="qbar"></div><div><div class="qt">A service issue is open</div><div class="qs">It is holding up the next order</div></div><div class="qstat">Resolve</div></div>
+    </div>
+    <p class="leak-foot reveal">Otto flags each one <span class="hl">in time to act.</span></p>
+  </div>
+</section>
+
+<!-- ============ 7. MANAGER VISIBILITY ============ -->
+<section id="manager">
+  <div class="wrap split">
+    <div>
+      <div class="eyebrow reveal">For managers</div>
+      <h2 class="sec-h reveal">Managers see the field as it happens.</h2>
+      <p class="sec-p reveal">Otto captures every visit and quote as it happens, so you can back your reps up on the accounts that need attention now, instead of finding out at Friday's pipeline review.</p>
+      <div class="vis-list reveal">
+        <div class="v"><span class="vc"><svg viewBox="0 0 24 24"><path d="M5 12l4 4L19 6"/></svg></span> Quotes and follow-ups that are overdue</div>
+        <div class="v"><span class="vc"><svg viewBox="0 0 24 24"><path d="M5 12l4 4L19 6"/></svg></span> What reps promised customers</div>
+        <div class="v"><span class="vc"><svg viewBox="0 0 24 24"><path d="M5 12l4 4L19 6"/></svg></span> Where competitors were mentioned</div>
+        <div class="v"><span class="vc"><svg viewBox="0 0 24 24"><path d="M5 12l4 4L19 6"/></svg></span> Accounts that have gone quiet</div>
+        <div class="v"><span class="vc"><svg viewBox="0 0 24 24"><path d="M5 12l4 4L19 6"/></svg></span> Service issues holding up orders</div>
+        <div class="v"><span class="vc"><svg viewBox="0 0 24 24"><path d="M5 12l4 4L19 6"/></svg></span> Reps with too much, and gaps in coverage</div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="dash">
+        <div class="dash-bar"><span class="d d1"></span><span class="d d2"></span><span class="d d3"></span><span class="dttl">Otto · what needs attention today</span></div>
+        <div class="dash-body">
+          <div class="dash-row"><span class="acc">Apex Welding</span><span class="meta">Quote 14d silent</span><span class="flag risk">At risk</span></div>
+          <div class="dash-row"><span class="acc">Linde Midwest</span><span class="meta">Reorder window slipping</span><span class="flag warn">Watch</span></div>
+          <div class="dash-row"><span class="acc">Praxair South</span><span class="meta">Follow-up done, PO in</span><span class="flag ok">On track</span></div>
+          <div class="dash-row"><span class="acc">Matheson Co.</span><span class="meta">Competitor quoted lower</span><span class="flag risk">Exposed</span></div>
+          <div class="dash-row"><span class="acc">Airgas North</span><span class="meta">Service ticket open 9d</span><span class="flag warn">Blocked</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ COORDINATOR ============ -->
+<section id="coordinator" style="padding-top:40px">
+  <div class="wrap">
+    <div class="eyebrow reveal">For sales coordinators</div>
+    <h2 class="sec-h reveal">Otto does not replace your coordinator. It gives them better information.</h2>
+    <p class="sec-p reveal">Instead of chasing reps for what happened, coordinators get clean visit summaries, customer requests, pending follow-ups, and quote updates, ready to act on.</p>
+    <div class="coord-card reveal">
+      <div class="coord-col old">
+        <h4>Today</h4>
+        <div class="ci"><span class="cm">&times;</span> Chasing reps for visit details</div>
+        <div class="ci"><span class="cm">&times;</span> Piecing updates together from messages</div>
+        <div class="ci"><span class="cm">&times;</span> Quotes moving slowly</div>
+        <div class="ci"><span class="cm">&times;</span> Missed commitments</div>
+      </div>
+      <div class="coord-col new">
+        <h4>With Otto</h4>
+        <div class="ci"><span class="cm">&checkmark;</span> Clean handoff after every visit</div>
+        <div class="ci"><span class="cm">&checkmark;</span> Customer requests already captured</div>
+        <div class="ci"><span class="cm">&checkmark;</span> Quotes moving faster</div>
+        <div class="ci"><span class="cm">&checkmark;</span> Nothing falls through</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 8. REP ADOPTION ============ -->
+<section id="adoption" style="padding-top:40px">
+  <div class="wrap">
+    <div class="eyebrow reveal">Why reps use it</div>
+    <h2 class="sec-h reveal">Reps already do this part out loud.</h2>
+    <p class="sec-p reveal">After a visit, reps already talk it through, to a coordinator, a teammate, or themselves. Otto listens to that same debrief and turns it into the CRM update and follow-ups. The rep does not change what they do.</p>
+    <div class="adopt-grid">
+      <div class="adopt reveal"><div class="ai"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg></div><h4>It is a phone call</h4><p>No dashboard to open and no login. The rep dials a number.</p></div>
+      <div class="adopt reveal"><div class="ai"><svg viewBox="0 0 24 24"><path d="M4 4h16v12H4z"/><path d="M2 20h20"/></svg></div><h4>Nothing typed later</h4><p>The visit is captured as the rep speaks, not from memory hours after.</p></div>
+      <div class="adopt reveal"><div class="ai"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg></div><h4>It happens in the car</h4><p>The rep calls between visits, while the details are still fresh.</p></div>
+      <div class="adopt reveal"><div class="ai"><svg viewBox="0 0 24 24"><path d="M15 5l4 4M3 21l4-1L19 8l-4-4L3 16z"/></svg></div><h4>One each, not one shared</h4><p>Every rep gets their own, instead of waiting on a shared coordinator.</p></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ BEFORE / AFTER ============ -->
+<section id="beforeafter">
+  <div class="wrap">
+    <div class="eyebrow reveal">The difference</div>
+    <h2 class="sec-h reveal">What changes when the visit gets captured.</h2>
+    <div class="ba">
+      <div class="ba-col before reveal">
+        <h4>Before Otto</h4>
+        <div class="bl"><span class="bd">&times;</span> Notes stay in the rep's head</div>
+        <div class="bl"><span class="bd">&times;</span> CRM updated late, or not at all</div>
+        <div class="bl"><span class="bd">&times;</span> Coordinators chase for details</div>
+        <div class="bl"><span class="bd">&times;</span> Quotes go cold</div>
+        <div class="bl"><span class="bd">&times;</span> Follow-ups slip</div>
+        <div class="bl"><span class="bd">&times;</span> Managers work off gut feel</div>
+      </div>
+      <div class="ba-col after reveal">
+        <h4>After Otto</h4>
+        <div class="bl"><span class="bd">&checkmark;</span> Every visit becomes a clean update</div>
+        <div class="bl"><span class="bd">&checkmark;</span> CRM stays current</div>
+        <div class="bl"><span class="bd">&checkmark;</span> Coordinators get clean handoffs</div>
+        <div class="bl"><span class="bd">&checkmark;</span> Quote risks are visible</div>
+        <div class="bl"><span class="bd">&checkmark;</span> Follow-ups are set automatically</div>
+        <div class="bl"><span class="bd">&checkmark;</span> Managers see account movement</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 9. INTEGRATIONS ============ -->
+<section class="intg" id="integrations">
+  <div class="wrap">
+    <div class="eyebrow ctr reveal" style="justify-content:center">Works with your tools</div>
+    <h2 class="sec-h ctr reveal">It works with what you already use.</h2>
+    <p class="sec-p ctr reveal">Nothing to switch. Otto reads from and writes to your existing tools.</p>
+    <div class="intg-grid">
+      <div class="intg-cell reveal"><span class="idot"></span> CRM</div>
+      <div class="intg-cell reveal"><span class="idot"></span> ERP</div>
+      <div class="intg-cell reveal"><span class="idot"></span> Email</div>
+      <div class="intg-cell reveal"><span class="idot"></span> Calendar</div>
+      <div class="intg-cell reveal"><span class="idot"></span> Phone &amp; text</div>
+      <div class="intg-cell reveal"><span class="idot"></span> CPQ / quoting</div>
+      <div class="intg-cell reveal"><span class="idot"></span> Service systems</div>
+      <div class="intg-cell reveal"><span class="idot"></span> Spreadsheets</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ ICP ============ -->
+<section id="icp" class="pos">
+  <div class="wrap">
+    <div class="eyebrow ctr reveal" style="justify-content:center">Who it is for</div>
+    <h2 class="sec-h ctr reveal">Built for field-heavy industrial sales.</h2>
+    <p class="sec-p ctr reveal">If your reps spend the day in the field and your revenue depends on follow-up, Otto fits.</p>
+    <div class="icp-grid">
+      <span class="icp-tag reveal">Industrial equipment</span>
+      <span class="icp-tag reveal">Manufacturing supplies</span>
+      <span class="icp-tag reveal">Material handling</span>
+      <span class="icp-tag reveal">Electrical &amp; mechanical components</span>
+      <span class="icp-tag reveal">Packaging &amp; automation</span>
+      <span class="icp-tag reveal">Building materials</span>
+      <span class="icp-tag reveal">Industrial gases &amp; chemicals</span>
+      <span class="icp-tag reveal">Industrial services</span>
+      <span class="icp-tag reveal">B2B distribution</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRUST ============ -->
+<section id="trust" style="padding-top:40px">
+  <div class="wrap">
+    <div class="eyebrow ctr reveal" style="justify-content:center">Security</div>
+    <h2 class="sec-h ctr reveal">How Otto handles your data.</h2>
+    <p class="sec-p ctr reveal">Otto works with customer and account data, so here is how it is kept and controlled.</p>
+    <div class="trust-grid">
+      <div class="trust-cell reveal"><span class="tc"><svg viewBox="0 0 24 24"><path d="M12 3l8 4v5c0 5-3.5 7.5-8 9-4.5-1.5-8-4-8-9V7z"/></svg></span> Secure data handling</div>
+      <div class="trust-cell reveal"><span class="tc"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></span> Role-based access</div>
+      <div class="trust-cell reveal"><span class="tc"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h10"/></svg></span> CRM &amp; ERP integration</div>
+      <div class="trust-cell reveal"><span class="tc"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span> Email &amp; calendar context</div>
+      <div class="trust-cell reveal"><span class="tc"><svg viewBox="0 0 24 24"><path d="M5 12l4 4L19 6"/></svg></span> Human-approved actions</div>
+      <div class="trust-cell reveal"><span class="tc"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="M8 9h8M8 13h5"/></svg></span> Audit-ready history</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 10. FINAL CTA ============ -->
+<section class="final" id="book">
+  <div class="wrap final-in">
+    <h2 class="reveal">A coordinator for every rep.</h2>
+    <p class="reveal">The rep finishes a visit and calls Otto. Otto updates the CRM, sets the follow-ups, and tracks the quote. The rep goes to the next visit. That is the loop, after every call.</p>
+    <div class="reveal" style="display:flex;justify-content:center;gap:18px;flex-wrap:wrap;align-items:center">
+      <a href="mailto:omkar@ottosales.ai?subject=Otto%20demo%20-%20industrial%20field%20sales&body=Hi%20Omi%2C%20I%27d%20like%20to%20see%20Otto%20run%20on%20our%20field%20sales%20workflow.%20A%20bit%20about%20us%3A%20%0A-%20What%20we%20sell%3A%20%0A-%20System%20we%20use%20today%3A%20%0A-%20Team%20size%3A%20" class="btn-primary">Book a demo <span class="arr">&rarr;</span></a>
+    </div>
+    <p class="micro2 reveal">15 minutes. We run it on a visit that looks like yours.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-in">
+    <div>
+      <div class="foot-logo"><img src="./otto-logo.png" alt="Otto"> Otto</div>
+      <div class="foot-tag">An AI coordinator for industrial field sales reps. Call it after every visit.</div>
+    </div>
+    <div class="foot-note">&copy; 2026 Ottoverse Inc. · Delaware C-corp · Bay Area</div>
+  </div>
+</footer>
+
+<script>
+  const nav=document.getElementById('nav');
+  addEventListener('scroll',()=>{nav.classList.toggle('scrolled',scrollY>40)});
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:0.12});
+  document.querySelectorAll('.reveal,.break-list').forEach((el,i)=>{el.style.transitionDelay=((i%3)*0.07)+'s';io.observe(el)});
+</script>
+</body>
+</html>

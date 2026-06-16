@@ -65,7 +65,7 @@ function QuoteCard({ title, detail, action }: Card) {
       variants={cardAnim}
       className="group relative flex items-center gap-5 rounded-2xl border border-neutral-300/60 px-6 py-5 backdrop-blur-sm transition-colors hover:bg-neutral-50"
     >
-      <span className="absolute inset-y-5 left-0 w-1 rounded-r-full bg-gradient-to-b from-mint to-mint-soft" />
+      <span className="absolute inset-y-5 left-0 w-1 rounded-r-full bg-green-contrast" />
 
       <div className="min-w-0 flex-1 pl-2">
         <p className="text-base sm:text-lg font-medium text-neutral-700">{title}</p>

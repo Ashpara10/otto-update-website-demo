@@ -42,3 +42,4 @@ next-env.d.ts
 
 # local agent tooling (not part of the website)
 .agents/
+opencode.json

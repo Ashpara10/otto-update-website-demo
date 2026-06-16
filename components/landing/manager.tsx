@@ -192,7 +192,7 @@ export function Manager() {
         </div>
 
         <div className="mt-10 relative border border-neutral-300 p-4 overflow-hidden sm:p-6 rounded-2xl">
-          <Image alt="bg-manager" fill style={{ objectFit: "cover" }} className="z-1" src="/bg-manager.png" />
+          <Image alt="bg-manager" loading="eager" fill style={{ objectFit: "cover" }} className="z-1" src="/bg-manager.png" />
           <div className="relative overflow-hidden rounded-xl border border-white/20 z-2 bg-black/85 backdrop-blur-md shadow-sm">
             <div className="flex items-center justify-between px-4  sm:px-5 py-3 border-b border-white/10">
               <div className="flex items-center gap-3">

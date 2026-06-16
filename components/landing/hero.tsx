@@ -6,20 +6,17 @@ import { BookDemoButton } from "../book-demo-button"
 const Hero = () => {
     return (
         <section className="relative py-20 mt-18 h-[calc(100vh-6rem)]  lg:py-28 ">
-            <div className="bg-linear-to-t from-black/60 to-transparent inset-0 z-1 absolute " />
-            <Image src={"/hero.png"} className="" style={{ objectFit: "cover", objectPosition: "top", zIndex: 0 }} alt="" fill />
+            <div className="bg-linear-to-t from-black/80 to-transparent inset-0 z-1 absolute " />
+            <Image src={"/hero.png"} loading="eager" className="" style={{ objectFit: "cover", objectPosition: "top", zIndex: 0 }} alt="" fill />
             <div className="mx-auto max-w-7xl px-6 md:px-10 z-10 relative h-full">
 
                 <div className='flex flex-col  items-start justify-end  h-full relative'>
-
-
-                    <h1 className=" text-3xl sm:text-4xl md:text-5xl font-semibold text-neutral-50">
+                    <h1 className=" text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-neutral-50">
                         Your reps call <br /> Otto
                         after every visit.
-
                     </h1>
 
-                    <p className='max-w-md text-base text-neutral-200 mt-6 leading-relaxed'>
+                    <p className='max-w-xl text-base md:text-lg lg:text-xl text-neutral-200 mt-6 leading-relaxed'>
                         Otto is an AI sales coordinator reps talk to on the phone. Your CRM stays current, quotes keep moving, and nothing slips after a visit.
                     </p>
 

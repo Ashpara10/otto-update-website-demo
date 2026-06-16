@@ -103,67 +103,77 @@ export function NavDropdown({ group }: { group: NavDropdownGroup }) {
             transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
             className="absolute left-1/2 top-16 pt-3 z-50 -translate-x-1/2"
           >
-            <div
-              className={`grid rounded-2xl border border-neutral-200 bg-white shadow-[0_24px_60px_-20px_rgba(0,0,0,0.18)] overflow-hidden ${group.feature
-                ? "w-[640px] grid-cols-[1.2fr_1fr]"
-                : "w-[360px] grid-cols-1"
-                }`}
-            >
-              <motion.ul
-                variants={listAnim}
-                initial="hidden"
-                animate="show"
-                className="p-2"
-              >
-                {group.items.map((item) => (
-                  <motion.li key={item.href} variants={itemAnim}>
+            {(() => {
+              const twoCol = group.items.length > 3;
+              const containerWidth = group.feature
+                ? twoCol
+                  ? "w-[920px] grid-cols-[1fr_1.8fr]"
+                  : "w-[640px] grid-cols-[1fr_1.2fr]"
+                : twoCol
+                  ? "w-[560px] grid-cols-1"
+                  : "w-[360px] grid-cols-1";
+              return (
+                <div
+                  className={`grid rounded-2xl border border-neutral-200 bg-white shadow-[0_24px_60px_-20px_rgba(0,0,0,0.1)] overflow-hidden ${containerWidth}`}
+                >
+                  {group.feature && (
                     <Link
-                      href={item.href}
+                      href={group.feature.cta.href}
                       onClick={() => setOpen(false)}
-                      className="group flex items-start gap-3 rounded-xl p-3 hover:bg-zinc-50 transition"
+                      className="relative flex flex-col gap-3 border-r border-neutral-200 bg-zinc-50/60 p-5 hover:bg-zinc-50 transition"
                     >
-                      <span className="mt-0.5 grid h-9 w-9 shrink-0 place-items-center rounded-lg border border-neutral-200 bg-white text-neutral-700 group-hover:border-mint/40 group-hover:bg-mint/5 group-hover:text-mint transition">
-                        <HugeiconsIcon icon={item.icon}
-                          width={18}
-                          height={18}
-                          strokeWidth={1.8}
-                          aria-hidden
-                        />
+                      <span className="grid h-20 w-full place-items-center rounded-lg border border-neutral-200 bg-white text-zinc-400 text-sm font-semibold tracking-tight">
+                        Otto × {group.label}
                       </span>
-                      <span className="min-w-0">
-                        <span className="block text-sm font-semibold text-zinc-900">
-                          {item.label}
-                        </span>
-                        <span className="mt-0.5 block text-xs leading-snug text-zinc-500">
-                          {item.description}
-                        </span>
+                      <span className="block text-sm font-semibold text-zinc-900">
+                        {group.feature.title}
+                      </span>
+                      <span className="block text-xs leading-snug text-zinc-500">
+                        {group.feature.body}
+                      </span>
+                      <span className="mt-auto inline-flex items-center gap-1 text-xs font-medium text-green-contrast">
+                        {group.feature.cta.label} →
                       </span>
                     </Link>
-                  </motion.li>
-                ))}
-              </motion.ul>
+                  )}
+                  <motion.ul
+                    variants={listAnim}
+                    initial="hidden"
+                    animate="show"
+                    className={`p-2 ${twoCol ? "grid grid-cols-2 gap-1" : ""}`}
+                  >
+                    {group.items.map((item) => (
+                      <motion.li key={item.href} variants={itemAnim}>
+                        <Link
+                          href={item.href}
+                          onClick={() => setOpen(false)}
+                          className="group flex items-start gap-3 rounded-xl p-3 hover:bg-zinc-50 transition"
+                        >
+                          <span className="mt-0.5 grid h-9 w-9 shrink-0 place-items-center rounded-lg border border-neutral-200 bg-white text-neutral-500 group-hover:border-green-contrast/40 group-hover:bg-green-contrast/5 group-hover:text-green-contrast transition">
+                            <HugeiconsIcon icon={item.icon}
+                              width={18}
+                              height={18}
+                              strokeWidth={1.8}
+                              aria-hidden
+                            />
+                          </span>
+                          <span className="min-w-0">
+                            <span className="block text-base font-medium text-zinc-800">
+                              {item.label}
+                            </span>
+                            <span className="mt-0.5 block text-sm leading-relaxed text-zinc-400">
+                              {item.description}
+                            </span>
+                          </span>
+                        </Link>
+                      </motion.li>
+                    ))}
+                  </motion.ul>
 
-              {group.feature && (
-                <Link
-                  href={group.feature.cta.href}
-                  onClick={() => setOpen(false)}
-                  className="relative flex flex-col gap-3 border-l border-neutral-200 bg-zinc-50/60 p-5 hover:bg-zinc-50 transition"
-                >
-                  <span className="grid h-20 w-full place-items-center rounded-lg border border-neutral-200 bg-white text-zinc-400 text-sm font-semibold tracking-tight">
-                    Otto × {group.label}
-                  </span>
-                  <span className="block text-sm font-semibold text-zinc-900">
-                    {group.feature.title}
-                  </span>
-                  <span className="block text-xs leading-snug text-zinc-500">
-                    {group.feature.body}
-                  </span>
-                  <span className="mt-auto inline-flex items-center gap-1 text-xs font-medium text-mint">
-                    {group.feature.cta.label} →
-                  </span>
-                </Link>
-              )}
-            </div>
+
+                </div>
+              );
+            })()}
           </motion.div>
         )}
       </AnimatePresence>

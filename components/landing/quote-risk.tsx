@@ -90,9 +90,8 @@ export function QuoteRisk() {
         <motion.div
           variants={container}
           initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
-          className="flex md:flex-row md:items-end w-full justify-between"
+          animate="show"
+          className="flex flex-col md:flex-row md:items-end w-full justify-between"
         >
           <div>
             <motion.p
@@ -112,7 +111,7 @@ export function QuoteRisk() {
           </div>
           <motion.p
             variants={heading}
-            className=" text-base text-zinc-500 leading-relaxed max-w-md"
+            className=" text-base text-zinc-500 leading-relaxed mt-6  max-w-md"
           >
             A quote rarely gets a no. It just goes quiet, and with a full route
             to cover, it is easy to miss. Otto watches for the cases below and
@@ -123,8 +122,7 @@ export function QuoteRisk() {
         <motion.div
           variants={container}
           initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.15 }}
+          animate="show"
           className="mt-14 lg:mt-12 grid grid-cols-1 md:grid-cols-2 gap-5"
         >
           {cards.map((c) => (
@@ -135,8 +133,7 @@ export function QuoteRisk() {
         <motion.p
           variants={heading}
           initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.5 }}
+          animate="show"
           className="mt-14 text-center text-base sm:text-lg text-neutral-500"
         >
           Otto flags each one{" "}

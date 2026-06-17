@@ -154,7 +154,8 @@ export default function MediaSection() {
                     idx === 0 && "md:col-span-2"
                   )}
                   initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.05 }}
                   transition={{ delay: idx * 0.05 }}
                   whileHover={{ y: -4 }}
                 >
@@ -238,7 +239,8 @@ export default function MediaSection() {
                   rel="noopener noreferrer"
                   className="group relative overflow-hidden rounded-xl border border-neutral-200 bg-white hover:border-green-contrast/40 transition-all duration-300 hover:shadow-lg"
                   initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.05 }}
                   transition={{ delay: (idx + newsItems.length) * 0.05 }}
                   whileHover={{ y: -4 }}
                 >

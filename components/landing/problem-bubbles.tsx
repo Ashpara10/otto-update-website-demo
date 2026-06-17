@@ -25,7 +25,7 @@ export function ProblemBubbles() {
   }, [visibleCount]);
 
   return (
-    <div className="absolute inset-0 z-10 flex flex-col items-start justify-end gap-2 p-4 sm:p-5 pointer-events-none">
+    <div className="absolute hidden inset-0 z-10 md:flex flex-col items-start justify-end gap-2 p-4 sm:p-5 pointer-events-none">
       <AnimatePresence initial={false}>
         {messages.slice(0, visibleCount).map((m, i) => (
           <motion.div

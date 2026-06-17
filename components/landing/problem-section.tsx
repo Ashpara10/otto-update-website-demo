@@ -7,7 +7,7 @@ import { ProblemBubbles } from "./problem-bubbles";
 export function ProblemSection() {
 
   return (
-    <section id="v2-how-it-works" className="relative py-20 lg:py-28 bg-white">
+    <section id="v2-how-it-works" className="relative py-20 lg:py-28 ">
       <div className="mx-auto max-w-7xl px-6 md:px-10  grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
         <div className="flex flex-col h-full justify-between">
           <div className="">
@@ -31,7 +31,7 @@ export function ProblemSection() {
 
             <div className="w-full flex justify-start mt-10">
               <BookDemoButton
-                className="inline-flex h-12 items-center rounded-full bg-brand  px-6 text-base font-medium text-lime-900 hover:bg-lime-400 transition shadow-sm"
+                className="inline-flex h-12 items-center rounded-full bg-brand  px-6 text-base font-medium text-lime-900 hover:bg-lime-400 transition "
               >
                 Book a Demo
               </BookDemoButton>
@@ -40,7 +40,7 @@ export function ProblemSection() {
         </div>
 
         <div className="relative">
-          <div className="relative aspect-[4/5] w-full max-w-[520px] md:ml-auto rounded-2xl overflow-hidden border border-zinc-200 shadow-sm">
+          <div className="relative aspect-[4/5] w-full md:max-w-[520px] md:ml-auto rounded-2xl overflow-hidden border border-zinc-200 ">
             <Image
               src="/problem.png"
               alt="Field rep on the road between customer visits"
@@ -49,12 +49,12 @@ export function ProblemSection() {
               sizes="(min-width: 1024px) 520px, 90vw"
               className="object-cover"
             />
-            <div className="absolute inset-0 bg-gradient-to-tr from-black/10 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-tr hidden md:flex from-black/10 via-transparent to-transparent" />
             <ProblemBubbles />
           </div>
 
-          <div className="hidden lg:block absolute -bottom-6 -left-6 w-32 h-32 rounded-full bg-[#00b386]/20 blur-3xl" />
-          <div className="hidden lg:block absolute -top-8 -right-8 w-40 h-40 rounded-full bg-[#CBFD40]/30 blur-3xl" />
+          {/* <div className="hidden lg:block absolute -bottom-6 -left-6 w-32 h-32 rounded-full bg-[#00b386]/20 blur-3xl" />
+          <div className="hidden lg:block absolute -top-8 -right-8 w-40 h-40 rounded-full bg-[#CBFD40]/30 blur-3xl" /> */}
         </div>
       </div>
     </section>

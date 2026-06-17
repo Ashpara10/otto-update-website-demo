@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import {
   AiMailIcon,
   Book01Icon,
@@ -11,12 +12,16 @@ import {
   HatIcon,
   Mail01Icon,
   MegaphoneIcon,
+  Menu01Icon,
   News01Icon,
   PresentationIcon,
   QuestionIcon,
   TieIcon,
   User02Icon,
+  Cancel01Icon,
+  ArrowDown01Icon,
 } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 import Link from "next/link";
 import { BookDemoButton } from "../book-demo-button";
 import Logo from "../logo";
@@ -145,13 +150,105 @@ const resourcesGroup: NavDropdownGroup = {
   },
 };
 
-export function Nav() {
+function MobileGroup({
+  group,
+  open,
+  onToggle,
+  onNavigate,
+}: {
+  group: NavDropdownGroup;
+  open: boolean;
+  onToggle: () => void;
+  onNavigate: () => void;
+}) {
+  const contentRef = useRef<HTMLUListElement>(null);
+
+  useEffect(() => {
+    if (open && contentRef.current) {
+      contentRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+  }, [open]);
 
   return (
-    <div className="fixed top-0  mx-auto inset-x-0 z-50 w-full border-b bg-white border-neutral-200 ">
-      <header className="mx-auto max-w-7xl w-full px-6 md:px-10 py-4">
+    <div className="border-b border-neutral-100 last:border-b-0">
+      <button
+        type="button"
+        onClick={onToggle}
+        aria-expanded={open}
+        className="flex w-full items-center justify-between px-5 py-4 text-left"
+      >
+        <span className="text-sm font-semibold text-neutral-900">
+          {group.label}
+        </span>
+        <HugeiconsIcon
+          icon={ArrowDown01Icon}
+          size={16}
+          strokeWidth={2}
+          className={`text-neutral-500 transition-transform ${open ? "rotate-180" : ""}`}
+        />
+      </button>
+      {open && (
+        <ul ref={contentRef} className="space-y-1 pb-3">
+          {group.items.map((item) => (
+            <li key={item.href}>
+              <Link
+                href={item.href}
+                onClick={onNavigate}
+                className="flex items-start gap-3 rounded-xl px-5 py-3 text-neutral-700 hover:bg-neutral-100 transition"
+              >
+                <span className="mt-0.5 grid size-8 shrink-0 place-items-center rounded-lg border border-neutral-200 bg-white text-neutral-600">
+                  <HugeiconsIcon
+                    icon={item.icon}
+                    width={16}
+                    height={16}
+                    strokeWidth={1.8}
+                  />
+                </span>
+                <span className="min-w-0">
+                  <span className="block text-sm font-semibold text-neutral-900">
+                    {item.label}
+                  </span>
+                  <span className="mt-0.5 block text-xs leading-snug text-neutral-500">
+                    {item.description}
+                  </span>
+                </span>
+              </Link>
+            </li>
+          ))}
+          {group.feature && (
+            <li>
+              <Link
+                href={group.feature.cta.href}
+                onClick={onNavigate}
+                className="block rounded-xl px-5 py-2 text-sm font-medium text-green-contrast hover:bg-green-contrast/5 transition"
+              >
+                {group.feature.cta.label} →
+              </Link>
+            </li>
+          )}
+        </ul>
+      )}
+    </div>
+  );
+}
+
+export function Nav() {
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [openGroup, setOpenGroup] = useState<string | null>(null);
+
+  const closeMobile = () => {
+    setMobileOpen(false);
+    setOpenGroup(null);
+  };
+
+  return (
+    <div className="fixed top-0 mx-auto inset-x-0 z-50 w-full border-b bg-white border-neutral-200">
+      <header className="mx-auto max-w-7xl w-full px-5 md:px-10 py-4">
         <nav className="flex items-center justify-between">
-          <Link href="/" className="flex items-center ml-4 gap-2 shrink-0">
+          <Link href="/" className="flex md:hidden items-center gap-2 shrink-0">
+            <Logo onlyIcon />
+          </Link>
+          <Link href="/" className="hidden md:flex items-center gap-2 shrink-0">
             <Logo />
           </Link>
 
@@ -183,22 +280,104 @@ export function Nav() {
             </li>
           </ul>
 
-          <div className="flex items-center justify-center gap-4 shrink-0">
+          <div className="flex items-center justify-end gap-3 sm:gap-4 shrink-0">
             <Link
               href="/resources/contact"
               className="hidden sm:inline-flex h-10 items-center px-3 text-[16px] font-medium text-neutral-600 hover:text-zinc-900 transition"
             >
               Sign in
             </Link>
-            <div className="w-px h-6 bg-neutral-200" />
+            <div className="hidden sm:block w-px h-6 bg-neutral-200" />
+            <div className="hidden sm:inline-flex">
+              <BookDemoButton
+                className="h-10 items-center rounded-full bg-brand px-4 text-[14px] font-medium text-lime-900 hover:bg-lime-400 transition"
+              >
+                Book a demo
+              </BookDemoButton>
+            </div>
+            <button
+              type="button"
+              aria-label={mobileOpen ? "Close menu" : "Open menu"}
+              aria-expanded={mobileOpen}
+              onClick={() => setMobileOpen((v) => !v)}
+              className="md:hidden grid size-10 place-items-center rounded-full border border-neutral-200 text-neutral-700 hover:bg-neutral-100 transition"
+            >
+              <HugeiconsIcon
+                icon={mobileOpen ? Cancel01Icon : Menu01Icon}
+                size={20}
+                strokeWidth={1.8}
+              />
+            </button>
+          </div>
+        </nav>
+      </header>
+
+      {mobileOpen && (
+        <div className="md:hidden border-t border-neutral-200 bg-white max-h-[calc(100dvh-4rem)] overflow-y-auto">
+          <ul className="mx-auto max-w-7xl w-full px-5 py-2 text-[16px] font-medium text-neutral-700">
+            <li>
+              <Link
+                href="/"
+                onClick={closeMobile}
+                className="block rounded-full px-4 py-3 hover:bg-neutral-100 transition"
+              >
+                Home
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/pricing"
+                onClick={closeMobile}
+                className="block rounded-full px-4 py-3 hover:bg-neutral-100 transition"
+              >
+                Pricing
+              </Link>
+            </li>
+            <li className="sm:hidden">
+              <Link
+                href="/resources/contact"
+                onClick={closeMobile}
+                className="block rounded-full px-4 py-3 hover:bg-neutral-100 transition"
+              >
+                Sign in
+              </Link>
+            </li>
+          </ul>
+
+          <div className="mx-auto max-w-7xl w-full border-t border-neutral-100">
+            <MobileGroup
+              group={featuresGroup}
+              open={openGroup === "features"}
+              onToggle={() =>
+                setOpenGroup((g) => (g === "features" ? null : "features"))
+              }
+              onNavigate={closeMobile}
+            />
+            <MobileGroup
+              group={whoGroup}
+              open={openGroup === "who"}
+              onToggle={() => setOpenGroup((g) => (g === "who" ? null : "who"))}
+              onNavigate={closeMobile}
+            />
+            <MobileGroup
+              group={resourcesGroup}
+              open={openGroup === "resources"}
+              onToggle={() =>
+                setOpenGroup((g) => (g === "resources" ? null : "resources"))
+              }
+              onNavigate={closeMobile}
+            />
+          </div>
+
+          <div className="mx-auto max-w-7xl w-full px-5 py-4">
             <BookDemoButton
-              className="inline-flex h-10 items-center rounded-full bg-brand px-4 text-[14px] font-medium text-lime-900 hover:bg-lime-400 transition shadow-sm"
+              className="inline-flex w-full h-12 items-center justify-center rounded-full bg-brand px-6 text-base font-semibold text-lime-900 hover:bg-lime-400 transition"
             >
               Book a demo
             </BookDemoButton>
           </div>
-        </nav>
-      </header>
+        </div>
+      )}
     </div>
   );
 }

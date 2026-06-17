@@ -1,18 +1,33 @@
+"use client"
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 const industries = [
-  "Industrial equipment",
-  "Manufacturing supplies",
-  "Material handling",
-  "Electrical & mechanical components",
-  "Packaging & automation",
-  "Building materials",
-  "Industrial gases & chemicals",
-  "Industrial services",
-  "B2B distribution",
+  { image: "/industries/industrial-equipment.png", label: "Industrial equipment" },
+  { image: "/industries/manufacturing.png", label: "Manufacturing supplies" },
+  { image: "/industries/material-handling.png", label: "Material handling" },
+  { image: "/industries/electrical.png", label: "Electrical & mechanical components" },
+  { image: "/industries/packaging-automation.png", label: "Packaging & automation" },
+  { image: "/industries/building-materials.png", label: "Building materials" },
+  { image: "/industries/gases.png", label: "Industrial gases & chemicals" },
+  { image: "/industries/industrial-services.png", label: "Industrial services" },
+  { image: "/industries/b2b.png", label: "B2B distribution" },
 ];
 
 export function Industries() {
+
+  const [activeIndex, setActiveIndex] = useState(0)
+
+  useEffect(() => {
+
+    const intervalId = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % industries.length)
+    }, 3000)
+
+    return () => clearInterval(intervalId)
+
+  }, [])
+
   return (
     <section
       id="v2-who-it's-for"
@@ -20,9 +35,9 @@ export function Industries() {
     >
       <div className="mx-auto max-w-7xl px-6 grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
         <div className="relative order-2 lg:order-1">
-          <div className="relative aspect-[8/11] w-full max-w-[520px] mx-auto rounded-2xl overflow-hidden border border-white/10 bg-zinc-900 shadow-sm">
+          <div className="relative aspect-[4/5] w-full  mx-auto rounded-2xl overflow-hidden border border-white/10 bg-zinc-900 ">
             <Image
-              src="/industries.png"
+              src={industries[activeIndex].image}
               alt="Industrial warehouse and field operations"
               fill
               sizes="(min-width: 1024px) 520px, 90vw"
@@ -53,9 +68,9 @@ export function Industries() {
 
             <ul className="mt-4 flex flex-col divide-y border-y border-white/10 divide-white/10 ">
               {industries.map((i) => (
-                <li key={i} className="py-4">
+                <li key={i.label} className="py-4">
                   <span className="w-full ">
-                    {i}
+                    {i.label}
                   </span>
                 </li>
               ))}

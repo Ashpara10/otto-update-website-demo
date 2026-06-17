@@ -42,7 +42,7 @@ const item: Variants = {
 
 function CountUp({ to, suffix }: { to: number; suffix: string }) {
   const ref = useRef<HTMLSpanElement | null>(null);
-  const inView = useInView(ref, { once: true, amount: 0.6 });
+  const inView = useInView(ref, { once: true, amount: 0.2 });
   const [n, setN] = useState(0);
 
   useEffect(() => {
@@ -72,15 +72,14 @@ export function Stats() {
   return (
     <section
       id="v2-stats"
-      className="relative mt-20"
+      className="relative mt-20 "
     >
-      <div className="mx-auto max-w-7xl  flex items-center justify-center">
+      <div className="mx-auto max-w-7xl flex items-center justify-center px-6">
         <motion.div
           variants={container}
           initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.3 }}
-          className="grid grid-cols-1 md:grid-cols-3 px-6 divide-y md:divide-y-0 md:divide-x divide-neutral-200"
+          animate="show"
+          className="grid w-full grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-neutral-200"
         >
           {stats.map((s) => (
             <motion.div

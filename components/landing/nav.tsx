@@ -78,7 +78,7 @@ const featuresGroup: NavDropdownGroup = {
 };
 
 const whoGroup: NavDropdownGroup = {
-  label: "Who it's for",
+  label: "Roles",
   items: [
     {
       label: "Managers",
@@ -102,7 +102,7 @@ const whoGroup: NavDropdownGroup = {
   feature: {
     title: "Built for industrial field sales.",
     body: "From a 3-rep welding supply shop to a 200-rep national distributor.",
-    cta: { label: "See who it's for", href: "/who-its-for" },
+    cta: { label: "See all roles", href: "/who-its-for" },
   },
 };
 

@@ -54,7 +54,7 @@ export function Footer() {
           </div>
           <Column title="Features" links={navSitemap.features} />
           <div className="space-y-6">
-            <Column title="Who it's for" links={navSitemap.who} />
+            <Column title="Roles" links={navSitemap.who} />
             <Column title="Pricing" links={[{ label: "Plans", href: "/pricing" }]} />
           </div>
           <Column title="Resources" links={navSitemap.resources} />

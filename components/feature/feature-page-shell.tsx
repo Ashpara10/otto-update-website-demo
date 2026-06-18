@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { Nav } from "@/components/landing/nav";
 import { Footer } from "@/components/landing/footer";
@@ -89,9 +88,7 @@ export function FeaturePageShell({
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_12%,rgba(203,253,64,0.08),transparent_46%)]" />
           <div className="mx-auto w-full max-w-7xl">
             <div className="inline-flex items-center gap-2 rounded-full border border-light-dark bg-dark px-3 py-1 text-xs font-medium text-foreground/85">
-              <Link href="/features" className="hover:text-brand transition">
-                Features
-              </Link>
+              <span>Features</span>
               <span className="h-1 w-1 rounded-full bg-neutral-400" />
               <span className="rounded-full bg-brand/15 px-2 py-0.5 font-semibold text-brand">
                 {eyebrow}
@@ -112,9 +109,6 @@ export function FeaturePageShell({
               <BookDemoButton className={primaryCtaClass}>
                 Book a Demo
               </BookDemoButton>
-              <Link href="/features" className={secondaryCtaClass}>
-                All Features
-              </Link>
             </div>
           </div>
         </section>
@@ -276,9 +270,6 @@ export function FeaturePageShell({
               <BookDemoButton className={primaryCtaClass}>
                 Book a Demo
               </BookDemoButton>
-              <Link href="/features" className={secondaryCtaClass}>
-                All Features
-              </Link>
             </div>
           </div>
         </section>

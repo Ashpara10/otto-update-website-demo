@@ -1,142 +1,202 @@
-import {
-  CursorPointer01Icon,
-  GitCompareIcon,
-  Target01Icon,
-  TimeQuarterPassIcon,
-} from "@hugeicons/core-free-icons";
-import { FeaturePageShell } from "@/components/feature/feature-page-shell";
+import { Nav } from "@/components/landing/nav";
+import { Footer } from "@/components/landing/footer";
+import { BookDemoButton } from "@/components/book-demo-button";
 
 export const metadata = {
   title: "CRM Updates · Otto",
   description:
-    "Every call, quote, and note lands in the CRM automatically. Otto writes your CRM so you don't have to.",
+    "Otto captures every customer visit, phone call, follow-up, quote, and next step — and updates your CRM automatically. Finish the day without admin.",
 };
 
-const workflow = [
-  {
-    step: "01",
-    title: "Ingest",
-    description:
-      "Otto captures the raw sales activity. Call notes. Email text. Meeting snippets. Calendar activity. Follow-up threads. CRM history. Anything important said, sent, promised, or changed becomes usable context.",
-  },
-  {
-    step: "02",
-    title: "Extract",
-    description:
-      "Otto turns messy activity into structured CRM data. Contacts. Deal stages. Deal value. Next steps. Timelines. Pain points. Objections. Competitor mentions. Stakeholders. Not a wall of notes. Clean fields your CRM can actually use.",
-  },
-  {
-    step: "03",
-    title: "Justify",
-    description:
-      "Otto explains every suggested change. Reason. Source. Confidence level. Supporting context. No mystery edits. No unexplained stage changes. No guessing why the CRM moved. You see the logic before the update lands.",
-  },
-  {
-    step: "04",
-    title: "Update",
-    description:
-      "Otto applies the update based on your rules. Routine changes can happen automatically. High-impact changes pause for approval. You decide the guardrails. Otto follows them.",
-  },
+const heroBullets = [
+  "Customer visits.",
+  "Phone calls.",
+  "Follow-ups.",
+  "Quotes.",
+  "Next steps.",
 ];
 
-const capabilities = [
-  {
-    title: "Call Logging",
-    description:
-      "Otto logs calls automatically. What was discussed. What was promised. What the prospect asked. What needs to happen next. The call does not disappear into memory.",
-    icon: TimeQuarterPassIcon,
-  },
-  {
-    title: "Deal Updates",
-    description:
-      "Otto updates deal fields when the evidence supports it. Stage. Value. Close date. Next step. Probability. Pain point. Buying process. Decision criteria. Your pipeline moves when the deal moves.",
-    icon: Target01Icon,
-  },
-  {
-    title: "Contact Updates",
-    description:
-      "Otto keeps contact records current. New stakeholders. Changed roles. Decision makers. Champions. Blockers. Silent participants. The buying committee stops hiding in email threads.",
-    icon: CursorPointer01Icon,
-  },
-  {
-    title: "Next-Step Capture",
-    description:
-      "Otto captures the next action before it gets lost. Send proposal. Book demo. Share security docs. Follow up with champion. Loop in RevOps. Confirm budget owner. No more “I’ll add it later.”",
-    icon: TimeQuarterPassIcon,
-  },
-  {
-    title: "Change Justification",
-    description:
-      "Every CRM update includes the reason behind it. What changed. What triggered the update. Where the evidence came from. How confident Otto is. Managers get truth, not vibes.",
-    icon: GitCompareIcon,
-  },
-  {
-    title: "Approval Flows",
-    description:
-      "You control what Otto can update automatically. Low-risk updates can go straight into the CRM. Sensitive changes wait for approval. Stage changes. Forecast changes. Deal value changes. Close date changes. Important contact changes. Automation moves fast. You stay in control.",
-    icon: GitCompareIcon,
-  },
-  {
-    title: "CRM Hygiene",
-    description:
-      "Otto keeps your CRM clean in the background. Fewer empty fields. Fewer stale stages. Fewer missing next steps. Fewer forgotten contacts. Fewer update reminders. Your CRM becomes useful because it stays alive.",
-    icon: Target01Icon,
-  },
+const theProblem = [
+  "Meeting notes.",
+  "CRM updates.",
+  "Follow-ups.",
+  "Quote requests.",
+  "Next steps.",
 ];
 
-const comparisonRows = [
-  {
-    withoutOtto: "End-of-week CRM cleanup ritual",
-    withOtto: "CRM updates after every interaction",
-  },
-  {
-    withoutOtto: "Pipeline data is days old",
-    withOtto: "Pipeline reflects reality",
-  },
-  {
-    withoutOtto: "Reps forget next steps",
-    withOtto: "Otto captures them automatically",
-  },
-  {
-    withoutOtto: "No one knows why a stage changed",
-    withOtto: "Every change has a reason on record",
-  },
-  {
-    withoutOtto: "Managers chase reps for updates",
-    withOtto: "Managers see what actually happened",
-  },
-  {
-    withoutOtto: "Sunday night spent typing into the CRM",
-    withOtto: "Sunday night spent anywhere else",
-  },
-  {
-    withoutOtto: "Forecasts based on stale data",
-    withOtto: "Forecasts based on current activity",
-  },
-  {
-    withoutOtto: "CRM hygiene depends on discipline",
-    withOtto: "CRM hygiene runs in the background",
-  },
+const withOtto = [
+  "Meeting logged.",
+  "CRM updated.",
+  "Follow-ups drafted.",
+  "Quote actions flagged.",
+  "Opportunity updated.",
+  "Competitor intel captured.",
+  "Manager informed.",
+];
+
+const nothingGetsLeftBehind = [
+  "Customer visits.",
+  "Meeting notes.",
+  "Open opportunities.",
+  "Follow-ups.",
+  "Quote requests.",
+  "Competitor mentions.",
+  "Service issues.",
+  "New contacts.",
+  "Account history.",
+  "Manager summaries.",
 ];
 
 export default function Page() {
   return (
-    <FeaturePageShell
-      eyebrow="CRM Updates"
-      headline="Your CRM,"
-      highlight="written for you."
-      subtitle="Otto listens to your calls, reads your emails, and updates every field the moment something changes. Stages, values, next steps, contacts, and notes stay current without the Sunday night cleanup."
-      workflowHeading="How it works"
-      workflowHeadline="Otto updates the CRM between the call and the next one."
-      workflow={workflow}
-      capabilitiesHeading="Capabilities"
-      capabilitiesHeadline="What Otto handles."
-      capabilities={capabilities}
-      comparisonHeading="Before & After"
-      comparisonIntro="How CRM hygiene used to work vs. now."
-      comparisonRows={comparisonRows}
-      closeHeading="Stop typing into the CRM. Start selling."
-      closeBody="Otto writes the CRM while you do the actual work. The pipeline stays accurate, the forecast stays honest, and your reps get their evenings back."
-    />
+    <div className="mx-auto flex min-h-screen w-full max-w-[1920px] flex-col bg-dark text-heading">
+      <Nav />
+
+      <main>
+        {/* Hero */}
+        <section className="relative overflow-hidden border-b border-light-dark pt-32 sm:pt-36">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_12%,rgba(203,253,64,0.08),transparent_46%)]" />
+          <div className="mx-auto w-full max-w-7xl px-5 md:px-10 pb-20">
+            <div className="inline-flex items-center gap-2 rounded-full border border-light-dark bg-dark px-3 py-1 text-xs font-medium text-foreground/85">
+              <span className="rounded-full bg-brand/15 px-2 py-0.5 font-semibold text-brand">
+                CRM Updates
+              </span>
+            </div>
+
+            <h1 className="mt-8 text-3xl font-semibold tracking-[-0.04em] text-heading md:text-5xl">
+              Finish The Day
+              <br />
+              <span className="text-brand">Without Admin.</span>
+            </h1>
+
+            <p className="mt-6 text-lg leading-relaxed text-muted-foreground md:text-xl">
+              Customer visits. Phone calls. Follow-ups. Quotes. Next steps.
+            </p>
+
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-foreground/85">
+              Otto captures it all and updates your CRM automatically.
+            </p>
+
+            <ul className="mt-6 max-w-2xl space-y-2 text-base leading-relaxed text-foreground/85">
+              {heroBullets.map((b) => (
+                <li key={b} className="flex items-start gap-3">
+                  <span className="mt-2 size-1.5 shrink-0 rounded-full bg-brand" />
+                  <span>{b}</span>
+                </li>
+              ))}
+            </ul>
+
+            <p className="mt-6 max-w-2xl text-base leading-relaxed text-foreground/85">
+              So reps can stay where they thrive most.
+              <br />
+              <span className="text-heading font-medium">
+                In the field. Not behind a desk.
+              </span>
+            </p>
+
+            <div className="mt-8">
+              <BookDemoButton className="btn-primary inline-flex h-12 items-center rounded-full px-6 text-base font-semibold">
+                Book a Demo
+              </BookDemoButton>
+            </div>
+          </div>
+        </section>
+
+        {/* The Problem */}
+        <section className="border-b border-light-dark">
+          <div className="mx-auto w-full max-w-7xl px-5 md:px-10 py-16 md:py-24">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand">
+              The Problem
+            </p>
+            <h2 className="mt-3 text-2xl font-semibold tracking-tight text-heading md:text-4xl">
+              The customer visit is over.
+              <br />
+              The work isn&rsquo;t.
+            </h2>
+
+            <ul className="mt-8 max-w-2xl space-y-3 text-base leading-relaxed text-foreground/85">
+              {theProblem.map((line) => (
+                <li key={line} className="flex items-start gap-3">
+                  <span className="mt-2 size-1.5 shrink-0 rounded-full bg-muted-foreground" />
+                  <span>{line}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-10 max-w-2xl space-y-4 text-base leading-relaxed text-muted-foreground">
+              <p>Everything waits until later.</p>
+              <p>Then tomorrow. Then Friday. Then pipeline review.</p>
+              <p>Nothing is forgotten on purpose.</p>
+              <p>People are busy.</p>
+              <p className="text-heading font-medium">
+                That&rsquo;s when opportunities slip.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* With Otto */}
+        <section className="border-b border-light-dark">
+          <div className="mx-auto w-full max-w-7xl px-5 md:px-10 py-16 md:py-24">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand">
+              With Otto
+            </p>
+            <h2 className="mt-3 text-2xl font-semibold tracking-tight text-heading md:text-4xl">
+              Otto updates after every visit.
+            </h2>
+
+            <ul className="mt-8 max-w-2xl space-y-3 text-base leading-relaxed text-foreground/85">
+              {withOtto.map((line) => (
+                <li key={line} className="flex items-start gap-3">
+                  <span className="mt-2 size-1.5 shrink-0 rounded-full bg-brand" />
+                  <span>{line}</span>
+                </li>
+              ))}
+            </ul>
+
+            <p className="mt-10 max-w-2xl text-base font-medium leading-relaxed text-heading">
+              Before you reach the next stop, the admin is already moving.
+            </p>
+          </div>
+        </section>
+
+        {/* Nothing gets left behind */}
+        <section className="border-b border-light-dark">
+          <div className="mx-auto w-full max-w-7xl px-5 md:px-10 py-16 md:py-24">
+            <h2 className="text-2xl font-semibold tracking-tight text-heading md:text-4xl">
+              <span className="text-brand">Nothing</span> Gets Left Behind.
+            </h2>
+
+            <ul className="mt-8 max-w-2xl space-y-3 text-base leading-relaxed text-foreground/85">
+              {nothingGetsLeftBehind.map((line) => (
+                <li key={line} className="flex items-start gap-3">
+                  <span className="mt-2 size-1.5 shrink-0 rounded-full bg-brand" />
+                  <span>{line}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-10 max-w-2xl space-y-4 text-base leading-relaxed text-muted-foreground">
+              <p>Nothing disappears into notebooks.</p>
+              <p>Nothing waits for Friday.</p>
+              <p>Nothing depends on memory.</p>
+              <p className="text-heading font-medium pt-2">
+                Because sales happens in the field.
+                <br />
+                Not behind a desk.
+              </p>
+            </div>
+
+            <div className="mt-10">
+              <BookDemoButton className="btn-primary inline-flex h-12 items-center rounded-full px-6 text-base font-semibold">
+                Book a Demo
+              </BookDemoButton>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <Footer />
+    </div>
   );
 }

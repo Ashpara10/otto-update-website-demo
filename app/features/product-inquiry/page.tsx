@@ -1,123 +1,283 @@
-import {
-  ArtificialIntelligence04Icon,
-  ChartAverageIcon,
-  CursorPointer01Icon,
-  GitCompareIcon,
-  Target01Icon,
-} from "@hugeicons/core-free-icons";
-import { FeaturePageShell } from "@/components/feature/feature-page-shell";
+import { Nav } from "@/components/landing/nav";
+import { Footer } from "@/components/landing/footer";
+import { BookDemoButton } from "@/components/book-demo-button";
 
 export const metadata = {
-  title: "Product Inquiry · Otto",
+  title: "Sales Intelligence · Otto",
   description:
-    "Reps ask, Otto answers from your real product catalog. No more guessing specs on a customer call.",
+    "Ask Otto and get an answer. Product, specs, stock, lead times, previous orders, or what to do next. The information you need, when you need it.",
 };
 
-const workflow = [
-  {
-    step: "01",
-    title: "Index",
-    description:
-      "Otto reads your real product catalog. SKUs, specs, pricing tiers, lead times, compatibility matrices, datasheets, install guides. Anything a rep would need to answer a buyer question.",
-  },
-  {
-    step: "02",
-    title: "Listen",
-    description:
-      "Otto hears the question in the call, in the field, or in your team chat. Specs. Pricing. Lead time. Compatibility. Compliance. Whatever the buyer is asking, Otto hears it.",
-  },
-  {
-    step: "03",
-    title: "Answer",
-    description:
-      "Otto answers from your catalog, not from generic knowledge. The right SKU. The right lead time. The right tier. The right install guide. With the source attached so the rep can verify in one tap.",
-  },
-  {
-    step: "04",
-    title: "Learn",
-    description:
-      "Every unanswered question becomes a flagged gap. Otto tells the team which products need a datasheet, which SKUs are out of date, which answers the reps are improvising. Your catalog gets sharper over time.",
-  },
+const heroBullets = [
+  "About products.",
+  "Specifications.",
+  "Stock.",
+  "Lead times.",
+  "Previous orders.",
+  "Or what to do next.",
 ];
 
-const capabilities = [
-  {
-    title: "Catalog-Backed Answers",
-    description:
-      "Otto only answers from your real product catalog. No hallucinated specs, no generic recommendations. Every answer includes the source SKU and the doc it pulled from so reps can verify.",
-    icon: CursorPointer01Icon,
-  },
-  {
-    title: "Field-Ready Specs",
-    description:
-      "Otto answers in plain language the rep can repeat on the spot. Compatibility, lead time, weight, dimensions, certifications. No more \"let me check with the office and get back to you.\"",
-    icon: Target01Icon,
-  },
-  {
-    title: "Voice and Chat",
-    description:
-      "Reps can ask Otto in the call, in a Slack thread, or through the dashboard. Same answer, same source. Otto works wherever the rep is, not in a separate tool they have to remember to open.",
-    icon: ChartAverageIcon,
-  },
-  {
-    title: "Pricing Tier Lookup",
-    description:
-      "Otto pulls the right pricing tier, the right volume discount, the right contract term. Reps stop guessing on volume. Buyers stop getting the wrong number three days later.",
-    icon: GitCompareIcon,
-  },
-  {
-    title: "Catalog Gap Reports",
-    description:
-      "When Otto can't answer, that's data. Which products have no datasheet. Which SKUs are out of date. Which questions the reps are improvising answers to. The team closes the gaps over time.",
-    icon: ArtificialIntelligence04Icon,
-  },
+const sources = [
+  "ERP.",
+  "CRM.",
+  "Product manuals.",
+  "Quotes.",
+  "Emails.",
+  "Previous visits.",
+  "Service tickets.",
+  "Customer conversations.",
+  "Rep memory.",
 ];
 
-const comparisonRows = [
+const contextTypes = [
+  "Product context.",
+  "Inventory context.",
+  "Account context.",
+  "Customer context.",
+  "Deal context.",
+];
+
+const askOtto = [
+  "Will this fit their application?",
+  "Do we have stock?",
+  "What did they say during the last visit?",
+  "Why is this quote still open?",
+  "Have we sold this to similar customers?",
+  "What should I bring up before I leave?",
+  "Have they mentioned competitors before?",
+];
+
+const exchanges = [
   {
-    withoutOtto: "Putting the buyer on hold to check the catalog",
-    withOtto: "Otto answers in the time it takes to ask",
+    question: "Will the VFD-400 fit their current setup?",
+    answer: [
+      "Yes. Northgate currently runs the VFD-300.",
+      "The VFD-400 is compatible and offers 20% more capacity.",
+      "Inventory shows 18 units in stock.",
+      "Lead time is two days.",
+      "An open quote from February is still pending.",
+      "Three similar customers upgraded last year.",
+      "Worth bringing that up while you’re there.",
+    ],
   },
   {
-    withoutOtto: "Guessing specs from memory",
-    withOtto: "Every answer pulls from your real catalog",
+    question: "They mentioned another supplier. Have we seen them before?",
+    answer: [
+      "Yes.",
+      "The same competitor came up with Westline Manufacturing in March.",
+      "They chose your premium package because of delivery times and local support.",
+      "That may be worth discussing.",
+    ],
   },
   {
-    withoutOtto: "Wrong pricing tier quoted three days later",
-    withOtto: "Right pricing tier, source attached, first call",
-  },
-  {
-    withoutOtto: "\"Let me check with the office\"",
-    withOtto: "\"Otto's got the answer, give me one second\"",
-  },
-  {
-    withoutOtto: "Buyers waiting on email follow-ups",
-    withOtto: "Buyers getting answers live on the call",
-  },
-  {
-    withoutOtto: "Catalog drift nobody notices",
-    withOtto: "Gap reports flag the drift to the team",
+    question: "Before I leave, what else should I ask?",
+    answer: [
+      "During the last visit, they mentioned expanding a second facility.",
+      "You may want to ask whether that project is still moving forward.",
+      "Customers with similar installations often add condition monitoring during expansion projects.",
+    ],
   },
 ];
 
 export default function Page() {
   return (
-    <FeaturePageShell
-      eyebrow="Product Inquiry"
-      headline="Reps ask."
-      highlight="Otto answers."
-      subtitle="Otto indexes your real product catalog and answers buyer questions on the call. The right SKU, the right pricing tier, the right lead time. With the source attached so reps can verify in one tap."
-      workflowHeading="How it works"
-      workflowHeadline="Otto answers from your real catalog, on the call."
-      workflow={workflow}
-      capabilitiesHeading="Capabilities"
-      capabilitiesHeadline="What Otto pulls from your catalog."
-      capabilities={capabilities}
-      comparisonHeading="Before & After"
-      comparisonIntro="How product questions used to work vs. now."
-      comparisonRows={comparisonRows}
-      closeHeading="Stop putting buyers on hold."
-      closeBody="Otto turns your catalog into a live answer engine. Reps walk into every call with the right answer. Buyers get the right number on the first call. Your catalog gets sharper every week."
-    />
+    <div className="mx-auto flex min-h-screen w-full max-w-[1920px] flex-col bg-dark text-heading">
+      <Nav />
+
+      <main>
+        {/* Hero */}
+        <section className="relative overflow-hidden border-b border-light-dark pt-32 sm:pt-36">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_12%,rgba(203,253,64,0.08),transparent_46%)]" />
+          <div className="mx-auto w-full max-w-7xl px-5 md:px-10 pb-20">
+            <div className="inline-flex items-center gap-2 rounded-full border border-light-dark bg-dark px-3 py-1 text-xs font-medium text-foreground/85">
+              <span className="rounded-full bg-brand/15 px-2 py-0.5 font-semibold text-brand">
+                Sales Intelligence
+              </span>
+            </div>
+
+            <h1 className="mt-8 text-3xl font-semibold tracking-[-0.04em] text-heading md:text-5xl">
+              <span className="text-brand">Answers</span> When You
+              <br />
+              Need Them.
+            </h1>
+
+            <p className="mt-6 text-lg leading-relaxed text-muted-foreground md:text-xl">
+              You&rsquo;re with the customer. Questions come up.
+            </p>
+
+            <ul className="mt-6 max-w-2xl space-y-2 text-base leading-relaxed text-foreground/85">
+              {heroBullets.map((b) => (
+                <li key={b} className="flex items-start gap-3">
+                  <span className="mt-2 size-1.5 shrink-0 rounded-full bg-brand" />
+                  <span>{b}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-6 max-w-2xl space-y-3 text-base leading-relaxed text-foreground/85">
+              <p className="text-heading font-medium">Ask Otto. Get an answer.</p>
+              <p>
+                No searching. No calling back later. No &ldquo;I&rsquo;ll get
+                back to you.&rdquo;
+              </p>
+            </div>
+
+            <p className="mt-6 max-w-2xl text-base font-medium leading-relaxed text-heading">
+              Just the information you need, when you need it.
+            </p>
+
+            <div className="mt-8">
+              <BookDemoButton className="btn-primary inline-flex h-12 items-center rounded-full px-6 text-base font-semibold">
+                Book a Demo
+              </BookDemoButton>
+            </div>
+          </div>
+        </section>
+
+        {/* The Problem */}
+        <section className="border-b border-light-dark">
+          <div className="mx-auto w-full max-w-7xl px-5 md:px-10 py-16 md:py-24">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand">
+              The Problem
+            </p>
+            <h2 className="mt-3 text-2xl font-semibold tracking-tight text-heading md:text-4xl">
+              Industrial sales runs on information.
+              <br />
+              But information lives everywhere.
+            </h2>
+
+            <ul className="mt-8 grid max-w-3xl grid-cols-1 gap-x-8 gap-y-2 text-base leading-relaxed text-foreground/85 sm:grid-cols-2">
+              {sources.map((line) => (
+                <li key={line} className="flex items-start gap-3">
+                  <span className="mt-2 size-1.5 shrink-0 rounded-full bg-muted-foreground" />
+                  <span>{line}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-10 max-w-2xl space-y-4 text-base leading-relaxed text-muted-foreground">
+              <p>Nothing is missing.</p>
+              <p>Nothing is connected.</p>
+              <p>So reps spend time searching.</p>
+              <p>Or worse, relying on memory.</p>
+              <p className="pt-2 text-heading font-medium">
+                The problem is not information.
+                <br />
+                The problem is context.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Otto Connects The Dots */}
+        <section className="border-b border-light-dark">
+          <div className="mx-auto w-full max-w-7xl px-5 md:px-10 py-16 md:py-24">
+            <h2 className="text-2xl font-semibold tracking-tight text-heading md:text-4xl">
+              <span className="text-brand">Otto</span> Connects The Dots.
+            </h2>
+
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-foreground/85">
+              Otto brings together what your business already knows.
+            </p>
+
+            <ul className="mt-6 max-w-2xl space-y-3 text-base leading-relaxed text-foreground/85">
+              {contextTypes.map((line) => (
+                <li key={line} className="flex items-start gap-3">
+                  <span className="mt-2 size-1.5 shrink-0 rounded-full bg-brand" />
+                  <span>{line}</span>
+                </li>
+              ))}
+            </ul>
+
+            <p className="mt-8 max-w-2xl text-base leading-relaxed text-foreground/85">
+              So when you ask a question, Otto doesn&rsquo;t just search.
+            </p>
+
+            <div className="mt-4 max-w-2xl space-y-1 text-base leading-relaxed text-heading">
+              <p>It understands.</p>
+              <p>It remembers.</p>
+              <p>
+                And it gives you an answer based on everything it knows.
+                <br />
+                <span className="text-muted-foreground font-normal">
+                  Not just what&rsquo;s in one system.
+                </span>
+              </p>
+            </div>
+
+            <p className="mt-10 max-w-2xl text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+              Ask Otto:
+            </p>
+
+            <ul className="mt-4 max-w-2xl space-y-3 text-base leading-relaxed text-foreground/85">
+              {askOtto.map((line) => (
+                <li
+                  key={line}
+                  className="flex items-start gap-3 italic text-foreground/90"
+                >
+                  <span className="mt-2 size-1.5 shrink-0 rounded-full bg-brand" />
+                  <span>&ldquo;{line}&rdquo;</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-10 max-w-2xl space-y-2 text-base leading-relaxed text-heading">
+              <p>So every answer comes with context.</p>
+              <p>And every conversation moves forward.</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Voice / chat interface visual */}
+        <section className="border-b border-light-dark">
+          <div className="mx-auto w-full max-w-7xl px-5 md:px-10 py-16 md:py-24">
+            <h2 className="text-2xl font-semibold tracking-tight text-heading md:text-4xl">
+              Here&rsquo;s What It
+              <br />
+              <span className="text-brand">Looks Like.</span>
+            </h2>
+
+            <div className="mt-10 max-w-3xl space-y-6">
+              {exchanges.map((ex) => (
+                <div
+                  key={ex.question}
+                  className="rounded-2xl border border-light-dark bg-light-dark/40 p-5 md:p-6"
+                >
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+                    You
+                  </p>
+                  <p className="mt-2 text-base font-medium leading-relaxed text-heading">
+                    {ex.question}
+                  </p>
+
+                  <p className="mt-5 text-xs font-semibold uppercase tracking-[0.2em] text-brand">
+                    Otto
+                  </p>
+                  <div className="mt-2 space-y-1.5 text-base leading-relaxed text-foreground/85">
+                    {ex.answer.map((line) => (
+                      <p key={line}>{line}</p>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <p className="mt-10 max-w-2xl text-base font-medium leading-relaxed text-heading">
+              Everything Otto knows.
+              <br />
+              Available when you need it.
+            </p>
+
+            <div className="mt-8">
+              <BookDemoButton className="btn-primary inline-flex h-12 items-center rounded-full px-6 text-base font-semibold">
+                Book a Demo
+              </BookDemoButton>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <Footer />
+    </div>
   );
 }

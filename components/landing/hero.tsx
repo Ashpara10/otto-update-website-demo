@@ -6,8 +6,8 @@ import { BookDemoButton } from "../book-demo-button"
 const Hero = () => {
     return (
         <section className="relative  py-20 mt-18 h-[80dvh] md:h-[calc(100dvh-6rem)]  lg:py-28 ">
-            <Image src={"/image.png"} loading="eager" className="object-center md:object-top object-cover" style={{ objectFit: "cover", zIndex: 0 }} alt="" fill />
-            {/* <div className="absolute bottom-0 inset-x-0 h-full w-full bg-linear-to-r from-via-dark/80  to-transparent z-[1] pointer-events-none" /> */}
+            <Image src={"/image.png"} loading="eager" className="object-right md:object-top object-cover" style={{ objectFit: "cover", zIndex: 0 }} alt="" fill />
+            <div className="absolute bottom-0 inset-x-0 flex md:hidden h-full w-full bg-linear-to-t from-dark via-dark/80  to-transparent z-1 pointer-events-none" />
             <div className="mx-auto max-w-7xl px-6 md:px-10 z-10 relative h-full">
                 {/* <div className="size-[400px] bg-black/70 rounded-full blur-[100px] absolute " /> */}
                 <div className='flex flex-col  items-start justify-center  h-full relative'>

@@ -1,123 +1,317 @@
-import {
-  ArtificialIntelligence04Icon,
-  ChartAverageIcon,
-  CursorPointer01Icon,
-  Target01Icon,
-  TimeQuarterPassIcon,
-} from "@hugeicons/core-free-icons";
-import { FeaturePageShell } from "@/components/feature/feature-page-shell";
+import { Nav } from "@/components/landing/nav";
+import { Footer } from "@/components/landing/footer";
+import { BookDemoButton } from "@/components/book-demo-button";
 
 export const metadata = {
-  title: "Conference Bot · Otto",
+  title: "Trade Show Companion · Otto",
   description:
-    "Otto listens on industry calls and surfaces what changed. Track speakers, talking points, and follow-ups without taking notes.",
+    "Trade Show Companion helps you capture every conversation while it is still fresh. Scan a LinkedIn QR code, get context before the talk, remember what happened afterwards.",
 };
 
-const workflow = [
-  {
-    step: "01",
-    title: "Join",
-    description:
-      "Otto joins the industry call, partner briefing, or analyst event when you add it to your calendar. No setup. No bot to teach. No templates. Otto is in the room, listening for what matters to your deals.",
-  },
-  {
-    step: "02",
-    title: "Capture",
-    description:
-      "Otto records the call and pairs every statement with the speaker and the moment. Pricing moves. Roadmap hints. Customer wins. Competitive claims. New contacts. Anything that can change a deal stays attached to the right account.",
-  },
-  {
-    step: "03",
-    title: "Distil",
-    description:
-      "Otto turns a two-hour call into a one-page brief. Who said what. What changed. Which claims are credible. Which are noise. Which mentions affect your pipeline. Tagged by account, by competitor, by deal stage.",
-  },
-  {
-    step: "04",
-    title: "Route",
-    description:
-      "Otto pushes the takeaways to the reps who care. Slack digests for the team. CRM notes for the account. Briefing notes for the next call. No more \"I missed that call, what happened?\"",
-  },
+const heroBullets = [
+  "Trade shows move fast.",
+  "Conversations blur together.",
+  "Business cards pile up.",
+  "Good opportunities disappear.",
 ];
 
-const capabilities = [
-  {
-    title: "Speaker-Tagged Transcripts",
-    description:
-      "Every statement is paired with the speaker and the moment it was said. Search the transcript by account, by topic, by competitor. Find the exact quote in seconds instead of scrubbing through audio.",
-    icon: CursorPointer01Icon,
-  },
-  {
-    title: "Account & Competitor Tags",
-    description:
-      "Otto tags every mention with the relevant account, competitor, product, or theme. You see at a glance which of your deals the call touched and which reps need a heads-up.",
-    icon: Target01Icon,
-  },
-  {
-    title: "One-Page Briefs",
-    description:
-      "Long calls become one-page briefs. The five things that matter. The three claims to verify. The two accounts to follow up. The one signal that actually changed your pipeline.",
-    icon: TimeQuarterPassIcon,
-  },
-  {
-    title: "Routing to Reps",
-    description:
-      "Otto pushes the relevant parts of the call to the reps who care. A mention of an account lands in that rep's inbox. A competitive claim lands on the manager's desk. No more group-wide noise.",
-    icon: ArtificialIntelligence04Icon,
-  },
-  {
-    title: "Historical Search",
-    description:
-      "Every call Otto joins is searchable forever. Find every mention of a competitor. Find every commitment an analyst made. Find every reference to a deal that closed six months ago.",
-    icon: ChartAverageIcon,
-  },
+const theProblem = [
+  "Who was evaluating?",
+  "Who already has a supplier?",
+  "Who wanted pricing?",
+  "Who mentioned an expansion project?",
+  "Who said “call me next month”?",
 ];
 
-const comparisonRows = [
-  {
-    withoutOtto: "Skipping the call to do actual work",
-    withOtto: "Otto attends so you don't have to",
-  },
-  {
-    withoutOtto: "Two-hour calls nobody re-listens to",
-    withOtto: "One-page brief everyone actually reads",
-  },
-  {
-    withoutOtto: "Notes scattered across three apps",
-    withOtto: "Searchable transcript with speaker tags",
-  },
-  {
-    withoutOtto: "Hearing about a competitor mention a week later",
-    withOtto: "Same-day digest to the right rep",
-  },
-  {
-    withoutOtto: "Asking the team \"did anyone catch that call?\"",
-    withOtto: "Search the transcript, find the answer in seconds",
-  },
-  {
-    withoutOtto: "Screenshots buried in your camera roll",
-    withOtto: "Slides attached to the right brief",
-  },
+const withOttoBefore = [
+  "Who they are.",
+  "What their company does.",
+  "Whether they fit your business.",
+  "Likely talking points.",
+  "Their existing technology stack.",
+  "Questions worth asking.",
+];
+
+const withOttoAfter = [
+  "Conversation notes.",
+  "Follow-ups.",
+  "Opportunities.",
+  "Manager visibility.",
+];
+
+const companyContext = [
+  "Opening a new facility next year.",
+  "Uses Siemens PLCs.",
+  "Currently buying from a regional distributor.",
+  "Good fit for automation products.",
+];
+
+const worthTalkingAbout = [
+  "Ask about expansion plans.",
+  "Discuss lead times and local support.",
+  "Mention similar manufacturing customers.",
+];
+
+const conversationNotes = [
+  "Interested in VFD upgrades.",
+  "Requested pricing.",
+  "Looking at Q1 implementation.",
+  "Follow up next week.",
+];
+
+const nextSteps = [
+  "Opportunity created",
+  "Follow-up drafted",
+  "Manager notified",
+  "Reminder set",
 ];
 
 export default function Page() {
   return (
-    <FeaturePageShell
-      eyebrow="Conference Bot"
-      headline="The industry call,"
-      highlight="summarised before lunch."
-      subtitle="Otto joins the analyst briefings, partner summits, and industry calls you can't attend. By the time you finish your second coffee, you have a one-page brief, tagged by account and competitor, with the right reps looped in automatically."
-      workflowHeading="How it works"
-      workflowHeadline="Otto turns long industry calls into routed briefs."
-      workflow={workflow}
-      capabilitiesHeading="Capabilities"
-      capabilitiesHeadline="What Otto captures on every call."
-      capabilities={capabilities}
-      comparisonHeading="Before & After"
-      comparisonIntro="How industry call follow-up used to work vs. now."
-      comparisonRows={comparisonRows}
-      closeHeading="Stop taking notes. Start closing on what changed."
-      closeBody="Otto turns every industry call into routing-ready intelligence. The right rep sees the right signal the same day. Nothing slips through because nobody had time to re-listen."
-    />
+    <div className="mx-auto flex min-h-screen w-full max-w-[1920px] flex-col bg-dark text-heading">
+      <Nav />
+
+      <main>
+        {/* Hero */}
+        <section className="relative overflow-hidden border-b border-light-dark pt-32 sm:pt-36">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_12%,rgba(203,253,64,0.08),transparent_46%)]" />
+          <div className="mx-auto w-full max-w-7xl px-5 md:px-10 pb-20">
+            <div className="inline-flex items-center gap-2 rounded-full border border-light-dark bg-dark px-3 py-1 text-xs font-medium text-foreground/85">
+              <span className="rounded-full bg-brand/15 px-2 py-0.5 font-semibold text-brand">
+                Trade Show Companion
+              </span>
+            </div>
+
+            <h1 className="mt-8 text-3xl font-semibold tracking-[-0.04em] text-heading md:text-5xl">
+              Leave The Event With
+              <br />
+              <span className="text-brand">
+                Opportunities. Not Business Cards.
+              </span>
+            </h1>
+
+            <p className="mt-6 text-lg leading-relaxed text-muted-foreground md:text-xl">
+              Trade shows move fast. Conversations blur together. Business
+              cards pile up. Good opportunities disappear.
+            </p>
+
+            <p className="mt-4 max-w-2xl text-base leading-relaxed text-foreground/85">
+              Trade Show Sidekick helps you capture every conversation while
+              it&rsquo;s still fresh.
+            </p>
+
+            <ul className="mt-6 max-w-2xl space-y-2 text-base leading-relaxed text-foreground/85">
+              {heroBullets.map((b) => (
+                <li key={b} className="flex items-start gap-3">
+                  <span className="mt-2 size-1.5 shrink-0 rounded-full bg-brand" />
+                  <span>{b}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-6 max-w-2xl space-y-3 text-base leading-relaxed text-foreground/85">
+              <p>
+                Scan someone&rsquo;s LinkedIn QR code. Otto learns who they are
+                and who they work for.
+              </p>
+              <p>
+                Then it gives you context before the conversation and remembers
+                what happened afterwards.
+              </p>
+            </div>
+
+            <p className="mt-6 max-w-2xl text-base font-medium leading-relaxed text-heading">
+              So you leave the event with opportunities, not just contacts.
+            </p>
+
+            <div className="mt-8">
+              <BookDemoButton className="btn-primary inline-flex h-12 items-center rounded-full px-6 text-base font-semibold">
+                Book a Demo
+              </BookDemoButton>
+            </div>
+          </div>
+        </section>
+
+        {/* The Problem */}
+        <section className="border-b border-light-dark">
+          <div className="mx-auto w-full max-w-7xl px-5 md:px-10 py-16 md:py-24">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand">
+              The Problem
+            </p>
+            <h2 className="mt-3 text-2xl font-semibold tracking-tight text-heading md:text-4xl">
+              By the second day, names start blending together.
+            </h2>
+
+            <div className="mt-6 max-w-2xl space-y-4 text-base leading-relaxed text-foreground/85">
+              <p>You remember the conversation.</p>
+              <p>You forget the details.</p>
+            </div>
+
+            <ul className="mt-6 max-w-2xl space-y-3 text-base leading-relaxed text-foreground/85">
+              {theProblem.map((line) => (
+                <li key={line} className="flex items-start gap-3">
+                  <span className="mt-2 size-1.5 shrink-0 rounded-full bg-muted-foreground" />
+                  <span>{line}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-10 max-w-2xl space-y-2 text-base leading-relaxed text-muted-foreground">
+              <p>The problem is not activity.</p>
+              <p className="text-heading font-medium">
+                The problem is losing context.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* With Otto */}
+        <section className="border-b border-light-dark">
+          <div className="mx-auto w-full max-w-7xl px-5 md:px-10 py-16 md:py-24">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand">
+              With Otto
+            </p>
+            <h2 className="mt-3 text-2xl font-semibold tracking-tight text-heading md:text-4xl">
+              Scan their LinkedIn QR code.
+            </h2>
+            <p className="mt-3 text-2xl font-semibold tracking-tight text-heading md:text-4xl">
+              Otto identifies the person and their company.
+            </p>
+            <p className="mt-3 text-2xl font-semibold tracking-tight text-heading md:text-4xl">
+              Then it builds context for the conversation.
+            </p>
+
+            <ul className="mt-8 max-w-2xl space-y-3 text-base leading-relaxed text-foreground/85">
+              {withOttoBefore.map((line) => (
+                <li key={line} className="flex items-start gap-3">
+                  <span className="mt-2 size-1.5 shrink-0 rounded-full bg-brand" />
+                  <span>{line}</span>
+                </li>
+              ))}
+            </ul>
+
+            <p className="mt-10 max-w-2xl text-base leading-relaxed text-foreground/85">
+              After the conversation, tell Otto what happened.
+            </p>
+            <p className="mt-2 max-w-2xl text-base font-medium leading-relaxed text-heading">
+              Everything stays connected.
+            </p>
+
+            <ul className="mt-6 max-w-2xl space-y-3 text-base leading-relaxed text-foreground/85">
+              {withOttoAfter.map((line) => (
+                <li key={line} className="flex items-start gap-3">
+                  <span className="mt-2 size-1.5 shrink-0 rounded-full bg-brand" />
+                  <span>{line}</span>
+                </li>
+              ))}
+            </ul>
+
+            <p className="mt-10 max-w-2xl text-base font-medium leading-relaxed text-heading">
+              So when the event ends, the work is already moving.
+            </p>
+          </div>
+        </section>
+
+        {/* Sample mobile view */}
+        <section className="border-b border-light-dark">
+          <div className="mx-auto w-full max-w-7xl px-5 md:px-10 py-16 md:py-24">
+            <h2 className="text-2xl font-semibold tracking-tight text-heading md:text-4xl">
+              Here&rsquo;s What It
+              <br />
+              <span className="text-brand">Looks Like.</span>
+            </h2>
+
+            <div className="mt-10 max-w-3xl rounded-2xl border border-light-dark bg-light-dark/40 p-5 md:p-8">
+              <div>
+                <p className="text-lg font-semibold text-heading md:text-xl">
+                  Sarah Mitchell
+                </p>
+                <p className="text-sm text-muted-foreground">
+                  Operations Manager
+                </p>
+                <p className="text-sm text-muted-foreground">
+                  Westline Manufacturing
+                </p>
+              </div>
+
+              <div className="mt-8 space-y-6">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+                    Company Context
+                  </p>
+                  <ul className="mt-3 space-y-2 text-base leading-relaxed text-foreground/85">
+                    {companyContext.map((line) => (
+                      <li key={line} className="flex items-start gap-3">
+                        <span className="mt-2 size-1.5 shrink-0 rounded-full bg-brand" />
+                        <span>{line}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+                    Worth Talking About
+                  </p>
+                  <ul className="mt-3 space-y-2 text-base leading-relaxed text-foreground/85">
+                    {worthTalkingAbout.map((line) => (
+                      <li key={line} className="flex items-start gap-3">
+                        <span className="mt-2 size-1.5 shrink-0 rounded-full bg-brand" />
+                        <span>{line}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+                    Conversation Notes
+                  </p>
+                  <ul className="mt-3 space-y-2 text-base leading-relaxed text-foreground/85">
+                    {conversationNotes.map((line) => (
+                      <li key={line} className="flex items-start gap-3">
+                        <span className="mt-2 size-1.5 shrink-0 rounded-full bg-brand" />
+                        <span>{line}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+                    Next Steps
+                  </p>
+                  <ul className="mt-3 space-y-2 text-base leading-relaxed text-foreground/85">
+                    {nextSteps.map((line) => (
+                      <li key={line} className="flex items-start gap-3">
+                        <span className="mt-0.5 text-brand">✓</span>
+                        <span>{line}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <p className="mt-10 max-w-2xl text-base font-medium leading-relaxed text-heading">
+              Every conversation captured.
+              <br />
+              Every opportunity remembered.
+            </p>
+            <p className="mt-2 max-w-2xl text-base leading-relaxed text-foreground/85">
+              Nothing gets lost when the event ends.
+            </p>
+
+            <div className="mt-8">
+              <BookDemoButton className="btn-primary inline-flex h-12 items-center rounded-full px-6 text-base font-semibold">
+                Book a Demo
+              </BookDemoButton>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <Footer />
+    </div>
   );
 }

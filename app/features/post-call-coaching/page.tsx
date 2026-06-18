@@ -1,142 +1,273 @@
-import {
-  CursorPointer01Icon,
-  GitCompareIcon,
-  Target01Icon,
-  TimeQuarterPassIcon,
-} from "@hugeicons/core-free-icons";
-import { FeaturePageShell } from "@/components/feature/feature-page-shell";
+import { Nav } from "@/components/landing/nav";
+import { Footer } from "@/components/landing/footer";
+import { BookDemoButton } from "@/components/book-demo-button";
 
 export const metadata = {
-  title: "Post Call Coaching · Otto",
+  title: "Post-Visit Coach · Otto",
   description:
-    "Feedback within an hour of every customer conversation. Otto turns every call into coaching, next steps, and an updated CRM.",
+    "After a visit, Otto turns the conversation into a clear report. What changed, what the customer cared about, what needs follow-up, and what to do next.",
 };
 
-const workflow = [
-  {
-    step: "01",
-    title: "Record",
-    description:
-      "Otto joins the call and captures what happened. Every speaker. Every question. Every objection. Every commitment. Every pause that mattered. The call does not disappear into memory.",
-  },
-  {
-    step: "02",
-    title: "Analyze",
-    description:
-      "Otto turns the conversation into structured sales intelligence. Buying signals. Objections. Competitor mentions. Pricing questions. Decision process. Stakeholder movement. Next steps. Deal risk. Not just a transcript. The parts that matter.",
-  },
-  {
-    step: "03",
-    title: "Coach",
-    description:
-      "Otto gives feedback from your real calls. What you handled well. What you missed. Where you spoke too much. Where the buyer showed interest. Where the objection was not fully resolved. Where the deal started to stall. No generic framework. Coaching from what actually happened.",
-  },
-  {
-    step: "04",
-    title: "Act",
-    description:
-      "Otto extracts the next steps and keeps the deal moving. Follow-ups drafted. Actions assigned. CRM updated. Risks logged. Meeting notes captured. Next steps tracked. Before you open your laptop tomorrow, the call is already handled.",
-  },
+const heroBullets = [
+  "What changed.",
+  "What the customer cared about.",
+  "What needs follow-up.",
+  "What risks showed up.",
+  "What to do next.",
 ];
 
-const capabilities = [
-  {
-    title: "Buying Signals",
-    description:
-      "Otto identifies when a buyer shows real interest. Asking about rollout. Discussing pricing. Mentioning internal stakeholders. Comparing vendors. Requesting materials. Sharing timelines. Talking about implementation. You know when interest becomes movement.",
-    icon: Target01Icon,
-  },
-  {
-    title: "Objection Analysis",
-    description:
-      "Otto catches objections and shows how they were handled. Budget. Security. Integration. Timing. ROI. Internal approval. Competing priorities. Competitor comparison. You see which objections were resolved and which ones need follow-up.",
-    icon: GitCompareIcon,
-  },
-  {
-    title: "Talk Ratio",
-    description:
-      "Otto shows who controlled the conversation. How much you spoke. How much the buyer spoke. Where you interrupted. Where you gave space. Where the buyer opened up. Where the call became a monologue. Better calls start with better awareness.",
-    icon: Target01Icon,
-  },
-  {
-    title: "Pattern Coaching",
-    description:
-      "Otto learns from your call history. The moves that close deals. The moments that stall them. The objections you handle well. The questions you avoid. The habits that help. The habits that cost you. Every call becomes part of your coaching loop.",
-    icon: GitCompareIcon,
-  },
-  {
-    title: "Deal Confidence",
-    description:
-      "Otto scores deal confidence from real signals. Not vibes. Not optimism. Not “the call felt good.” Actual conversation data. Stakeholder engagement. Clear pain. Confirmed next step. Buying intent. Decision process. Objection strength. Timeline clarity. You know whether the deal is real.",
-    icon: TimeQuarterPassIcon,
-  },
-  {
-    title: "Action Extraction",
-    description:
-      "Otto captures what needs to happen next. Send the recap. Book the next call. Share the deck. Confirm procurement. Loop in security. Update the CRM. Follow up with the champion. No next step gets buried in the recording.",
-    icon: CursorPointer01Icon,
-  },
-  {
-    title: "Manager Coaching",
-    description:
-      "Managers don't need to listen to every call manually. Otto surfaces the calls worth reviewing. Calls with risk. Calls with strong buying signals. Calls with missed objections. Calls where next steps are weak. Calls where a rep needs coaching. Calls where a deal may be moving. The manager sees where to help.",
-    icon: Target01Icon,
-  },
+const theProblem = [
+  "Did they ask for revised pricing?",
+  "Did they mention another supplier?",
+  "Was there an expansion project?",
+  "Who promised what?",
+  "Was there real interest, or were they just being polite?",
 ];
 
-const comparisonRows = [
-  {
-    withoutOtto: "Coaching from memory and replayed calls",
-    withOtto: "Coaching from what was actually said",
-  },
-  {
-    withoutOtto: "Action items forgotten or half-logged",
-    withOtto: "Every action extracted, assigned, and tracked",
-  },
-  {
-    withoutOtto: "Same mistakes every quarter",
-    withOtto: "Patterns caught before the next call",
-  },
-  {
-    withoutOtto: "Deal confidence based on vibes",
-    withOtto: "Deal confidence scored from real signals",
-  },
-  {
-    withoutOtto: "Manager listens to one call this month",
-    withOtto: "Otto listens to all of them",
-  },
-  {
-    withoutOtto: "Objections disappear into the recording",
-    withOtto: "Objections are captured and reviewed",
-  },
-  {
-    withoutOtto: "Reps guess what to improve",
-    withOtto: "Reps know what to fix next",
-  },
-  {
-    withoutOtto: "Call notes become admin",
-    withOtto: "Call notes become coaching",
-  },
+const withOtto = [
+  "What mattered.",
+  "Questions that came up.",
+  "Competitors mentioned.",
+  "Risks raised.",
+  "Follow-ups required.",
+  "Quote actions.",
+  "Next steps.",
+  "Manager updates.",
+  "Coaching opportunities.",
+];
+
+const whatMattered = [
+  "Delivery delays from the previous order are still a concern.",
+  "Condition monitoring generated interest.",
+  "Expansion plans for another facility were mentioned.",
+];
+
+const risks = [
+  "Competitor pricing came up during the conversation.",
+  "Customer expects a revised quote this week.",
+  "No timeline was discussed for the expansion project.",
+];
+
+const nextSteps = [
+  "Send revised pricing by Friday.",
+  "Follow up next Tuesday.",
+  "Include condition monitoring in the proposal.",
+  "Inform manager about expansion plans.",
 ];
 
 export default function Page() {
   return (
-    <FeaturePageShell
-      eyebrow="Post Call Coaching"
-      headline="Every call,"
-      highlight="coached in an hour."
-      subtitle="Otto joins your calls, extracts the parts that matter, and turns them into coaching, next steps, and an honest read on every deal. No more re-listening to hour-long recordings. No more guessing why a deal stalled."
-      workflowHeading="How it works"
-      workflowHeadline="Otto coaches the call before you start the next one."
-      workflow={workflow}
-      capabilitiesHeading="Capabilities"
-      capabilitiesHeadline="What Otto interprets."
-      capabilities={capabilities}
-      comparisonHeading="Before & After"
-      comparisonIntro="How call reviews used to work vs. now."
-      comparisonRows={comparisonRows}
-      closeHeading="Coach every call without listening to every call."
-      closeBody="Otto turns every customer conversation into a coaching session, a next-step plan, and an honest deal read. Reps improve faster. Managers coach better. Deals move sooner."
-    />
+    <div className="mx-auto flex min-h-screen w-full max-w-[1920px] flex-col bg-dark text-heading">
+      <Nav />
+
+      <main>
+        {/* Hero */}
+        <section className="relative overflow-hidden border-b border-light-dark pt-32 sm:pt-36">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_12%,rgba(203,253,64,0.08),transparent_46%)]" />
+          <div className="mx-auto w-full max-w-7xl px-5 md:px-10 pb-20">
+            <div className="inline-flex items-center gap-2 rounded-full border border-light-dark bg-dark px-3 py-1 text-xs font-medium text-foreground/85">
+              <span className="rounded-full bg-brand/15 px-2 py-0.5 font-semibold text-brand">
+                Post-Visit Coach
+              </span>
+            </div>
+
+            <h1 className="mt-8 text-3xl font-semibold tracking-[-0.04em] text-heading md:text-5xl">
+              Every Customer Conversation
+              <br />
+              <span className="text-brand">Moves The Deal Forward.</span>
+            </h1>
+
+            <p className="mt-6 text-lg leading-relaxed text-muted-foreground md:text-xl">
+              After a visit, Otto turns the conversation into a clear report.
+            </p>
+
+            <ul className="mt-6 max-w-2xl space-y-2 text-base leading-relaxed text-foreground/85">
+              {heroBullets.map((b) => (
+                <li key={b} className="flex items-start gap-3">
+                  <span className="mt-2 size-1.5 shrink-0 rounded-full bg-brand" />
+                  <span>{b}</span>
+                </li>
+              ))}
+            </ul>
+
+            <p className="mt-6 max-w-2xl text-base leading-relaxed text-foreground/85">
+              No vague notes.
+              <br />
+              No trying to remember the conversation tomorrow.
+              <br />
+              No wondering whether the opportunity is moving.
+            </p>
+
+            <p className="mt-6 max-w-2xl text-base font-medium leading-relaxed text-heading">
+              Just a clear review while the conversation is still fresh.
+            </p>
+
+            <div className="mt-8">
+              <BookDemoButton className="btn-primary inline-flex h-12 items-center rounded-full px-6 text-base font-semibold">
+                Book a Demo
+              </BookDemoButton>
+            </div>
+          </div>
+        </section>
+
+        {/* The Problem */}
+        <section className="border-b border-light-dark">
+          <div className="mx-auto w-full max-w-7xl px-5 md:px-10 py-16 md:py-24">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand">
+              The Problem
+            </p>
+            <h2 className="mt-3 text-2xl font-semibold tracking-tight text-heading md:text-4xl">
+              The visit is over.
+              <br />
+              You&rsquo;re driving to the next customer.
+            </h2>
+
+            <p className="mt-6 max-w-2xl text-base leading-relaxed text-foreground/85">
+              You remember most of the conversation.
+              <br />
+              But not all of it.
+            </p>
+
+            <ul className="mt-6 max-w-2xl space-y-3 text-base leading-relaxed text-foreground/85">
+              {theProblem.map((line) => (
+                <li key={line} className="flex items-start gap-3">
+                  <span className="mt-2 size-1.5 shrink-0 rounded-full bg-muted-foreground" />
+                  <span>{line}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div className="mt-10 max-w-2xl space-y-4 text-base leading-relaxed text-muted-foreground">
+              <p>By the end of the day, details fade.</p>
+              <p>
+                The problem is not activity.
+                <br />
+                The problem is losing what happened.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* With Otto */}
+        <section className="border-b border-light-dark">
+          <div className="mx-auto w-full max-w-7xl px-5 md:px-10 py-16 md:py-24">
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand">
+              With Otto
+            </p>
+            <h2 className="mt-3 text-2xl font-semibold tracking-tight text-heading md:text-4xl">
+              After the visit, Otto turns the conversation into a report.
+            </h2>
+
+            <ul className="mt-8 max-w-2xl space-y-3 text-base leading-relaxed text-foreground/85">
+              {withOtto.map((line) => (
+                <li key={line} className="flex items-start gap-3">
+                  <span className="mt-2 size-1.5 shrink-0 rounded-full bg-brand" />
+                  <span>{line}</span>
+                </li>
+              ))}
+            </ul>
+
+            <p className="mt-10 max-w-2xl text-base font-medium leading-relaxed text-heading">
+              So every conversation becomes the starting point for the next
+              one.
+            </p>
+          </div>
+        </section>
+
+        {/* Sample review visual */}
+        <section className="border-b border-light-dark">
+          <div className="mx-auto w-full max-w-7xl px-5 md:px-10 py-16 md:py-24">
+            <h2 className="text-2xl font-semibold tracking-tight text-heading md:text-4xl">
+              Here&rsquo;s What Your Review
+              <br />
+              <span className="text-brand">Might Look Like.</span>
+            </h2>
+
+            <div className="mt-10 max-w-3xl rounded-2xl border border-light-dark bg-light-dark/40 p-5 md:p-8">
+              <div className="flex flex-wrap items-baseline justify-between gap-3">
+                <p className="text-lg font-semibold text-heading md:text-xl">
+                  Northgate Industrial
+                </p>
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-brand">
+                  Call Outcome · Positive
+                </p>
+              </div>
+              <p className="mt-3 text-base leading-relaxed text-foreground/85">
+                Customer requested revised pricing by Friday.
+              </p>
+
+              <div className="mt-8 space-y-6">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+                    What Mattered
+                  </p>
+                  <ul className="mt-3 space-y-2 text-base leading-relaxed text-foreground/85">
+                    {whatMattered.map((line) => (
+                      <li key={line} className="flex items-start gap-3">
+                        <span className="mt-2 size-1.5 shrink-0 rounded-full bg-brand" />
+                        <span>{line}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+                    Risks
+                  </p>
+                  <ul className="mt-3 space-y-2 text-base leading-relaxed text-foreground/85">
+                    {risks.map((line) => (
+                      <li key={line} className="flex items-start gap-3">
+                        <span className="mt-2 size-1.5 shrink-0 rounded-full bg-amber-400" />
+                        <span>{line}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+                    Next Steps
+                  </p>
+                  <ul className="mt-3 space-y-2 text-base leading-relaxed text-foreground/85">
+                    {nextSteps.map((line) => (
+                      <li key={line} className="flex items-start gap-3">
+                        <span className="mt-0.5 text-brand">✓</span>
+                        <span>{line}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+                    Coaching Note
+                  </p>
+                  <p className="mt-2 text-base leading-relaxed text-foreground/85">
+                    When the customer mentioned the expansion project, there was
+                    an opportunity to ask about timing and budget. Bring that up
+                    during the next visit.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <p className="mt-10 max-w-2xl text-base font-medium leading-relaxed text-heading">
+              Nothing gets lost.
+              <br />
+              Every conversation becomes the starting point for the next one.
+            </p>
+
+            <div className="mt-8">
+              <BookDemoButton className="btn-primary inline-flex h-12 items-center rounded-full px-6 text-base font-semibold">
+                Book a Demo
+              </BookDemoButton>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <Footer />
+    </div>
   );
 }

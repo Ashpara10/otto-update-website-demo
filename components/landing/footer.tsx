@@ -38,7 +38,7 @@ export function Footer() {
   return (
     <footer className="relative bg-dark text-foreground/85 border-t border-light-dark overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 lg:px-10 pt-16 pb-12">
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-10 lg:gap-8 items-start">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-10 lg:gap-8 items-start">
           <div className="col-span-2  ">
             <Link href="/" className="inline-flex items-center text-heading">
               <Logo className="h-7 w-auto" />
@@ -58,7 +58,7 @@ export function Footer() {
             <Column title="Pricing" links={[{ label: "Plans", href: "/pricing" }]} />
           </div>
           <Column title="Resources" links={navSitemap.resources} />
-          <Column title="Legal" links={legalLinks} />
+          {/* <Column title="Legal" links={legalLinks} /> */}
         </div>
       </div>
 

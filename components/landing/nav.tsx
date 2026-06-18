@@ -50,20 +50,22 @@ const featuresGroup: NavDropdownGroup = {
       icon: AiMailIcon,
     },
     {
-      label: "Conference Bot",
-      description: "Otto listens on industry calls and surfaces what changed.",
+      label: "Trade Show Companion",
+      description:
+        "Leave the event with opportunities, not just business cards.",
       href: "/features/conference-bot",
       icon: Call02Icon,
     },
     {
-      label: "Post Call Coaching",
-      description: "Feedback within an hour of every customer conversation.",
+      label: "Post-Visit Coach",
+      description: "Every customer conversation moves the deal forward.",
       href: "/features/post-call-coaching",
       icon: ClipboardIcon,
     },
     {
-      label: "Product Inquiry",
-      description: "Reps ask, Otto answers from your real product catalog.",
+      label: "Sales Intelligence",
+      description:
+        "Answers when you need them, with the context to back them up.",
       href: "/features/product-inquiry",
       icon: QuestionIcon,
     },
@@ -312,7 +314,7 @@ export function Nav() {
 
       {mobileOpen && (
         <div className="md:hidden border-t border-light-dark bg-dark max-h-[calc(100dvh-4rem)] overflow-y-auto">
-          <ul className="mx-auto max-w-7xl w-full  py-2 text-base font-medium text-foreground/85">
+          <ul className="mx-auto max-w-7xl w-full  py-2 px-1 text-base font-medium text-foreground/85">
             <li>
               <Link
                 href="/"

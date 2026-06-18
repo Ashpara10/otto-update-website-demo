@@ -72,14 +72,14 @@ export function Stats() {
   return (
     <section
       id="v2-stats"
-      className="relative mt-20 "
+      className="relative mt-20 py-20 md:py-28 "
     >
-      <div className="mx-auto max-w-7xl flex items-center justify-center px-6">
+      <div className="mx-auto max-w-7xl flex items-center justify-center px-6 md:px-10">
         <motion.div
           variants={container}
           initial="hidden"
           animate="show"
-          className="grid w-full grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-neutral-200"
+          className="grid w-full grid-cols-1 md:grid-cols-3 divide-y  border-x border-light-dark md:divide-y-0 md:divide-x divide-light-dark"
         >
           {stats.map((s) => (
             <motion.div
@@ -87,10 +87,10 @@ export function Stats() {
               variants={item}
               className="py-12 md:py-6 md:px-10 flex flex-col items-start justify-center"
             >
-              <p className="text-6xl font-bold tracking-[-0.03em] text-green-contrast">
+              <p className="text-6xl font-bold tracking-[-0.03em] bg-gradient-to-b from-emerald-600 to-brand bg-clip-text text-transparent">
                 <CountUp to={s.value} suffix={s.suffix} />
               </p>
-              <p className="mt-5 text-base text-neutral-600 text-left leading-relaxed w-4/5">
+              <p className="mt-6 text-base text-neutral-400 text-left leading-relaxed w-4/5">
                 {s.caption}
               </p>
             </motion.div>

@@ -29,7 +29,7 @@ export default async function BlogPostPage({
   if (!post) notFound();
 
   return (
-    <div className="min-h-screen bg-white text-neutral-900 flex flex-col">
+    <div className="min-h-screen bg-dark text-neutral-100 flex flex-col">
       <Nav />
       <main>
         <ArticleShell post={post} posts={posts} />

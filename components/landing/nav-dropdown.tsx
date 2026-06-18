@@ -1,5 +1,6 @@
 "use client";
 
+import { ArrowRight02Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
@@ -73,10 +74,10 @@ export function NavDropdown({ group }: { group: NavDropdownGroup }) {
         aria-expanded={open}
         aria-haspopup="true"
         onClick={() => setOpen((v) => !v)}
-        className="inline-flex items-center gap-1 px-4 py-2 rounded-full hover:text-zinc-900 hover:bg-zinc-100 transition"
+        className="inline-flex items-center gap-1 px-4 py-2 rounded-full hover:text-neutral-100 hover:bg-light-dark transition"
       >
         {group.label}
-        <svg
+        {/* <svg
           width="10"
           height="10"
           viewBox="0 0 10 10"
@@ -91,7 +92,7 @@ export function NavDropdown({ group }: { group: NavDropdownGroup }) {
             strokeLinecap="round"
             strokeLinejoin="round"
           />
-        </svg>
+        </svg> */}
       </button>
 
       <AnimatePresence>
@@ -114,26 +115,30 @@ export function NavDropdown({ group }: { group: NavDropdownGroup }) {
                   : "w-[360px] grid-cols-1";
               return (
                 <div
-                  className={`grid rounded-2xl border border-neutral-200 bg-white shadow-[0_24px_60px_-20px_rgba(0,0,0,0.1)] overflow-hidden ${containerWidth}`}
+                  className={`grid rounded-2xl border border-light-dark bg-dark shadow-[0_24px_60px_-20px_rgba(0,0,0,0.1)] overflow-hidden ${containerWidth}`}
                 >
                   {group.feature && (
                     <Link
                       href={group.feature.cta.href}
                       onClick={() => setOpen(false)}
-                      className="relative flex flex-col gap-3 border-r border-neutral-200 bg-zinc-50/60 p-5 hover:bg-zinc-50 transition"
+                      className="relative flex flex-col gap-3 border-r border-light-dark bg-light-dark/20 p-4 transition"
                     >
-                      <span className="grid h-20 w-full place-items-center rounded-lg border border-neutral-200 bg-white text-zinc-400 text-sm font-semibold tracking-tight">
+                      <span className="grid h-20 w-full place-items-center rounded-xl border border-light-dark bg-dark text-neutral-400 text-sm font-semibold tracking-tight">
                         Otto × {group.label}
                       </span>
-                      <span className="block text-sm font-semibold text-zinc-900">
-                        {group.feature.title}
-                      </span>
-                      <span className="block text-xs leading-snug text-zinc-500">
-                        {group.feature.body}
-                      </span>
-                      <span className="mt-auto inline-flex items-center gap-1 text-xs font-medium text-green-contrast">
-                        {group.feature.cta.label} →
-                      </span>
+
+                      <div className="px-2 space-y-2 mt-4">
+
+                        <span className="block text-[15px] font-medium text-neutral-200">
+                          {group.feature.title}
+                        </span>
+                        <span className="block text-[13px] leading-snug text-neutral-400">
+                          {group.feature.body}
+                        </span>
+                        <span className="justify-self-end inline-flex items-center gap-1 text-xs font-medium text-brand-soft">
+                          {group.feature.cta.label} <HugeiconsIcon className="size-4" icon={ArrowRight02Icon} />
+                        </span>
+                      </div>
                     </Link>
                   )}
                   <motion.ul
@@ -147,21 +152,21 @@ export function NavDropdown({ group }: { group: NavDropdownGroup }) {
                         <Link
                           href={item.href}
                           onClick={() => setOpen(false)}
-                          className="group flex items-start gap-3 rounded-xl p-3 hover:bg-zinc-50 transition"
+                          className="group flex items-start gap-3 rounded-xl p-3 hover:bg-light-dark/50 transition"
                         >
-                          <span className="mt-0.5 grid h-9 w-9 shrink-0 place-items-center rounded-lg border border-neutral-200 bg-white text-neutral-500 group-hover:border-green-contrast/40 group-hover:bg-green-contrast/5 group-hover:text-green-contrast transition">
+                          <span className="mt-0.5 grid size-10 shrink-0 place-items-center rounded-lg border border-light-dark bg-dark text-neutral-500 group-hover:border-brand-soft/20 group-hover:bg-brand-soft/10 group-hover:text-brand transition">
                             <HugeiconsIcon icon={item.icon}
-                              width={18}
-                              height={18}
-                              strokeWidth={1.8}
+
+                              className="size-4"
+                              strokeWidth={1.4}
                               aria-hidden
                             />
                           </span>
                           <span className="min-w-0">
-                            <span className="block text-base font-medium text-zinc-800">
+                            <span className="block text-[15px] font-medium text-neutral-200">
                               {item.label}
                             </span>
-                            <span className="mt-0.5 block text-sm leading-relaxed text-zinc-400">
+                            <span className="mt-0.5 block text-xs leading-relaxed text-neutral-400">
                               {item.description}
                             </span>
                           </span>

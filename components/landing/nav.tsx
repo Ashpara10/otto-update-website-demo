@@ -69,7 +69,7 @@ const featuresGroup: NavDropdownGroup = {
   ],
   feature: {
     title: "Otto runs the field, end to end.",
-    body: "Six capabilities, one connected workflow — so nothing between a visit and the CRM slips.",
+    body: "Six capabilities, one connected workflow so nothing between a visit and the CRM slips.",
     cta: { label: "See all features", href: "/features" },
   },
 };
@@ -170,14 +170,14 @@ function MobileGroup({
   }, [open]);
 
   return (
-    <div className="border-b border-neutral-100 last:border-b-0">
+    <div className="border-b border-light-dark last:border-b-0">
       <button
         type="button"
         onClick={onToggle}
         aria-expanded={open}
         className="flex w-full items-center justify-between px-5 py-4 text-left"
       >
-        <span className="text-sm font-semibold text-neutral-900">
+        <span className="text-sm font-semibold text-neutral-100">
           {group.label}
         </span>
         <HugeiconsIcon
@@ -194,9 +194,9 @@ function MobileGroup({
               <Link
                 href={item.href}
                 onClick={onNavigate}
-                className="flex items-start gap-3 rounded-xl px-5 py-3 text-neutral-700 hover:bg-neutral-100 transition"
+                className="flex items-start gap-3 rounded-xl px-5 py-3 text-neutral-300 hover:bg-light-dark transition"
               >
-                <span className="mt-0.5 grid size-8 shrink-0 place-items-center rounded-lg border border-neutral-200 bg-white text-neutral-600">
+                <span className="mt-0.5 grid size-8 shrink-0 place-items-center rounded-lg border border-light-dark bg-dark text-neutral-600">
                   <HugeiconsIcon
                     icon={item.icon}
                     width={16}
@@ -205,7 +205,7 @@ function MobileGroup({
                   />
                 </span>
                 <span className="min-w-0">
-                  <span className="block text-sm font-semibold text-neutral-900">
+                  <span className="block text-sm font-semibold text-neutral-100">
                     {item.label}
                   </span>
                   <span className="mt-0.5 block text-xs leading-snug text-neutral-500">
@@ -220,7 +220,7 @@ function MobileGroup({
               <Link
                 href={group.feature.cta.href}
                 onClick={onNavigate}
-                className="block rounded-xl px-5 py-2 text-sm font-medium text-green-contrast hover:bg-green-contrast/5 transition"
+                className="block rounded-xl px-5 py-2 text-sm font-medium text-brand hover:bg-brand/5 transition"
               >
                 {group.feature.cta.label} →
               </Link>
@@ -242,7 +242,7 @@ export function Nav() {
   };
 
   return (
-    <div className="fixed top-0 mx-auto inset-x-0 z-50 w-full border-b bg-white border-neutral-200">
+    <div className="fixed top-0 mx-auto inset-x-0 z-50 w-full border-b bg-dark border-light-dark">
       <header className="mx-auto max-w-7xl w-full px-5 md:px-10 py-4">
         <nav className="flex items-center justify-between">
           <Link href="/" className="flex md:hidden items-center gap-2 shrink-0">
@@ -252,11 +252,11 @@ export function Nav() {
             <Logo />
           </Link>
 
-          <ul className="hidden md:flex items-center gap-1 text-[16px] font-medium text-neutral-600">
+          <ul className="hidden md:flex items-center gap-1 text-base text-neutral-400">
             <li>
               <Link
                 href="/"
-                className="px-4 py-2 rounded-full hover:text-zinc-900 hover:bg-zinc-100 transition"
+                className="px-4 py-2 rounded-full hover:text-neutral-100 hover:bg-light-dark transition"
               >
                 Home
               </Link>
@@ -270,7 +270,7 @@ export function Nav() {
             <li>
               <Link
                 href="/pricing"
-                className="px-4 py-2 rounded-full hover:text-zinc-900 hover:bg-zinc-100 transition"
+                className="px-4 py-2 rounded-full hover:text-neutral-100 hover:bg-light-dark transition"
               >
                 Pricing
               </Link>
@@ -283,11 +283,11 @@ export function Nav() {
           <div className="flex items-center justify-end gap-3 sm:gap-4 shrink-0">
             <Link
               href="/resources/contact"
-              className="hidden sm:inline-flex h-10 items-center px-3 text-[16px] font-medium text-neutral-600 hover:text-zinc-900 transition"
+              className="hidden sm:inline-flex h-10 items-center px-3 text-[16px] font-medium text-neutral-600 hover:text-neutral-100 transition"
             >
               Sign in
             </Link>
-            <div className="hidden sm:block w-px h-6 bg-neutral-200" />
+            <div className="hidden sm:block w-px h-6 bg-light-dark" />
             <div className="hidden sm:inline-flex">
               <BookDemoButton
                 className="h-10 items-center rounded-full bg-brand px-4 text-[14px] font-medium text-lime-900 hover:bg-lime-400 transition"
@@ -300,7 +300,7 @@ export function Nav() {
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileOpen}
               onClick={() => setMobileOpen((v) => !v)}
-              className="md:hidden grid size-10 place-items-center rounded-full border border-neutral-200 text-neutral-700 hover:bg-neutral-100 transition"
+              className="md:hidden grid size-10 place-items-center rounded-full border border-light-dark text-neutral-300 hover:bg-light-dark transition"
             >
               <HugeiconsIcon
                 icon={mobileOpen ? Cancel01Icon : Menu01Icon}
@@ -313,13 +313,13 @@ export function Nav() {
       </header>
 
       {mobileOpen && (
-        <div className="md:hidden border-t border-neutral-200 bg-white max-h-[calc(100dvh-4rem)] overflow-y-auto">
-          <ul className="mx-auto max-w-7xl w-full px-5 py-2 text-[16px] font-medium text-neutral-700">
+        <div className="md:hidden border-t border-light-dark bg-dark max-h-[calc(100dvh-4rem)] overflow-y-auto">
+          <ul className="mx-auto max-w-7xl w-full px-5 py-2 text-[16px] font-medium text-neutral-300">
             <li>
               <Link
                 href="/"
                 onClick={closeMobile}
-                className="block rounded-full px-4 py-3 hover:bg-neutral-100 transition"
+                className="block rounded-full px-4 py-3 hover:bg-light-dark transition"
               >
                 Home
               </Link>
@@ -328,7 +328,7 @@ export function Nav() {
               <Link
                 href="/pricing"
                 onClick={closeMobile}
-                className="block rounded-full px-4 py-3 hover:bg-neutral-100 transition"
+                className="block rounded-full px-4 py-3 hover:bg-light-dark transition"
               >
                 Pricing
               </Link>
@@ -337,14 +337,14 @@ export function Nav() {
               <Link
                 href="/resources/contact"
                 onClick={closeMobile}
-                className="block rounded-full px-4 py-3 hover:bg-neutral-100 transition"
+                className="block rounded-full px-4 py-3 hover:bg-light-dark transition"
               >
                 Sign in
               </Link>
             </li>
           </ul>
 
-          <div className="mx-auto max-w-7xl w-full border-t border-neutral-100">
+          <div className="mx-auto max-w-7xl w-full border-t border-light-dark">
             <MobileGroup
               group={featuresGroup}
               open={openGroup === "features"}

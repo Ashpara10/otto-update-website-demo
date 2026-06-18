@@ -23,7 +23,7 @@ function getBlockText(block: PortableTextBlock) {
 
 function BlogBody({ blocks }: { blocks: PortableTextBlock[] }) {
   return (
-    <div className="mt-10 space-y-6 text-base leading-8 text-neutral-700">
+    <div className="mt-10 space-y-6 text-base leading-8 text-neutral-200">
       {blocks.map((block) => {
         const text = getBlockText(block);
 
@@ -41,7 +41,7 @@ function BlogBody({ blocks }: { blocks: PortableTextBlock[] }) {
           return (
             <h2
               key={block._key}
-              className="pt-4 text-2xl font-semibold tracking-tight text-neutral-900"
+              className="pt-4 text-2xl font-semibold tracking-tight text-neutral-100"
             >
               {text}
             </h2>
@@ -52,7 +52,7 @@ function BlogBody({ blocks }: { blocks: PortableTextBlock[] }) {
           return (
             <h3
               key={block._key}
-              className="pt-2 text-xl font-semibold tracking-tight text-neutral-900"
+              className="pt-2 text-xl font-semibold tracking-tight text-neutral-100"
             >
               {text}
             </h3>
@@ -63,7 +63,7 @@ function BlogBody({ blocks }: { blocks: PortableTextBlock[] }) {
           return (
             <blockquote
               key={block._key}
-              className="border-l-2 border-green-contrast pl-5 text-neutral-800"
+              className="border-l-2 border-brand pl-5 text-neutral-100"
             >
               {text}
             </blockquote>
@@ -86,16 +86,16 @@ export default function ArticleShell({
   const { next, related } = getAdjacentPosts(post, posts);
 
   return (
-    <section className="bg-white px-5 pb-20 pt-28 sm:px-8 sm:pb-24 sm:pt-32">
+    <section className="bg-dark px-5 pb-20 pt-28 sm:px-8 sm:pb-24 sm:pt-32">
       <div className="mx-auto max-w-3xl">
         <Link
           href="/resources/blog"
-          className="text-sm text-neutral-500 transition-colors hover:text-green-contrast"
+          className="text-sm text-neutral-400 transition-colors hover:text-brand"
         >
           ← Back to Blog
         </Link>
 
-        <div className="mt-8 flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.18em] text-neutral-500">
+        <div className="mt-8 flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.18em] text-neutral-400">
           <span>
             Blog {post.number} of {posts.length}
           </span>
@@ -103,49 +103,49 @@ export default function ArticleShell({
           <span>Updated {post.updated}</span>
         </div>
 
-        <h1 className="mt-6 text-4xl font-semibold tracking-tight text-neutral-900 sm:text-5xl">
+        <h1 className="mt-6 text-4xl font-semibold tracking-tight text-neutral-100 sm:text-5xl">
           {post.title}
         </h1>
 
-        <p className="mt-6 text-lg leading-8 text-neutral-700">
+        <p className="mt-6 text-lg leading-8 text-neutral-200">
           {post.metaDescription}
         </p>
 
-        <div className="mt-8 rounded-xl border border-green-contrast/20 bg-green-contrast/10 p-6">
-          <div className="text-xs font-semibold uppercase tracking-[0.22em] text-green-contrast">
+        <div className="mt-8 rounded-xl border border-brand/20 bg-brand/10 p-6">
+          <div className="text-xs font-semibold uppercase tracking-[0.22em] text-brand">
             TLDR
           </div>
-          <p className="mt-4 text-base leading-8 text-neutral-700">
+          <p className="mt-4 text-base leading-8 text-neutral-200">
             {post.tldr}
           </p>
         </div>
 
         <BlogBody blocks={post.body} />
 
-        <div className="mt-10 rounded-xl border border-neutral-300 bg-neutral-50 p-6 sm:p-8">
-          <p className="text-sm uppercase tracking-[0.22em] text-neutral-500">
+        <div className="mt-10 rounded-xl border border-light-dark bg-light-dark/40 p-6 sm:p-8">
+          <p className="text-sm uppercase tracking-[0.22em] text-neutral-400">
             Keep reading
           </p>
           <div className="mt-5 grid gap-4 sm:grid-cols-2">
             <Link
               href={`/resources/blog/${next.slug}`}
-              className="rounded-lg border border-neutral-200 bg-white p-5 transition-colors hover:border-green-contrast/35 hover:bg-neutral-50"
+              className="rounded-lg border border-light-dark bg-dark p-5 transition-colors hover:border-brand/35 hover:bg-light-dark/40"
             >
-              <span className="text-xs uppercase tracking-[0.18em] text-neutral-500">
+              <span className="text-xs uppercase tracking-[0.18em] text-neutral-400">
                 Read next
               </span>
-              <p className="mt-3 text-lg font-medium text-neutral-900">
+              <p className="mt-3 text-lg font-medium text-neutral-100">
                 {next.title}
               </p>
             </Link>
             <Link
               href={`/resources/blog/${related.slug}`}
-              className="rounded-lg border border-neutral-200 bg-white p-5 transition-colors hover:border-green-contrast/35 hover:bg-neutral-50"
+              className="rounded-lg border border-light-dark bg-dark p-5 transition-colors hover:border-brand/35 hover:bg-light-dark/40"
             >
-              <span className="text-xs uppercase tracking-[0.18em] text-neutral-500">
+              <span className="text-xs uppercase tracking-[0.18em] text-neutral-400">
                 Related
               </span>
-              <p className="mt-3 text-lg font-medium text-neutral-900">
+              <p className="mt-3 text-lg font-medium text-neutral-100">
                 {related.title}
               </p>
             </Link>

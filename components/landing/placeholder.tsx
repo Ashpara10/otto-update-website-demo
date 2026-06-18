@@ -14,15 +14,15 @@ export function Placeholder({
   return (
     <>
       <Nav />
-      <main className="min-h-screen bg-white text-zinc-900">
+      <main className="min-h-screen bg-dark text-neutral-100">
         <section className="mx-auto max-w-3xl px-6 py-32 text-center">
           <p className="text-xs font-semibold tracking-[0.15em] uppercase text-[#00b386]">
             {eyebrow}
           </p>
-          <h1 className="mt-4 text-4xl sm:text-5xl font-semibold tracking-[-0.02em] text-zinc-900">
+          <h1 className="mt-4 text-4xl sm:text-5xl font-semibold tracking-[-0.02em] text-neutral-100">
             {title}
           </h1>
-          {children && <div className="mt-6 text-base text-zinc-500">{children}</div>}
+          {children && <div className="mt-6 text-base text-neutral-400">{children}</div>}
         </section>
       </main>
       <Footer />

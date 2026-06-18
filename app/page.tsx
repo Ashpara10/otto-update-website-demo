@@ -36,10 +36,8 @@ export default function Home() {
       <Adoption />
       <BeforeAfter />
       <Integrations />
-      {/* <ICP /> */}
       <Industries />
       <Trust />
-      {/* <Knowledge /> */}
       <FinalCTA />
       <Footer />
     </>

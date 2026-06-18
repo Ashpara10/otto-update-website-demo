@@ -32,7 +32,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={` ${inter.variable}`} >
-      <body style={{ fontFamily: "var(--font-inter), system-ui, -apple-system, sans-serif" }} className="bg-white text-zinc-900">
+      <body style={{ fontFamily: "var(--font-inter), system-ui, -apple-system, sans-serif" }} className="bg-dark text-neutral-100">
         {/* <div className="" /> */}
         <DemoModalProvider>{children}</DemoModalProvider>
         <ScrollFX />

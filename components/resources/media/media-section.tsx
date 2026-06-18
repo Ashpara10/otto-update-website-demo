@@ -58,13 +58,13 @@ export default function MediaSection() {
   );
 
   return (
-    <section className="w-full py-20 px-6 md:px-12 bg-white text-neutral-900">
+    <section className="w-full py-20 px-6 md:px-12 bg-dark text-neutral-100">
       <div className="max-w-7xl mx-auto">
         <div className="mb-20 text-center">
-          <h1 className="md:text-5xl text-4xl font-semibold tracking-tight mb-6 text-neutral-800">
+          <h1 className="md:text-5xl text-4xl font-semibold tracking-tight mb-6 text-neutral-100">
             Media Coverage
           </h1>
-          <p className="text-lg md:text-xl text-neutral-600 max-w-2xl mx-auto mb-12">
+          <p className="text-lg md:text-xl text-neutral-400 max-w-2xl mx-auto mb-12">
             Featured in leading publications and platforms. Discover what
             industry experts and media outlets are saying about Otto.
           </p>
@@ -77,7 +77,7 @@ export default function MediaSection() {
 
             <button
               type="button"
-              className="inline-flex h-14 items-center rounded-full bg-white border border-neutral-200 px-8 text-base font-medium text-lime-900 hover:bg-neutral-50 transition ">
+              className="inline-flex h-14 items-center rounded-full bg-dark border border-light-dark px-8 text-base font-medium text-neutral-100 hover:bg-light-dark/40 transition ">
 
               <HugeiconsIcon icon={Download01Icon} className="size-5 mr-2" /> Download Company Profile
             </button>
@@ -107,7 +107,7 @@ export default function MediaSection() {
             <motion.a
               href="/press-kit.pdf"
               download
-              className="px-8 py-3 rounded-full border-2 border-neutral-300 text-neutral-900 font-semibold text-lg hover:bg-neutral-50 transition inline-flex items-center gap-2"
+              className="px-8 py-3 rounded-full border-2 border-light-dark text-neutral-100 font-semibold text-lg hover:bg-light-dark/40 transition inline-flex items-center gap-2"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -131,10 +131,10 @@ export default function MediaSection() {
 
         <div className="mb-20">
           <div className="mb-8">
-            <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-2">
+            <h2 className="text-3xl md:text-4xl font-bold text-neutral-100 mb-2">
               News Coverage
             </h2>
-            <p className="text-neutral-600">
+            <p className="text-neutral-400">
               Featured in {newsItems.length} leading publications
             </p>
           </div>
@@ -150,7 +150,7 @@ export default function MediaSection() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className={cn(
-                    "group relative overflow-hidden rounded-xl border border-neutral-200 bg-white hover:border-green-contrast/40 transition-all duration-300 hover:shadow-lg",
+                    "group relative overflow-hidden rounded-xl border border-light-dark bg-dark hover:border-brand/40 transition-all duration-300 hover:shadow-lg",
                     idx === 0 && "md:col-span-2"
                   )}
                   initial={{ opacity: 0, y: 20 }}
@@ -161,16 +161,16 @@ export default function MediaSection() {
                 >
                   <div className="relative z-10 flex flex-col h-full">
                     {item.logo && (
-                      <div className="relative w-full h-40 bg-neutral-50 overflow-hidden rounded-t-xl p-10 flex items-center justify-center border-b border-neutral-200">
+                      <div className="relative w-full h-40 bg-light-dark/40 overflow-hidden rounded-t-xl p-10 flex items-center justify-center border-b border-light-dark">
                         {/* eslint-disable-next-line @next/next/no-img-element */}
                         <img
                           src={item.logo}
                           alt={item.title}
                           className={cn(
-                            "object-contain h-32 grayscale transition-all duration-300",
+                            "object-contain h-32 grayscale invert opacity-60 transition-all duration-300",
                             (item.publication === "Ascendants" ||
                               item.publication === "Medial") &&
-                            "invert opacity-60",
+                            "invert-0 ",
                             idx === 0 && "h-16"
                           )}
                         />
@@ -181,32 +181,32 @@ export default function MediaSection() {
                       <div className="flex items-start justify-between mb-4">
                         <div className="flex-1">
                           {item.platform && (
-                            <div className="inline-flex items-center gap-2 px-2 py-1 rounded-lg bg-neutral-100 mb-3">
+                            <div className="inline-flex items-center gap-2 px-2 py-1 rounded-lg bg-light-dark/40 mb-3">
                               <HugeiconsIcon
                                 icon={Icon}
                                 size={14}
-                                className="text-neutral-600"
+                                className="text-neutral-400"
                               />
-                              <span className="text-xs font-medium text-neutral-600">
+                              <span className="text-xs font-medium text-neutral-400">
                                 {item.platform}
                               </span>
                             </div>
                           )}
                         </div>
-                        <div className="text-neutral-300 group-hover:text-green-contrast transition-colors">
+                        <div className="text-neutral-300 group-hover:text-brand transition-colors">
                           <HugeiconsIcon icon={ArrowUpRight01Icon} size={20} />
                         </div>
                       </div>
 
-                      <h3 className="text-lg font-semibold text-neutral-900 mb-2 line-clamp-2 group-hover:text-green-contrast transition-colors">
+                      <h3 className="text-lg font-semibold text-neutral-100 mb-2 line-clamp-2 group-hover:text-brand transition-colors">
                         {item.title}
                       </h3>
 
-                      <p className="text-sm text-neutral-600 line-clamp-1 mb-4">
+                      <p className="text-sm text-neutral-400 line-clamp-1 mb-4">
                         {item.publication}
                       </p>
 
-                      <span className="inline-block text-xs font-medium px-3 py-1 rounded-full bg-green-contrast/15 text-green-contrast w-fit">
+                      <span className="inline-block text-xs font-medium px-3 py-1 rounded-full bg-brand/15 text-brand w-fit">
                         Publication
                       </span>
                     </div>
@@ -219,10 +219,10 @@ export default function MediaSection() {
 
         <div>
           <div className="mb-8">
-            <h2 className="text-3xl md:text-4xl font-bold text-neutral-900 mb-2">
+            <h2 className="text-3xl md:text-4xl font-bold text-neutral-100 mb-2">
               Social Media
             </h2>
-            <p className="text-neutral-600">
+            <p className="text-neutral-400">
               Featured across {socialItems.length} social media platforms
             </p>
           </div>
@@ -237,7 +237,7 @@ export default function MediaSection() {
                   href={item.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative overflow-hidden rounded-xl border border-neutral-200 bg-white hover:border-green-contrast/40 transition-all duration-300 hover:shadow-lg"
+                  className="group relative overflow-hidden rounded-xl border border-light-dark bg-dark hover:border-brand/40 transition-all duration-300 hover:shadow-lg"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.05 }}
@@ -249,32 +249,32 @@ export default function MediaSection() {
                       <div className="flex items-start justify-between mb-4">
                         <div className="flex-1">
                           {item.platform && (
-                            <div className="inline-flex items-center gap-2 px-2 py-1 rounded-lg bg-neutral-100 mb-3">
+                            <div className="inline-flex items-center gap-2 px-2 py-1 rounded-lg bg-light-dark/40 mb-3">
                               <HugeiconsIcon
                                 icon={Icon}
                                 size={14}
-                                className="text-neutral-600"
+                                className="text-neutral-400"
                               />
-                              <span className="text-xs font-medium text-neutral-600">
+                              <span className="text-xs font-medium text-neutral-400">
                                 {item.platform}
                               </span>
                             </div>
                           )}
                         </div>
-                        <div className="text-neutral-300 group-hover:text-green-contrast transition-colors">
+                        <div className="text-neutral-300 group-hover:text-brand transition-colors">
                           <HugeiconsIcon icon={ArrowUpRight01Icon} size={20} />
                         </div>
                       </div>
 
-                      <h3 className="text-lg font-semibold text-neutral-900 mb-2 line-clamp-2 group-hover:text-green-contrast transition-colors">
+                      <h3 className="text-lg font-semibold text-neutral-100 mb-2 line-clamp-2 group-hover:text-brand transition-colors">
                         {item.title}
                       </h3>
 
-                      <p className="text-sm text-neutral-600 line-clamp-1 mb-4">
+                      <p className="text-sm text-neutral-400 line-clamp-1 mb-4">
                         {item.publication}
                       </p>
 
-                      <span className="inline-block text-xs font-medium px-3 py-1 rounded-full bg-green-contrast/10 text-green-contrast w-fit">
+                      <span className="inline-block text-xs font-medium px-3 py-1 rounded-full bg-brand/10 text-brand w-fit">
                         Social Media
                       </span>
                     </div>

@@ -1,4 +1,5 @@
 import { client } from "./client";
+import { fallbackBlogPosts } from "./fallback-data";
 
 type PortableTextSpan = {
   _type: "span";
@@ -149,34 +150,52 @@ function normalizePost(post: SanityPostResult, index: number): SanityBlogPost {
   };
 }
 
-export async function getSanityBlogPosts() {
-  const posts = await client.fetch<SanityPostResult[]>(
-    postsQuery,
-    {},
-    { next: { revalidate: 60 } }
-  );
+export async function getSanityBlogPosts(): Promise<SanityBlogPost[]> {
+  if (!client) return fallbackBlogPosts;
 
-  return posts.map(normalizePost);
+  try {
+    const posts = await client.fetch<SanityPostResult[]>(
+      postsQuery,
+      {},
+      { next: { revalidate: 60 } }
+    );
+
+    if (!posts || posts.length === 0) return fallbackBlogPosts;
+
+    return posts.map(normalizePost);
+  } catch {
+    return fallbackBlogPosts;
+  }
 }
 
 export async function getSanityBlogPost(slug: string) {
-  const [post, posts] = await Promise.all([
-    client.fetch<SanityPostResult | null>(
-      postBySlugQuery,
-      { slug },
-      { next: { revalidate: 60 } }
-    ),
-    getSanityBlogPosts(),
-  ]);
-
-  if (!post) {
-    return { post: null, posts };
+  if (!client) {
+    const post = fallbackBlogPosts.find((p) => p.slug === slug) ?? null;
+    return { post, posts: fallbackBlogPosts };
   }
 
-  const index = posts.findIndex((item) => item.slug === slug);
+  try {
+    const [post, posts] = await Promise.all([
+      client.fetch<SanityPostResult | null>(
+        postBySlugQuery,
+        { slug },
+        { next: { revalidate: 60 } }
+      ),
+      getSanityBlogPosts(),
+    ]);
 
-  return {
-    post: normalizePost(post, index >= 0 ? index : 0),
-    posts,
-  };
+    if (!post) {
+      return { post: null, posts };
+    }
+
+    const index = posts.findIndex((item) => item.slug === slug);
+
+    return {
+      post: normalizePost(post, index >= 0 ? index : 0),
+      posts,
+    };
+  } catch {
+    const post = fallbackBlogPosts.find((p) => p.slug === slug) ?? null;
+    return { post, posts: fallbackBlogPosts };
+  }
 }

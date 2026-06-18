@@ -23,42 +23,48 @@ const DOES = [
 
 export function HowItWorks() {
   return (
-    <section id="how" className="bg-white py-20 lg:py-24">
-      <div className="mx-auto max-w-6xl px-6">
-        <p className="text-xs font-semibold tracking-[0.15em] text-green-contrast">
-          How it works
-        </p>
-        <h2 className="mt-4 max-w-3xl text-3xl font-semibold tracking-[-0.01em] text-neutral-900 sm:text-4xl">
-          The rep talks.{" "}
-          <span className="text-green-contrast">Otto does the work.</span>
-        </h2>
-        <p className="mt-5 max-w-2xl text-base leading-7 text-neutral-600 sm:text-lg">
-          The rep does what they are good at, the visit. Then they call Otto and
-          say what happened. Otto handles the rest.
-        </p>
+    <section id="how" className="relative py-20 lg:py-28">
+      <div className="mx-auto max-w-7xl px-6 md:px-10">
+        <div className="flex flex-col md:flex-row items-start md:items-end md:justify-between">
 
+          <div>
+            <div className="text-[15px] font-medium flex items-center justify-start gap-3 text-brand">
+              <span className="w-0.5 rounded-full h-4 bg-brand" /> How it works
+            </div>
+            <h2 className="mt-4 text-2xl md:text-3xl font-semibold text-neutral-100">
+              The rep talks.
+              <br />
+              <span className="text-brand-soft">Otto does the work.</span>
+            </h2>
+          </div>
+          <p className="mt-5 max-w-md text-base text-neutral-400 leading-relaxed">
+            The rep does what they are good at, the visit. Then they call Otto and
+            say what happened. Otto handles the rest.
+          </p>
+
+        </div>
         <div className="mt-12 grid grid-cols-1 gap-5 md:grid-cols-2">
-          <div className="rounded-2xl border border-neutral-200 bg-neutral-50 p-8">
-            <p className="mb-6 text-sm font-semibold tracking-[0.1em] text-neutral-500">
+          <div className="rounded-2xl border border-light-dark bg-light-dark/40 p-8">
+            <p className="mb-6 text-sm font-semibold text-neutral-500">
               You say
             </p>
-            <div className="space-y-3">
+            <ul className="list-decimal space-y-3">
               {SAYS.map((line) => (
-                <p key={line} className="pl-5 text-base text-neutral-700 relative before:absolute before:left-0 before:top-[19px] before:size-2 before:rounded-full before:bg-neutral-300">
+                <li key={line} className="flex items-center gap-3 py-3 text-base text-neutral-300">
                   &ldquo;{line}&rdquo;
-                </p>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
 
-          <div className="rounded-2xl border border-neutral-200 bg-green-contrast/5 p-8">
-            <p className="mb-6 text-sm font-semibold tracking-[0.1em] text-green-contrast">
+          <div className="rounded-2xl border border-light-dark bg-brand/5 p-8">
+            <p className="mb-6 text-sm font-semibold tracking-[0.1em] text-brand">
               Otto then does this for you
             </p>
-            <div className="divide-y divide-neutral-200">
+            <div className="divide-y divide-light-dark">
               {DOES.map((item) => (
-                <div key={item} className="flex items-center gap-3 py-3 text-base text-neutral-700">
-                  <span className="grid size-5 shrink-0 place-items-center rounded-md bg-green-contrast/10 text-green-contrast">
+                <div key={item} className="flex items-center gap-3 py-3 text-base text-neutral-300">
+                  <span className="grid size-5 shrink-0 place-items-center rounded-md bg-brand/10 text-brand">
                     {CHECK}
                   </span>
                   {item}

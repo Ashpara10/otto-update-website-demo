@@ -18,35 +18,40 @@ const Cross = () => (
 );
 
 const Check = () => (
-  <span className="grid size-5 shrink-0 place-items-center rounded-md bg-green-contrast/15 text-sm font-bold text-green-contrast">
+  <span className="grid size-5 shrink-0 place-items-center rounded-md bg-brand/15 text-sm font-bold text-brand">
     ✓
   </span>
 );
 
 export function Coordinator() {
   return (
-    <section id="coordinator" className="bg-white py-20 lg:py-24">
-      <div className="mx-auto max-w-6xl px-6">
-        <p className="text-xs font-semibold tracking-[0.15em] text-green-contrast">
-          For sales coordinators
-        </p>
-        <h2 className="mt-4 max-w-3xl text-3xl font-semibold tracking-[-0.01em] text-neutral-900 sm:text-4xl">
-          Otto does not replace your coordinator. It gives them better information.
-        </h2>
-        <p className="mt-5 max-w-2xl text-base leading-7 text-neutral-600 sm:text-lg">
-          Instead of chasing reps for what happened, coordinators get clean
-          visit summaries, customer requests, pending follow-ups, and quote
-          updates, ready to act on.
-        </p>
+    <section id="coordinator" className="relative py-20 lg:py-28">
+      <div className="mx-auto max-w-7xl px-6 md:px-10">
+        <div className="flex flex-col text-left md:text-center items-start md:items-center md:mx-auto justify-between">
+          <div className=" flex flex-col items-center">
 
-        <div className="mt-10 grid grid-cols-1 gap-5 rounded-2xl border border-neutral-200 bg-white p-6 sm:p-10 md:grid-cols-2">
+            <div className="text-[15px] font-medium flex items-start md:items-center justify-center gap-3 text-brand">
+              <span className="w-0.5 rounded-full h-4 bg-brand" /> For sales coordinators
+            </div>
+            <h2 className="mt-4 text-2xl sm:text-3xl  font-semibold text-neutral-100">
+              Otto does not replace your  <br /> coordinator. It gives them better information.
+            </h2>
+          </div>
+          <p className="mt-5 md:max-w-2xl text-base text-neutral-400 leading-relaxed">
+            Instead of chasing reps for what happened, coordinators get clean
+            visit summaries, customer requests, pending follow-ups, and quote
+            updates, ready to act on.
+          </p>
+        </div>
+
+        <div className="mt-10 grid grid-cols-1 gap-5 rounded-2xl border border-light-dark bg-dark p-6 sm:p-10 md:grid-cols-2">
           <div>
             <h4 className="mb-5 text-xs font-semibold tracking-[0.08em] text-neutral-500">
               Today
             </h4>
-            <div className="divide-y divide-neutral-200">
+            <div className="divide-y divide-light-dark">
               {OLD.map((c) => (
-                <div key={c} className="flex items-center gap-3 py-3 text-base text-neutral-700">
+                <div key={c} className="flex items-center gap-3 py-3 text-base text-neutral-300">
                   <Cross />
                   {c}
                 </div>
@@ -54,12 +59,12 @@ export function Coordinator() {
             </div>
           </div>
           <div>
-            <h4 className="mb-5 text-xs font-semibold tracking-[0.08em] text-green-contrast">
+            <h4 className="mb-5 text-xs font-semibold tracking-[0.08em] text-brand">
               With Otto
             </h4>
-            <div className="divide-y divide-green-contrast/15">
+            <div className="divide-y divide-brand/15">
               {NEW.map((c) => (
-                <div key={c} className="flex items-center gap-3 py-3 text-base text-neutral-700">
+                <div key={c} className="flex items-center gap-3 py-3 text-base text-neutral-300">
                   <Check />
                   {c}
                 </div>

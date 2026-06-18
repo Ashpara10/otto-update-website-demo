@@ -9,7 +9,7 @@ export const metadata = {
 
 export default function CareersPage() {
   return (
-    <div className="min-h-screen bg-white text-neutral-900 flex flex-col">
+    <div className="min-h-screen bg-dark text-neutral-100 flex flex-col">
       <Nav />
       <main>
         <CareersSection />

@@ -71,7 +71,7 @@ function Field({
 }) {
   return (
     <label className={`block ${className}`}>
-      <span className="text-sm font-semibold text-neutral-900">
+      <span className="text-sm font-semibold text-neutral-100">
         {label}
         {optional && (
           <span className="ml-1.5 text-xs font-normal text-neutral-500">
@@ -85,7 +85,7 @@ function Field({
 }
 
 const inputClass =
-  "w-full rounded-xl border border-neutral-300 bg-white px-4 py-3 text-base text-neutral-900 placeholder:text-neutral-400 outline-none transition focus:border-neutral-900 focus:ring-2 focus:ring-neutral-900/10";
+  "w-full rounded-xl border border-light-dark bg-dark px-4 py-3 text-base text-neutral-100 placeholder:text-neutral-400 outline-none transition focus:border-brand focus:ring-2 focus:ring-neutral-900/10";
 
 function DemoModal({ open, onClose }: { open: boolean; onClose: () => void }) {
   return (
@@ -110,13 +110,13 @@ function DemoModal({ open, onClose }: { open: boolean; onClose: () => void }) {
             aria-modal="true"
             aria-labelledby="book-demo-title"
             onClick={(e) => e.stopPropagation()}
-            className="relative overflow-hidden flex w-full max-w-xl max-h-[90vh] flex-col rounded-2xl border border-neutral-300 bg-white shadow-2xl"
+            className="relative overflow-hidden flex w-full max-w-xl max-h-[90vh] flex-col rounded-2xl border border-light-dark bg-dark shadow-2xl"
           >
             <button
               type="button"
               onClick={onClose}
               aria-label="Close"
-              className="absolute right-4 top-4 z-10 grid h-9 w-9 place-items-center rounded-full text-neutral-500 hover:bg-neutral-100 hover:text-neutral-900 transition"
+              className="absolute right-4 top-4 z-10 grid h-9 w-9 place-items-center rounded-full text-neutral-500 hover:bg-light-dark hover:text-neutral-100 transition"
             >
               <HugeiconsIcon icon={Cancel01Icon} className="size-5" />
             </button>
@@ -124,7 +124,7 @@ function DemoModal({ open, onClose }: { open: boolean; onClose: () => void }) {
             <div className="demo-scroll flex-1 overflow-y-auto px-6 sm:px-8 pt-7 sm:pt-8 pb-6">
               <h2
                 id="book-demo-title"
-                className="text-2xl sm:text-3xl font-semibold tracking-[-0.01em] text-neutral-900"
+                className="text-2xl sm:text-3xl font-semibold tracking-[-0.01em] text-neutral-100"
               >
                 Book a demo
               </h2>
@@ -203,11 +203,11 @@ function DemoModal({ open, onClose }: { open: boolean; onClose: () => void }) {
               </form>
             </div>
 
-            <div className="shrink-0 border-t border-neutral-200 bg-white px-6 sm:px-8 py-4 sm:py-5">
+            <div className="shrink-0 border-t border-light-dark bg-dark px-6 sm:px-8 py-4 sm:py-5">
               <button
                 type="submit"
                 form="book-demo-form"
-                className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-brand px-6 py-4 text-base font-semibold text-neutral-900 shadow-[0_0_0_0_rgba(0,0,0,0)] transition hover:bg-brand-soft hover:shadow-[0_0_32px_0_rgba(203,253,64,0.55)] focus:outline-none focus:ring-2 focus:ring-neutral-900/30 focus:ring-offset-2 focus:ring-offset-white"
+                className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-brand px-6 py-4 text-base font-semibold text-neutral-100 shadow-[0_0_0_0_rgba(0,0,0,0)] transition hover:bg-brand-soft hover:shadow-[0_0_32px_0_rgba(203,253,64,0.55)] focus:outline-none focus:ring-2 focus:ring-neutral-900/30 focus:ring-offset-2 focus:ring-offset-white"
               >
                 Request demo
                 <span className="transition-transform group-hover:translate-x-0.5">

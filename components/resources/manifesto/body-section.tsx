@@ -14,15 +14,15 @@ const manifestoParagraphs = [
 
 export default function BodySection() {
   return (
-    <section className="bg-white px-5 py-16 sm:px-8 sm:py-20">
-      <div className="mx-auto max-w-3xl space-y-8 text-base leading-8 text-neutral-700 sm:text-lg">
-        <p className=" font-medium tracking-tight text-neutral-800 text-xl md:text-2xl lg:text-3xl">
+    <section className="bg-dark px-5 py-16 sm:px-8 sm:py-20">
+      <div className="mx-auto max-w-3xl space-y-8 text-base leading-8 text-neutral-200 sm:text-lg">
+        <p className=" font-medium tracking-tight text-neutral-100 text-xl md:text-2xl lg:text-3xl">
           {manifestoParagraphs[0]}
         </p>
         <p>{manifestoParagraphs[1]}</p>
         <p>{manifestoParagraphs[2]}</p>
 
-        <div className="space-y-1 text-xl md:text-2xl font-medium tracking-tight lg:text-3xl text-neutral-800 ">
+        <div className="space-y-1 text-xl md:text-2xl font-medium tracking-tight lg:text-3xl text-neutral-100 ">
           <p>A closed deal is a rush.</p>
           <p>The call that lands. The handshake.</p>
           <p>That moment a buyer says yes — and you know you earned that.</p>
@@ -31,9 +31,9 @@ export default function BodySection() {
         <p>{manifestoParagraphs[3]}</p>
         <p>{manifestoParagraphs[4]}</p>
 
-        <div className="border-l-2 bg-brand-soft/40 border-green-contrast pl-5 py-5 text-neutral-700">
+        <div className="border-l-2 bg-brand-soft/40 border-brand pl-5 py-5 text-neutral-200">
           <p>Open the CRM.</p>
-          <p className="font-semibold text-neutral-900">Type. Log. Update. Tag.</p>
+          <p className="font-semibold text-neutral-100">Type. Log. Update. Tag.</p>
           <p>
             Write notes nobody will read so a dashboard somewhere turns green.
           </p>
@@ -42,21 +42,21 @@ export default function BodySection() {
         <p>{manifestoParagraphs[5]}</p>
         <p>{manifestoParagraphs[6]}</p>
 
-        <div className="rounded-xl border border-green-contrast/20 bg-green-contrast/10 p-6 text-neutral-900">
+        <div className="rounded-xl border border-brand/20 bg-brand/10 p-6 text-neutral-100">
           <p>Admin work is not productivity.</p>
           <p>A green dashboard is not a healthy pipeline.</p>
           <p>
             And &quot;process&quot;? It&apos;s their word for what they do
-            <span className="text-green-contrast"> to us.</span>
+            <span className="text-brand"> to us.</span>
           </p>
           <p className="mt-6 font-semibold">
-            Not for us. <span className="text-green-contrast">To us.</span>
+            Not for us. <span className="text-brand">To us.</span>
           </p>
         </div>
 
         <p>{manifestoParagraphs[7]}</p>
 
-        <div className="space-y-4 tracking-tight text-xl font-medium text-neutral-800 md:text-2xl lg:text-3xl">
+        <div className="space-y-4 tracking-tight text-xl font-medium text-neutral-100 md:text-2xl lg:text-3xl">
           <p>We pulsate when we sell.</p>
           <p>And our time should be spent doing just that.</p>
           <p className="pt-4">The Sales Tribe deserves a better future.</p>

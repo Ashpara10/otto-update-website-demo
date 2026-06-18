@@ -11,7 +11,7 @@ export const metadata = {
 
 export default function PricingPage() {
   return (
-    <div className="min-h-screen bg-white text-neutral-900">
+    <div className="min-h-screen bg-dark text-neutral-100">
       <Nav />
       <main className="px-5 pb-20 pt-32 sm:px-8 sm:pb-24 sm:pt-36">
         <div className="mx-auto mt-8 max-w-4xl px-0 sm:px-4">
@@ -19,7 +19,7 @@ export default function PricingPage() {
             <h1 className="w-full text-center text-2xl font-semibold tracking-tight sm:w-auto md:text-3xl">
               Pricing Plan Comparison
             </h1>
-            <p className="w-full max-w-sm text-center text-neutral-500 sm:text-lg sm:w-auto">
+            <p className="w-full max-w-md text-center text-neutral-500 sm:text-lg sm:w-auto">
               Simple, transparent pricing for every stage of your sales team.
             </p>
           </div>

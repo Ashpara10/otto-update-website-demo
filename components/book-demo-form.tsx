@@ -55,17 +55,17 @@ export function BookDemoForm({ onSuccess }: { onSuccess: () => void }) {
       }
       toast.custom(
         () => (
-          <div className="flex w-[356px] max-w-[calc(100vw-2rem)] items-start gap-3 rounded-2xl border border-[rgba(0,255,133,0.35)] bg-[#0d0e10] p-4 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.85),0_0_40px_-12px_rgba(0,255,133,0.45)]">
-            <span className="mt-0.5 grid size-8 shrink-0 place-items-center rounded-full bg-[rgba(0,255,133,0.14)] text-[#00FF85]">
+          <div className="flex w-[356px] max-w-[calc(100vw-2rem)] items-start gap-3 rounded-2xl border border-brand-soft/35 bg-dark p-4 shadow-[0_24px_60px_-24px_rgba(0,0,0,0.85),0_0_40px_-12px_var(--color-brand)]">
+            <span className="mt-0.5 grid size-8 shrink-0 place-items-center rounded-full bg-brand/15 text-brand">
               <svg viewBox="0 0 24 24" className="size-4" fill="none" stroke="currentColor" strokeWidth={2.6} strokeLinecap="round" strokeLinejoin="round">
                 <path d="M5 12l4 4L19 6" />
               </svg>
             </span>
             <div className="min-w-0">
-              <p className="text-[15px] font-semibold tracking-tight text-[#f6f8f6]">
+              <p className="text-[15px] font-semibold tracking-tight text-heading">
                 Request sent
               </p>
-              <p className="mt-0.5 text-[13px] leading-snug text-[#8a908b]">
+              <p className="mt-0.5 text-[13px] leading-snug text-subheading">
                 We&apos;ll reach out shortly to set up your 15-minute demo.
               </p>
             </div>
@@ -119,7 +119,7 @@ export function BookDemoForm({ onSuccess }: { onSuccess: () => void }) {
       <button
         type="submit"
         disabled={submitting}
-        className="mt-1 inline-flex items-center justify-center gap-2 rounded-full bg-[#00FF85] px-7 py-3.5 text-base font-semibold text-[#06110b] shadow-[0_0_44px_-8px_rgba(0,255,133,0.65)] transition hover:translate-y-[-2px] hover:shadow-[0_0_56px_-6px_rgba(0,255,133,0.9)] disabled:cursor-not-allowed disabled:opacity-60"
+        className="mt-1 inline-flex items-center justify-center gap-2 rounded-full bg-brand px-7 py-3.5 text-base font-semibold text-dark disabled:cursor-not-allowed disabled:opacity-60"
       >
         {submitting ? "Sending…" : "Request demo →"}
       </button>
@@ -142,12 +142,12 @@ function Field({
 }) {
   return (
     <div className="flex flex-col gap-1.5">
-      <Label htmlFor={id} className="text-[13px] text-[#c8cdc9]">
+      <Label htmlFor={id} className="text-[13px] text-subheading">
         {label}
-        {optional && <span className="ml-1 text-[#5f645f]">(optional)</span>}
+        {optional && <span className="ml-1 text-light-dark">(optional)</span>}
       </Label>
       {children}
-      {error && <p className="text-xs text-[#ff8a8a]">{error}</p>}
+      {error && <p className="text-xs text-destructive">{error}</p>}
     </div>
   );
 }

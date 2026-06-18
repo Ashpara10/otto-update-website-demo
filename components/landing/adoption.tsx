@@ -42,31 +42,35 @@ const CARDS = [
 
 export function Adoption() {
   return (
-    <section id="adoption" className="bg-white py-20 lg:py-24">
-      <div className="mx-auto max-w-6xl px-6">
-        <p className="text-xs font-semibold tracking-[0.15em] text-green-contrast">
-          Why reps use it
-        </p>
-        <h2 className="mt-4 max-w-3xl text-3xl font-semibold tracking-[-0.01em] text-neutral-900 sm:text-4xl">
-          Reps already do this part out loud.
-        </h2>
-        <p className="mt-5 max-w-2xl text-base leading-7 text-neutral-600 sm:text-lg">
-          After a visit, reps already talk it through, to a coordinator, a
-          teammate, or themselves. Otto listens to that same debrief and
-          turns it into the CRM update and follow-ups. The rep does not
-          change what they do.
-        </p>
+    <section id="adoption" className="relative py-20 lg:py-28">
+      <div className="mx-auto max-w-7xl px-6 md:px-10">
+        <div className="flex flex-col md:flex-row items-start md:items-end justify-between">
+          <div className="flex flex-col items-start">
+
+            <div className="text-[15px] font-medium flex items-center justify-start gap-3 text-brand">
+              <span className="w-0.5 rounded-full h-4 bg-brand" /> Why reps use it
+            </div>
+            <h2 className="mt-4 text-2xl md:text-3xl font-semibold text-neutral-100">
+              Reps already do <br /> this part out loud.
+            </h2>
+          </div>
+          <p className="mt-5 max-w-md text-base text-neutral-400 leading-relaxed">
+            After a visit, reps already talk it through, to a coordinator, a
+            teammate, or themselves. Otto listens to that same debrief and
+            turns it into the CRM update and follow-ups.
+          </p>
+        </div>
 
         <div className="mt-12 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {CARDS.map((c) => (
             <div
               key={c.title}
-              className="rounded-2xl border border-neutral-200 bg-neutral-50 p-6 transition-colors hover:border-green-contrast/30 hover:bg-green-contrast/5"
+              className="rounded-2xl border border-light-dark bg-light-dark/20 cursor-pointer p-6 transition-colors hover:border-brand/30 hover:bg-brand/5"
             >
-              <div className="mb-4 grid size-10 place-items-center rounded-xl bg-green-contrast/10 text-green-contrast">
+              <div className="mb-4 grid size-10 place-items-center rounded-md bg-brand/10 text-brand">
                 {c.icon}
               </div>
-              <h3 className="text-base font-semibold tracking-[-0.02em] text-neutral-900">
+              <h3 className="text-base font-medium tracking-[-0.02em] text-neutral-100">
                 {c.title}
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-neutral-500">

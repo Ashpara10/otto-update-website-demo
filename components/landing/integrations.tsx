@@ -5,15 +5,15 @@ const CELLS = [
 
 export function Integrations() {
   return (
-    <section id="integrations" className="bg-white py-20 lg:py-24">
-      <div className="mx-auto max-w-6xl px-6">
-        <p className="text-center text-xs font-semibold tracking-[0.15em] text-green-contrast">
-          Works with your tools
-        </p>
-        <h2 className="mx-auto mt-4 max-w-3xl text-center text-3xl font-semibold tracking-[-0.01em] text-neutral-900 sm:text-4xl">
+    <section id="integrations" className="relative py-20 lg:py-28">
+      <div className="mx-auto max-w-7xl px-6 md:px-10">
+        <div className="text-[15px] font-medium flex items-center justify-center gap-3 text-brand">
+          <span className="w-0.5 rounded-full h-4 bg-brand" /> Works with your tools
+        </div>
+        <h2 className="mx-auto mt-4 max-w-2xl text-center text-3xl font-semibold text-neutral-100 md:text-3xl">
           It works with what you already use.
         </h2>
-        <p className="mx-auto mt-5 max-w-2xl text-center text-base leading-7 text-neutral-600 sm:text-lg">
+        <p className="mx-auto mt-5 max-w-2xl text-center text-base text-neutral-400 leading-relaxed">
           Nothing to switch. Otto reads from and writes to your existing
           tools.
         </p>
@@ -22,9 +22,9 @@ export function Integrations() {
           {CELLS.map((c) => (
             <div
               key={c}
-              className="flex min-h-[84px] items-center justify-center gap-2.5 rounded-2xl border border-neutral-200 bg-neutral-50 px-6 py-6 text-center text-base font-medium text-neutral-700 transition-colors hover:border-green-contrast/30 hover:text-green-contrast"
+              className="flex min-h-[84px] items-center justify-center gap-2.5 rounded-2xl border border-light-dark/60  bg-light-dark/40 px-6 py-6 text-center text-base font-medium text-neutral-300 transition-colors hover:border-brand/30 hover:text-brand cursor-pointer"
             >
-              <span className="size-1.5 rounded-full bg-green-contrast/60" />
+              <span className="size-1.5 rounded-full bg-brand/60" />
               {c}
             </div>
           ))}

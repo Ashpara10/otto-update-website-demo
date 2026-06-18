@@ -29,12 +29,12 @@ export function DemoModalProvider({ children }: { children: React.ReactNode }) {
     <DemoModalContext.Provider value={value}>
       {children}
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent className="max-h-[90vh] overflow-y-auto border-white/12 bg-[#0d0e10] sm:max-w-lg">
+        <DialogContent className="max-h-[90vh] overflow-y-auto border-light-dark bg-dark sm:max-w-lg">
           <DialogHeader>
-            <DialogTitle className="text-xl tracking-tight text-[#f6f8f6]">
+            <DialogTitle className="text-2xl tracking-tight text-neutral-200">
               Book a demo
             </DialogTitle>
-            <DialogDescription className="text-[#8a908b]">
+            <DialogDescription className="text-neutral-400">
               15 minutes. We run Otto on a visit that looks like yours.
             </DialogDescription>
           </DialogHeader>

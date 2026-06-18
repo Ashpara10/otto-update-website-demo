@@ -63,7 +63,7 @@ const heading: Variants = {
 function Pill({ label, variant }: { label: string; variant: "left" | "right" }) {
   const styles =
     variant === "left"
-      ? "border-white/10 bg-white/[0.03] text-zinc-300"
+      ? "border-white/10 bg-dark/[0.03] text-neutral-300"
       : "border-mint/25 bg-mint/10 text-mint";
   return (
     <motion.span
@@ -85,7 +85,7 @@ export function Knowledge() {
       <div className="relative mx-auto w-full max-w-7xl px-6">
 
         <div className="h-[800px] flex flex-row overflow-y-hidden max-w-5xl mx-auto w-full relative ">
-          <div className="absolute inset-x-0 top-0  w-full h-[300px] rounded-b-[100%] z-2  bg-white " >
+          <div className="absolute inset-x-0 top-0  w-full h-[300px] rounded-b-[100%] z-2  bg-dark " >
 
             <motion.div
               variants={container}
@@ -94,15 +94,14 @@ export function Knowledge() {
               viewport={{ once: true, amount: 0.3 }}
               className="text-center z-3 -mb-20"
             >
-              <motion.p
+              <motion.div
                 variants={heading}
-                className="text-xs font-semibold tracking-[0.15em] uppercase text-mint"
-              >
-                / What Otto knows
-              </motion.p>
+              className="text-[15px] font-medium flex items-center justify-start gap-3 text-brand">
+                <span className="w-0.5 rounded-full h-4 bg-brand" /> What Otto knows
+              </motion.div>
               <motion.h2
                 variants={heading}
-                className="mt-4 text-4xl sm:text-5xl font-semibold tracking-[-0.02em] leading-[1.05] text-neutral-900"
+                className="mt-4 text-4xl sm:text-5xl font-semibold tracking-[-0.02em] leading-[1.05] text-neutral-100"
               >
                 Otto knows each account.
               </motion.h2>
@@ -117,11 +116,11 @@ export function Knowledge() {
             </motion.div>
 
           </div>
-          <div className="absolute inset-x-0 bottom-0  w-full h-[300px] rounded-t-[100%] z-2  bg-white " />
+          <div className="absolute inset-x-0 bottom-0  w-full h-[300px] rounded-t-[100%] z-2  bg-dark " />
 
           <div className="w-1/2 z-1 h-full bg-linear-to-l from-neutral-200 to-transparent "></div>
           <div className="absolute size-full flex items-center justify-center z-10 ">
-            <div className="bg-white/80 backdrop-blur-xl shadow-2xl rounded-2xl p-2 size-24 flex items-center justify-center border border-neutral-200"><Logo className="size-14" onlyIcon /></div>
+            <div className="bg-dark/80 backdrop-blur-xl shadow-2xl rounded-2xl p-2 size-24 flex items-center justify-center border border-light-dark"><Logo className="size-14" onlyIcon /></div>
           </div>
 
           <div className="h-[250px] bg-gray-300 w-4 rounded-full absolute z-3 inset-x-0 top-1/2 -translate-y-1/2 mx-auto" />

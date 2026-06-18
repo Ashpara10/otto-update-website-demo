@@ -71,51 +71,55 @@ const STEPS = [
 
 export function Positioning() {
   return (
-    <section id="positioning" className="bg-white py-20 lg:py-24">
-      <div className="mx-auto max-w-6xl px-6">
-        <p className="text-xs font-semibold tracking-[0.15em] text-green-contrast">
-          Where Otto fits
-        </p>
-        <h2 className="mt-4 max-w-3xl text-3xl font-semibold tracking-[-0.01em] text-neutral-900 sm:text-4xl">
-          Not another CRM. Not another dashboard.
-        </h2>
-        <p className="mt-5 max-w-2xl text-base leading-7 text-neutral-600 sm:text-lg">
-          You already have a CRM. The problem was never where the data goes.
-          It is getting what happened in the field into the system before
-          it disappears. Otto sits between the field and the tools you
-          already run.
-        </p>
+    <section id="positioning" className="relative py-20 lg:py-28">
+      <div className="mx-auto max-w-7xl px-6 md:px-10">
+        <div className="flex flex-col items-start md:items-end md:justify-between gap-6 md:flex-row">
+          <div>
+            <div className="text-[15px] font-medium flex items-center justify-start gap-3 text-brand">
+              <span className="w-0.5 rounded-full h-4 bg-brand" /> Where Otto fits
+            </div>
+            <h2 className="mt-4 text-2xl md:text-3xl font-semibold text-neutral-100">
+              Not another CRM. <br /> Not another dashboard.
+            </h2>
+          </div>
+          <p className="mt-5 max-w-md text-base text-neutral-400 leading-relaxed">
+            You already have a CRM. The problem was never where the data goes.
+            It is getting what happened in the field into the system before
+            it disappears. Otto sits between the field and the tools you
+            already run.
+          </p>
+        </div>
 
         <div className="mt-12 flex flex-col items-stretch gap-3 md:flex-row md:items-stretch">
-          <div className="flex flex-1 flex-col items-center gap-3 rounded-2xl border border-neutral-200 bg-neutral-50 px-5 py-6 text-center">
-            <span className="grid size-12 place-items-center rounded-xl border border-neutral-200 bg-white text-neutral-500">
+          <div className="flex flex-1 flex-col items-center gap-3 rounded-2xl border border-light-dark bg-light-dark/40 px-5 py-6 text-center">
+            <span className="grid size-12 place-items-center rounded-xl border border-light-dark bg-dark text-neutral-500">
               <RepIcon />
             </span>
-            <p className="text-base font-medium text-neutral-700">The rep</p>
+            <p className="text-base font-medium text-neutral-300">The rep</p>
             <p className="text-sm text-neutral-500">In the field</p>
           </div>
 
-          <div className="flex items-center justify-center text-green-contrast/60 md:px-2">
+          <div className="flex items-center justify-center text-brand/60 md:px-2">
             <Arrow />
           </div>
 
-          <div className="flex flex-[1.15] flex-col items-center gap-3 rounded-2xl border border-green-contrast/30 bg-green-contrast/5 px-5 py-6 text-center shadow-[0_0_40px_-14px_rgba(139,180,27,0.45)]">
-            <span className="grid size-12 place-items-center rounded-xl bg-green-contrast/10 text-green-contrast">
+          <div className="flex flex-[1.15] flex-col items-center gap-3 rounded-2xl border border-brand/30 bg-brand/5 px-5 py-6 text-center shadow-[0_0_40px_-14px_rgba(139,180,27,0.45)]">
+            <span className="grid size-12 place-items-center rounded-xl bg-brand/10 text-brand">
               <OttoIcon />
             </span>
-            <p className="text-base font-semibold text-green-contrast">Otto</p>
+            <p className="text-base font-semibold text-brand">Otto</p>
             <p className="text-sm text-neutral-500">Captures &amp; structures the visit</p>
           </div>
 
-          <div className="flex items-center justify-center text-green-contrast/60 md:px-2">
+          <div className="flex items-center justify-center text-brand/60 md:px-2">
             <Arrow />
           </div>
 
-          <div className="flex flex-1 flex-col items-center gap-3 rounded-2xl border border-neutral-200 bg-neutral-50 px-5 py-6 text-center">
-            <span className="grid size-12 place-items-center rounded-xl border border-neutral-200 bg-white text-neutral-500">
+          <div className="flex flex-1 flex-col items-center gap-3 rounded-2xl border border-light-dark bg-light-dark/40 px-5 py-6 text-center">
+            <span className="grid size-12 place-items-center rounded-xl border border-light-dark bg-dark text-neutral-500">
               <CrmIcon />
             </span>
-            <p className="text-base font-medium text-neutral-700">CRM &amp; ERP</p>
+            <p className="text-base font-medium text-neutral-300">CRM &amp; ERP</p>
             <p className="text-sm text-neutral-500">Always current</p>
           </div>
         </div>
@@ -124,15 +128,15 @@ export function Positioning() {
           {STEPS.map((s) => (
             <div
               key={s.n}
-              className="rounded-2xl border border-neutral-200 bg-white p-6 transition-colors hover:border-green-contrast/30"
+              className="rounded-2xl border border-light-dark bg-dark p-6 transition-colors hover:border-brand/30"
             >
-              <p className="text-xs font-bold tracking-[0.14em] text-green-contrast">
+              <p className="text-xs font-bold tracking-[0.14em] text-brand">
                 {s.n}
               </p>
-              <div className="mt-4 mb-4 grid size-12 place-items-center rounded-xl bg-green-contrast/10 text-green-contrast">
+              <div className="mt-4 mb-4 grid size-12 place-items-center rounded-xl bg-brand/10 text-brand">
                 {s.icon}
               </div>
-              <p className="text-base font-semibold tracking-[-0.02em] text-neutral-900">
+              <p className="text-base font-semibold tracking-[-0.02em] text-neutral-100">
                 {s.title}
               </p>
               <p className="mt-1.5 text-sm leading-relaxed text-neutral-500">

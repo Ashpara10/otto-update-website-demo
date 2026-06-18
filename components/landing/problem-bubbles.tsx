@@ -30,14 +30,14 @@ export function ProblemBubbles() {
         {messages.slice(0, visibleCount).map((m, i) => (
           <motion.div
             key={`${i}-${m.text}`}
-            initial={{ opacity: 0, y: 16, scale: 0.92 }}
+            initial={{ opacity: 0, y: 16, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.25 } }}
+            exit={{ opacity: 0, scale: 0.94, transition: { duration: 0.25 } }}
             transition={{ type: "spring", stiffness: 380, damping: 28, mass: 0.7 }}
             className="relative max-w-[85%] self-start"
           >
-            <div className="relative rounded-2xl  bg-gray-200 backdrop-blur-md px-3 py-4 shadow-lg border border-white/10">
-              <p className="text-sm font-medium text-gray-500 leading-snug pr-16">
+            <div className="relative rounded-2xl  bg-neutral-100 backdrop-blur-md px-4 py-4 shadow-lg border border-neutral-200">
+              <p className="text-sm font-medium text-neutral-600 leading-snug mr-6">
                 {m.text}
               </p>
               {/* <span className="absolute right-2.5 top-1/2 -translate-y-1/2 inline-flex items-center gap-1 text-[10px] font-semibold uppercase tracking-wide text-rose-300 whitespace-nowrap">
@@ -57,9 +57,9 @@ export function ProblemBubbles() {
           animate={{ opacity: 1 }}
           className="self-end flex items-center gap-1 px-2"
         >
-          <span className="h-1.5 w-1.5 rounded-full bg-zinc-400/80 animate-bounce" style={{ animationDelay: "0ms" }} />
-          <span className="h-1.5 w-1.5 rounded-full bg-zinc-400/80 animate-bounce" style={{ animationDelay: "150ms" }} />
-          <span className="h-1.5 w-1.5 rounded-full bg-zinc-400/80 animate-bounce" style={{ animationDelay: "300ms" }} />
+          <span className="h-1.5 w-1.5 rounded-full bg-neutral-500/80 animate-bounce" style={{ animationDelay: "0ms" }} />
+          <span className="h-1.5 w-1.5 rounded-full bg-neutral-500/80 animate-bounce" style={{ animationDelay: "150ms" }} />
+          <span className="h-1.5 w-1.5 rounded-full bg-neutral-500/80 animate-bounce" style={{ animationDelay: "300ms" }} />
         </motion.div>
       )}
     </div>

@@ -63,16 +63,16 @@ function QuoteCard({ title, detail, action }: Card) {
   return (
     <motion.div
       variants={cardAnim}
-      className="group relative flex items-center gap-5 rounded-2xl border border-neutral-300/60 px-6 py-5 backdrop-blur-sm transition-colors hover:bg-neutral-50"
+      className="group relative flex items-center gap-5 rounded-2xl border border-white/5 px-6 py-5 backdrop-blur-sm transition-colors hover:bg-rose-500/5 bg-rose-500/4"
     >
-      <span className="absolute inset-y-5 left-0 w-1 rounded-r-full bg-green-contrast" />
+      <span className="absolute inset-y-6 ml-3 left-0 w-1 rounded-full bg-rose-600/40" />
 
       <div className="min-w-0 flex-1 pl-2">
-        <p className="text-base sm:text-lg font-medium text-neutral-700">{title}</p>
-        <p className="mt-1 text-sm text-neutral-500">{detail}</p>
+        <p className="text-[15px] md:text-base tracking-tight font-medium text-neutral-300">{title}</p>
+        <p className=" text-sm text-neutral-500">{detail}</p>
       </div>
 
-      <span className="inline-flex items-center rounded-md bg-rose-500/10 px-2.5 py-1 text-xs font-medium text-rose-600/90 ring-1 ring-inset ring-rose-400/20 whitespace-nowrap">
+      <span className="inline-flex items-center rounded-md bg-rose-500/5 px-2.5 py-1 text-sm font-medium text-rose-500/50 border border-dashed border-rose-500/20 whitespace-nowrap">
         {action}
       </span>
     </motion.div>
@@ -94,15 +94,14 @@ export function QuoteRisk() {
           className="flex flex-col md:flex-row md:items-end w-full justify-between"
         >
           <div>
-            <motion.p
+            <motion.div
               variants={heading}
-              className="text-xs font-semibold tracking-[0.15em] uppercase text-mint"
-            >
-              / Quotes that slip
-            </motion.p>
+              className="text-[15px] font-medium flex items-center justify-start gap-3 text-brand">
+              <span className="w-0.5 rounded-full h-4 bg-brand" /> Quotes that slip
+            </motion.div>
             <motion.h2
               variants={heading}
-              className="mt-4 text-3xl sm:text-4xl font-semibold tracking-[-0.01em] leading-[1.1] text-zinc-900"
+              className="mt-4 text-2xl sm:text-3xl tracking-tight font-semibold  text-neutral-100"
             >
               Quotes are not <br /> lost. They
 
@@ -111,7 +110,7 @@ export function QuoteRisk() {
           </div>
           <motion.p
             variants={heading}
-            className=" text-base text-zinc-500 leading-relaxed mt-6  max-w-md"
+            className=" text-base text-neutral-400 leading-relaxed mt-6  max-w-md"
           >
             A quote rarely gets a no. It just goes quiet, and with a full route
             to cover, it is easy to miss. Otto watches for the cases below and
@@ -130,15 +129,7 @@ export function QuoteRisk() {
           ))}
         </motion.div>
 
-        <motion.p
-          variants={heading}
-          initial="hidden"
-          animate="show"
-          className="mt-14 text-center text-base sm:text-lg text-neutral-500"
-        >
-          Otto flags each one{" "}
-          <span className="text-green-contrast font-medium">in time to act.</span>
-        </motion.p>
+
       </div>
     </section>
   );

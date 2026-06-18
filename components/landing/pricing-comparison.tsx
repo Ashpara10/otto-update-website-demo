@@ -77,13 +77,13 @@ export function PricingComparisonSection() {
           {/* Before */}
           <div className="relative flex flex-col px-4 md:px-8">
             <div className="flex flex-col items-center pb-12 text-center">
-              <h3 className="mb-6 text-sm font-semibold tracking-widest text-neutral-500">
+              <h3 className="mb-6 text-sm font-semibold tracking-widest text-subheading">
                 Individual AI Tools
               </h3>
-              <div className="mb-2 text-5xl font-bold tracking-tight text-neutral-100 md:text-6xl">
+              <div className="mb-2 text-5xl font-bold tracking-tight text-heading md:text-6xl">
                 $752
               </div>
-              <div className="text-sm font-medium text-neutral-500">
+              <div className="text-sm font-medium text-subheading">
                 /user/month combined
               </div>
             </div>
@@ -95,9 +95,9 @@ export function PricingComparisonSection() {
                 {beforeItems.map((item) => (
                   <li key={item.label} className="flex items-start gap-3">
                     <RedCross />
-                    <div className="flex w-full justify-between text-[15px] font-medium text-neutral-200">
+                    <div className="flex w-full justify-between text-[15px] font-medium text-foreground/85">
                       <span>{item.label}</span>
-                      <span className="font-normal text-neutral-500">
+                      <span className="font-normal text-subheading">
                         {item.price}
                       </span>
                     </div>
@@ -107,10 +107,10 @@ export function PricingComparisonSection() {
 
               <div className="mt-8 w-full max-w-xs border-t border-light-dark pt-6">
                 <div className="flex w-full items-baseline justify-between">
-                  <span className="text-sm font-semibold tracking-wider text-neutral-500">
+                  <span className="text-sm font-semibold tracking-wider text-subheading">
                     Total
                   </span>
-                  <span className="text-xl font-bold text-neutral-100">
+                  <span className="text-xl font-bold text-heading">
                     $9,024/yr
                   </span>
                 </div>
@@ -130,7 +130,7 @@ export function PricingComparisonSection() {
               <div className="mb-2 text-5xl font-bold tracking-tight text-brand md:text-6xl">
                 $99
               </div>
-              <div className="text-sm font-medium text-neutral-500">
+              <div className="text-sm font-medium text-subheading">
                 /user/month or $999/year
               </div>
             </div>
@@ -142,7 +142,7 @@ export function PricingComparisonSection() {
                 {afterItems.map((item) => (
                   <li key={item} className="flex items-start gap-3">
                     <GreenCheck />
-                    <span className="text-[15px] font-medium text-neutral-200">
+                    <span className="text-[15px] font-medium text-foreground/85">
                       {item}
                     </span>
                   </li>
@@ -151,7 +151,7 @@ export function PricingComparisonSection() {
 
               <div className="mt-8 w-full max-w-xs border-t border-light-dark pt-6">
                 <div className="flex w-full items-baseline justify-between">
-                  <span className="text-sm font-semibold tracking-wider text-neutral-500">
+                  <span className="text-sm font-semibold tracking-wider text-subheading">
                     Total
                   </span>
                   <span className="text-xl font-bold text-brand">$999/yr</span>

@@ -4,6 +4,7 @@ import "./globals.css";
 import { DemoModalProvider } from "@/components/demo-modal-provider";
 import { ScrollFX } from "@/components/scroll-fx";
 import { Toaster } from "@/components/ui/sonner";
+import { ThemeProvider } from "@/components/theme-provider";
 
 // const outfit = Outfit({
 //   variable: "--font-sans",
@@ -31,12 +32,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={` ${inter.variable}`} >
-      <body style={{ fontFamily: "var(--font-inter), system-ui, -apple-system, sans-serif" }} className="bg-dark text-neutral-100">
+    <html lang="en" className={` ${inter.variable}`} suppressHydrationWarning>
+      <body style={{ fontFamily: "var(--font-inter), system-ui, -apple-system, sans-serif" }} className="bg-background text-foreground">
         {/* <div className="" /> */}
-        <DemoModalProvider>{children}</DemoModalProvider>
-        <ScrollFX />
-        <Toaster position="top-center" richColors theme="light" />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <DemoModalProvider>{children}</DemoModalProvider>
+          <ScrollFX />
+          <Toaster position="top-center" richColors theme="light" />
+        </ThemeProvider>
       </body>
     </html>
   );

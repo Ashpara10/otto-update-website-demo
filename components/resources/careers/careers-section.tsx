@@ -27,16 +27,16 @@ const itemVariants: Variants = {
 
 export default function CareersSection() {
   return (
-    <section className="bg-dark text-neutral-100 px-4 py-24 md:py-32">
+    <section className="bg-dark text-heading px-4 py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <div className="text-center mb-16 md:mb-20">
-          <p className="text-sm font-medium tracking-wide text-neutral-400 mb-5">
+          <p className="text-sm font-medium tracking-wide text-muted-foreground mb-5">
             Careers
           </p>
-          <h1 className="text-3xl md:text-4xl font-semibold leading-tight text-neutral-100 tracking-tight">
+          <h1 className="text-3xl md:text-4xl font-semibold leading-tight text-heading tracking-tight">
             Build Otto with us.
           </h1>
-          <p className="mt-6 max-w-2xl mx-auto text-base md:text-lg text-neutral-400">
+          <p className="mt-6 max-w-2xl mx-auto text-base md:text-lg text-muted-foreground">
             Otto is a voice-first AI chief of staff for sales. Sales people
             close deals; Otto handles everything else. Three roles, three big
             bets. Mumbai-based, hybrid.
@@ -74,10 +74,10 @@ export default function CareersSection() {
                   className="size-5 text-brand"
                 />
               </span>
-              <h3 className="text-[15px] md:text-base font-medium text-neutral-100 mb-2">
+              <h3 className="text-[15px] md:text-base font-medium text-heading mb-2">
                 {title}
               </h3>
-              <p className="text-sm text-neutral-400 leading-relaxed">
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 {body}
               </p>
             </motion.div>
@@ -100,20 +100,20 @@ export default function CareersSection() {
               <div className="w-full flex flex-col md:flex-row md:justify-between">
 
                 <div className="flex-1 min-w-0 md:max-w-2xl w-full">
-                  <h2 className="text-xl font-medium text-neutral-100 mb-1">
+                  <h2 className="text-xl font-medium text-heading mb-1">
                     {role.title}
                   </h2>
-                  <p className="text-sm text-neutral-400 mb-3">{role.tag}</p>
-                  <p className="text-base text-neutral-400 leading-relaxed">
+                  <p className="text-sm text-muted-foreground mb-3">{role.tag}</p>
+                  <p className="text-base text-muted-foreground leading-relaxed">
                     {role.blurb}
                   </p>
                 </div>
 
                 <div className="flex flex-row md:flex-col gap-2 md:items-end md:shrink-0">
-                  {/* <span className="inline-flex items-center rounded-full bg-light-dark/40 px-3 py-1 text-sm font-medium text-neutral-100">
+                  {/* <span className="inline-flex items-center rounded-full bg-light-dark/40 px-3 py-1 text-sm font-medium text-heading">
                     {role.salary}
                   </span> */}
-                  <span className="inline-flex items-center rounded-full bg-light-dark/40 px-3 py-1 text-sm text-neutral-500">
+                  <span className="inline-flex items-center rounded-full bg-light-dark/40 px-3 py-1 text-sm text-subheading">
                     {role.location}
                   </span>
                 </div>
@@ -123,7 +123,7 @@ export default function CareersSection() {
                 href={`mailto:${APPLY_EMAIL}?subject=${encodeURIComponent(
                   `Application — ${role.title}`
                 )}`}
-                className="group inline-flex items-center justify-center gap-1.5 rounded-full bg-brand px-8 h-12 text-base font-medium hover:bg-lime-400 transition-opacity text-lime-950 hover:opacity-90 md:shrink-0"
+                className="btn-primary group inline-flex items-center justify-center gap-1.5 rounded-full px-8 h-12 text-base font-medium md:shrink-0"
               >
                 Apply
                 <HugeiconsIcon

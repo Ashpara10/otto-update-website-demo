@@ -71,10 +71,10 @@ function Field({
 }) {
   return (
     <label className={`block ${className}`}>
-      <span className="text-sm font-semibold text-neutral-100">
+      <span className="text-sm font-semibold text-heading">
         {label}
         {optional && (
-          <span className="ml-1.5 text-xs font-normal text-neutral-500">
+          <span className="ml-1.5 text-xs font-normal text-subheading">
             (optional)
           </span>
         )}
@@ -85,7 +85,7 @@ function Field({
 }
 
 const inputClass =
-  "w-full rounded-xl border border-light-dark bg-dark px-4 py-3 text-base text-neutral-100 placeholder:text-neutral-400 outline-none transition focus:border-brand focus:ring-2 focus:ring-neutral-900/10";
+  "w-full rounded-xl border border-light-dark bg-dark px-4 py-3 text-base text-heading placeholder:text-subheading outline-none transition focus:border-brand focus:ring-2 focus:ring-neutral-900/10";
 
 function DemoModal({ open, onClose }: { open: boolean; onClose: () => void }) {
   return (
@@ -116,7 +116,7 @@ function DemoModal({ open, onClose }: { open: boolean; onClose: () => void }) {
               type="button"
               onClick={onClose}
               aria-label="Close"
-              className="absolute right-4 top-4 z-10 grid h-9 w-9 place-items-center rounded-full text-neutral-500 hover:bg-light-dark hover:text-neutral-100 transition"
+              className="absolute right-4 top-4 z-10 grid h-9 w-9 place-items-center rounded-full text-subheading hover:bg-light-dark hover:text-heading transition"
             >
               <HugeiconsIcon icon={Cancel01Icon} className="size-5" />
             </button>
@@ -124,11 +124,11 @@ function DemoModal({ open, onClose }: { open: boolean; onClose: () => void }) {
             <div className="demo-scroll flex-1 overflow-y-auto px-6 sm:px-8 pt-7 sm:pt-8 pb-6">
               <h2
                 id="book-demo-title"
-                className="text-2xl sm:text-3xl font-semibold tracking-[-0.01em] text-neutral-100"
+                className="text-2xl sm:text-3xl font-semibold tracking-[-0.01em] text-heading"
               >
                 Book a demo
               </h2>
-              <p className="mt-2 text-sm text-neutral-600">
+              <p className="mt-2 text-sm text-muted-foreground">
                 15 minutes. We run Otto on a visit that looks like yours.
               </p>
 
@@ -207,7 +207,7 @@ function DemoModal({ open, onClose }: { open: boolean; onClose: () => void }) {
               <button
                 type="submit"
                 form="book-demo-form"
-                className="group inline-flex w-full items-center justify-center gap-2 rounded-full bg-brand px-6 py-4 text-base font-semibold text-neutral-100 shadow-[0_0_0_0_rgba(0,0,0,0)] transition hover:bg-brand-soft hover:shadow-[0_0_32px_0_rgba(203,253,64,0.55)] focus:outline-none focus:ring-2 focus:ring-neutral-900/30 focus:ring-offset-2 focus:ring-offset-white"
+                className="btn-primary group inline-flex w-full items-center justify-center gap-2 rounded-full px-6 py-4 text-base font-semibold focus:outline-none focus:ring-2 focus:ring-neutral-900/30 focus:ring-offset-2 focus:ring-offset-white"
               >
                 Request demo
                 <span className="transition-transform group-hover:translate-x-0.5">

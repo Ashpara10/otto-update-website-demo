@@ -13,7 +13,7 @@ export function Workflow() {
         <div className="text-[15px] font-medium flex items-center justify-start gap-3 text-brand">
           <span className="w-0.5 rounded-full h-4 bg-brand" /> Through the day
         </div>
-        <h2 className="mt-4 text-2xl md:text-3xl font-semibold text-neutral-100">
+        <h2 className="mt-4 text-2xl md:text-3xl font-semibold text-heading">
           Otto runs the whole day.
         </h2>
         <ol className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5 lg:gap-0">
@@ -29,10 +29,10 @@ export function Workflow() {
               <div className="mb-4 grid size-8 place-items-center rounded-lg border border-brand/25 bg-brand/10 text-sm font-bold text-brand">
                 {s.n}
               </div>
-              <h3 className="text-base font-medium tracking-[-0.02em] text-neutral-100">
+              <h3 className="text-base font-medium tracking-[-0.02em] text-heading">
                 {s.h}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-neutral-400">
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                 {s.p}
               </p>
             </li>

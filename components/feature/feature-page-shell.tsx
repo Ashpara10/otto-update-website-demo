@@ -43,10 +43,10 @@ export type FeaturePageShellProps = {
 };
 
 const primaryCtaClass =
-  "inline-flex h-12 items-center justify-center rounded-full bg-brand px-6 text-base font-semibold text-lime-900 transition hover:bg-brand-soft";
+  "btn-primary inline-flex h-12 items-center justify-center rounded-full px-6 text-base font-semibold";
 
 const secondaryCtaClass =
-  "inline-flex h-12 items-center justify-center rounded-full border border-light-dark bg-dark px-6 text-base font-semibold text-neutral-100 transition-colors hover:bg-light-dark/40";
+  "inline-flex h-12 items-center justify-center rounded-full border border-light-dark bg-dark px-6 text-base font-semibold text-heading transition-colors hover:bg-light-dark/40";
 
 function SectionLabel({ children, centered = false }: { children: React.ReactNode; centered?: boolean }) {
   return (
@@ -80,7 +80,7 @@ export function FeaturePageShell({
     workflow.length > 1 ? (activeIndex / (workflow.length - 1)) * 100 : 100;
 
   return (
-    <div className="mx-auto flex min-h-screen w-full max-w-[1920px] flex-col bg-dark text-neutral-100">
+    <div className="mx-auto flex min-h-screen w-full max-w-[1920px] flex-col bg-dark text-heading">
       <Nav />
 
       <main>
@@ -88,7 +88,7 @@ export function FeaturePageShell({
         <section className="relative overflow-hidden border-b border-light-dark px-5 pb-20 pt-32 sm:px-8 sm:pt-36">
           <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_12%,rgba(203,253,64,0.08),transparent_46%)]" />
           <div className="mx-auto w-full max-w-7xl">
-            <div className="inline-flex items-center gap-2 rounded-full border border-light-dark bg-dark px-3 py-1 text-xs font-medium text-neutral-300">
+            <div className="inline-flex items-center gap-2 rounded-full border border-light-dark bg-dark px-3 py-1 text-xs font-medium text-foreground/85">
               <Link href="/features" className="hover:text-brand transition">
                 Features
               </Link>
@@ -99,11 +99,11 @@ export function FeaturePageShell({
             </div>
 
             <div className="mt-8 flex w-full flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-              <h1 className="max-w-3xl text-3xl font-semibold tracking-[-0.04em] text-neutral-100 md:text-5xl">
+              <h1 className="max-w-3xl text-3xl font-semibold tracking-[-0.04em] text-heading md:text-5xl">
                 <span className="block">{headline}</span>
                 <span className="block text-brand">{highlight}</span>
               </h1>
-              <p className="max-w-xl text-base leading-relaxed text-neutral-400">
+              <p className="max-w-xl text-base leading-relaxed text-muted-foreground">
                 {subtitle}
               </p>
             </div>
@@ -123,7 +123,7 @@ export function FeaturePageShell({
         <section className="px-5 py-16 sm:px-8 sm:py-20">
           <div className="mx-auto w-full max-w-7xl">
             <SectionLabel>{workflowHeading}</SectionLabel>
-            <h2 className="mt-3 text-2xl font-semibold text-neutral-100 md:text-3xl">
+            <h2 className="mt-3 text-2xl font-semibold text-heading md:text-3xl">
               {workflowHeadline}
             </h2>
 
@@ -138,7 +138,7 @@ export function FeaturePageShell({
                 />
               </div>
               <span
-                className="absolute top-1/2 size-2 -translate-y-1/2 rounded-full bg-neutral-100 border border-light-dark shadow transition-all duration-300 ease-out"
+                className="absolute top-1/2 size-2 -translate-y-1/2 rounded-full bg-heading border border-light-dark shadow transition-all duration-300 ease-out"
                 style={{ left: `calc(${progress}% - 4px)` }}
               />
             </div>
@@ -159,7 +159,7 @@ export function FeaturePageShell({
                   <p className="text-lg font-semibold text-brand">
                     {item.title}
                   </p>
-                  <p className="mt-3 text-base leading-relaxed text-neutral-400">
+                  <p className="mt-3 text-base leading-relaxed text-muted-foreground">
                     {item.description}
                   </p>
                 </li>
@@ -172,7 +172,7 @@ export function FeaturePageShell({
         <section className="px-5 py-12 sm:px-8 sm:py-24">
           <div className="mx-auto w-full max-w-7xl">
             <SectionLabel>{capabilitiesHeading}</SectionLabel>
-            <h2 className="mt-3 text-2xl font-semibold text-neutral-100 md:text-3xl">
+            <h2 className="mt-3 text-2xl font-semibold text-heading md:text-3xl">
               {capabilitiesHeadline}
             </h2>
 
@@ -196,12 +196,12 @@ export function FeaturePageShell({
                   >
                     <HugeiconsIcon
                       icon={item.icon}
-                      className="size-5 text-neutral-300"
+                      className="size-5 text-foreground/85"
                     />
-                    <p className="mt-3 text-base font-medium text-neutral-100">
+                    <p className="mt-3 text-base font-medium text-heading">
                       {item.title}
                     </p>
-                    <p className="mt-2 text-sm leading-relaxed text-neutral-400">
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                       {item.description}
                     </p>
                   </article>
@@ -215,18 +215,18 @@ export function FeaturePageShell({
         <section className="px-5 py-16 sm:px-8 sm:py-20">
           <div className="mx-auto w-full max-w-7xl">
             <SectionLabel>{comparisonHeading}</SectionLabel>
-            <h2 className="mt-3 text-2xl font-semibold text-neutral-100 md:text-3xl">
+            <h2 className="mt-3 text-2xl font-semibold text-heading md:text-3xl">
               How it used to work vs. now.
             </h2>
             {comparisonIntro && (
-              <p className="mt-4 max-w-2xl text-base leading-relaxed text-neutral-400">
+              <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
                 {comparisonIntro}
               </p>
             )}
 
             <div className="mt-8 overflow-hidden rounded-xl border border-light-dark">
               <div className="grid grid-cols-2 border-b border-light-dark text-sm font-semibold">
-                <div className="bg-light-dark/40 px-5 py-3 text-neutral-300">
+                <div className="bg-light-dark/40 px-5 py-3 text-foreground/85">
                   Without Otto
                 </div>
                 <div className="bg-brand/10 px-5 py-3 text-brand">
@@ -242,8 +242,8 @@ export function FeaturePageShell({
                   <div
                     className={
                       index % 2 === 0
-                        ? "bg-dark px-5 py-3.5 text-neutral-300"
-                        : "bg-light-dark/40 px-5 py-3.5 text-neutral-300"
+                        ? "bg-dark px-5 py-3.5 text-foreground/85"
+                        : "bg-light-dark/40 px-5 py-3.5 text-foreground/85"
                     }
                   >
                     {row.withoutOtto}
@@ -251,8 +251,8 @@ export function FeaturePageShell({
                   <div
                     className={
                       index % 2 === 0
-                        ? "bg-brand/5 px-5 py-3.5 text-neutral-400"
-                        : "bg-brand/10 px-5 py-3.5 text-neutral-400"
+                        ? "bg-brand/5 px-5 py-3.5 text-muted-foreground"
+                        : "bg-brand/10 px-5 py-3.5 text-muted-foreground"
                     }
                   >
                     {row.withOtto}
@@ -266,10 +266,10 @@ export function FeaturePageShell({
         {/* Close */}
         <section className="px-5 pb-24 pt-6 sm:px-8">
           <div className="mx-auto w-full max-w-7xl text-center">
-            <h2 className="text-2xl font-semibold text-neutral-100 md:text-3xl">
+            <h2 className="text-2xl font-semibold text-heading md:text-3xl">
               {closeHeading}
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-neutral-400">
+            <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
               {closeBody}
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">

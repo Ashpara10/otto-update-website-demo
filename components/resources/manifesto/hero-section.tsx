@@ -5,11 +5,11 @@ export default function HeroSection() {
         <p className="inline-flex rounded-full border border-brand/20 bg-brand/10 px-3 py-1 text-brand">
           The Anti-CRM Manifesto
         </p>
-        <h1 className="mt-8 text-4xl font-semibold tracking-tight text-neutral-100 sm:text-6xl">
+        <h1 className="mt-8 text-4xl font-semibold tracking-tight text-heading sm:text-6xl">
           We are
           <span className="block text-brand">Sales people.</span>
         </h1>
-        <p className="mt-5 text-base text-neutral-400 sm:text-lg max-w-2xl">
+        <p className="mt-5 text-base text-muted-foreground sm:text-lg max-w-2xl">
           The Sales Tribe. This is what we believe.
         </p>
       </div>

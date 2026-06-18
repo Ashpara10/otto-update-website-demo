@@ -5,10 +5,10 @@ export default function IntroSection() {
         <div className=" font-semibold border-l-3 border-brand pl-3 text-brand">
           Get in touch
         </div>
-        <h1 className="mt-5 text-2xl font-semibold tracking-tight text-neutral-100 sm:text-3xl">
+        <h1 className="mt-5 text-2xl font-semibold tracking-tight text-heading sm:text-3xl">
           Contact Us
         </h1>
-        <div className="mt-6 space-y-4 text-lg text-neutral-200">
+        <div className="mt-6 space-y-4 text-lg text-foreground/85">
           <p>
             Email:{" "}
             <a

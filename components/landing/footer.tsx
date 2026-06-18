@@ -14,7 +14,7 @@ const legalLinks = [
 function Column({ title, links }: { title: string; links: { label: string; href: string }[] }) {
   return (
     <div>
-      <p className="text-base font-medium text-neutral-500">
+      <p className="text-base font-medium text-subheading">
         {title}
       </p>
       <ul className="mt-5 space-y-3">
@@ -22,7 +22,7 @@ function Column({ title, links }: { title: string; links: { label: string; href:
           <li key={l.label}>
             <a
               href={l.href}
-              className="text-[15px] text-neutral-300 hover:text-neutral-100 transition"
+              className="text-[15px] text-foreground/85 hover:text-heading transition"
             >
               {l.label}
             </a>
@@ -36,18 +36,18 @@ function Column({ title, links }: { title: string; links: { label: string; href:
 export function Footer() {
 
   return (
-    <footer className="relative bg-dark text-neutral-300 border-t border-light-dark overflow-hidden">
+    <footer className="relative bg-dark text-foreground/85 border-t border-light-dark overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 lg:px-10 pt-16 pb-12">
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-10 lg:gap-8 items-start">
           <div className="col-span-2  ">
-            <Link href="/" className="inline-flex items-center text-neutral-100">
+            <Link href="/" className="inline-flex items-center text-heading">
               <Logo className="h-7 w-auto" />
             </Link>
-            <p className="mt-5 text-[15px] md:text-base text-neutral-400 max-w-sm">
+            <p className="mt-5 text-[15px] md:text-base text-muted-foreground max-w-sm">
               An AI coordinator for  <br />industrial field sales teams.
             </p>
             <BookDemoButton
-              className="mt-6 inline-flex h-10 px-6 items-center rounded-full bg-brand px-4 text-sm font-medium text-lime-900 hover:bg-lime-400 transition"
+              className="btn-primary mt-6 inline-flex h-10 px-6 items-center rounded-full px-4 text-sm font-medium"
             >
               Book a demo
             </BookDemoButton>
@@ -68,7 +68,7 @@ export function Footer() {
         aria-hidden
         className="select-none overflow-hidden max-w-7xl w-full mx-auto leading-[0.8] -mb-2 sm:-mb-3"
       >
-        <p className="font-extrabold tracking-[-0.04em] text-center text-neutral-100 whitespace-nowrap text-[18vw] sm:text-[16vw] lg:text-[12.5vw]">
+        <p className="font-extrabold tracking-[-0.04em] text-center text-heading whitespace-nowrap text-[18vw] sm:text-[16vw] lg:text-[12.5vw]">
           OttoUpdate
         </p>
       </div>

@@ -58,26 +58,26 @@ export default function MediaSection() {
   );
 
   return (
-    <section className="w-full py-20 px-6 md:px-12 bg-dark text-neutral-100">
+    <section className="w-full py-20 px-6 md:px-12 bg-dark text-heading">
       <div className="max-w-7xl mx-auto">
         <div className="mb-20 text-center">
-          <h1 className="md:text-5xl text-4xl font-semibold tracking-tight mb-6 text-neutral-100">
+          <h1 className="md:text-5xl text-4xl font-semibold tracking-tight mb-6 text-heading">
             Media Coverage
           </h1>
-          <p className="text-lg md:text-xl text-neutral-400 max-w-2xl mx-auto mb-12">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-12">
             Featured in leading publications and platforms. Discover what
             industry experts and media outlets are saying about Otto.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-stretch sm:items-center">
             <button
-              className="inline-flex h-14 items-center rounded-full bg-brand  px-8 text-base font-medium text-lime-900 hover:bg-lime-400 transition ">
+              className="btn-primary inline-flex h-14 w-full sm:w-auto items-center justify-center rounded-full px-8 text-base font-medium">
               Press Inquires
             </button>
 
             <button
               type="button"
-              className="inline-flex h-14 items-center rounded-full bg-dark border border-light-dark px-8 text-base font-medium text-neutral-100 hover:bg-light-dark/40 transition ">
+              className="inline-flex h-14 w-full sm:w-auto items-center justify-center rounded-full bg-dark border border-light-dark px-8 text-base font-medium text-heading hover:bg-light-dark/40 transition ">
 
               <HugeiconsIcon icon={Download01Icon} className="size-5 mr-2" /> Download Company Profile
             </button>
@@ -107,7 +107,7 @@ export default function MediaSection() {
             <motion.a
               href="/press-kit.pdf"
               download
-              className="px-8 py-3 rounded-full border-2 border-light-dark text-neutral-100 font-semibold text-lg hover:bg-light-dark/40 transition inline-flex items-center gap-2"
+              className="px-8 py-3 rounded-full border-2 border-light-dark text-heading font-semibold text-lg hover:bg-light-dark/40 transition inline-flex items-center gap-2"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -131,10 +131,10 @@ export default function MediaSection() {
 
         <div className="mb-20">
           <div className="mb-8">
-            <h2 className="text-3xl md:text-4xl font-bold text-neutral-100 mb-2">
+            <h2 className="text-3xl md:text-4xl font-bold text-heading mb-2">
               News Coverage
             </h2>
-            <p className="text-neutral-400">
+            <p className="text-muted-foreground">
               Featured in {newsItems.length} leading publications
             </p>
           </div>
@@ -185,24 +185,24 @@ export default function MediaSection() {
                               <HugeiconsIcon
                                 icon={Icon}
                                 size={14}
-                                className="text-neutral-400"
+                                className="text-muted-foreground"
                               />
-                              <span className="text-xs font-medium text-neutral-400">
+                              <span className="text-xs font-medium text-muted-foreground">
                                 {item.platform}
                               </span>
                             </div>
                           )}
                         </div>
-                        <div className="text-neutral-300 group-hover:text-brand transition-colors">
+                        <div className="text-foreground/85 group-hover:text-brand transition-colors">
                           <HugeiconsIcon icon={ArrowUpRight01Icon} size={20} />
                         </div>
                       </div>
 
-                      <h3 className="text-lg font-semibold text-neutral-100 mb-2 line-clamp-2 group-hover:text-brand transition-colors">
+                      <h3 className="text-lg font-semibold text-heading mb-2 line-clamp-2 group-hover:text-brand transition-colors">
                         {item.title}
                       </h3>
 
-                      <p className="text-sm text-neutral-400 line-clamp-1 mb-4">
+                      <p className="text-sm text-muted-foreground line-clamp-1 mb-4">
                         {item.publication}
                       </p>
 
@@ -219,10 +219,10 @@ export default function MediaSection() {
 
         <div>
           <div className="mb-8">
-            <h2 className="text-3xl md:text-4xl font-bold text-neutral-100 mb-2">
+            <h2 className="text-3xl md:text-4xl font-bold text-heading mb-2">
               Social Media
             </h2>
-            <p className="text-neutral-400">
+            <p className="text-muted-foreground">
               Featured across {socialItems.length} social media platforms
             </p>
           </div>
@@ -253,24 +253,24 @@ export default function MediaSection() {
                               <HugeiconsIcon
                                 icon={Icon}
                                 size={14}
-                                className="text-neutral-400"
+                                className="text-muted-foreground"
                               />
-                              <span className="text-xs font-medium text-neutral-400">
+                              <span className="text-xs font-medium text-muted-foreground">
                                 {item.platform}
                               </span>
                             </div>
                           )}
                         </div>
-                        <div className="text-neutral-300 group-hover:text-brand transition-colors">
+                        <div className="text-foreground/85 group-hover:text-brand transition-colors">
                           <HugeiconsIcon icon={ArrowUpRight01Icon} size={20} />
                         </div>
                       </div>
 
-                      <h3 className="text-lg font-semibold text-neutral-100 mb-2 line-clamp-2 group-hover:text-brand transition-colors">
+                      <h3 className="text-lg font-semibold text-heading mb-2 line-clamp-2 group-hover:text-brand transition-colors">
                         {item.title}
                       </h3>
 
-                      <p className="text-sm text-neutral-400 line-clamp-1 mb-4">
+                      <p className="text-sm text-muted-foreground line-clamp-1 mb-4">
                         {item.publication}
                       </p>
 

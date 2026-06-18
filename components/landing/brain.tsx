@@ -16,10 +16,10 @@ export function Brain() {
         <div className="text-[15px] font-medium flex items-center justify-center gap-3 text-brand">
           <span className="w-0.5 rounded-full h-4 bg-brand" /> What Otto knows
         </div>
-        <h2 className="mx-auto mt-4 max-w-3xl text-center text-3xl font-semibold text-neutral-100 sm:text-4xl">
+        <h2 className="mx-auto mt-4 max-w-3xl text-center text-3xl font-semibold text-heading sm:text-4xl">
           Otto knows each account.
         </h2>
-        <p className="mx-auto mt-5 max-w-2xl text-center text-base text-neutral-400 leading-relaxed">
+        <p className="mx-auto mt-5 max-w-2xl text-center text-base text-muted-foreground leading-relaxed">
           A CRM can only hold what someone has time to type in. Otto keeps
           track of what actually happens across the account, and hands the
           rep the next step.
@@ -27,14 +27,14 @@ export function Brain() {
 
         <div className="mt-12 grid grid-cols-1 items-stretch gap-5 md:grid-cols-[1fr_auto_1fr]">
           <div className="rounded-2xl border border-light-dark bg-light-dark/40 p-7">
-            <h4 className="mb-5 text-xs font-semibold tracking-[0.1em] text-neutral-500">
+            <h4 className="mb-5 text-xs font-semibold tracking-[0.1em] text-subheading">
               Otto keeps track of
             </h4>
             <div className="flex flex-wrap gap-2">
               {KEEPS.map((c) => (
                 <span
                   key={c}
-                  className="inline-flex items-center rounded-md border border-light-dark bg-dark px-3.5 py-1.5 text-sm font-medium text-neutral-300"
+                  className="inline-flex items-center rounded-md border border-light-dark bg-dark px-3.5 py-1.5 text-sm font-medium text-foreground/85"
                 >
                   {c}
                 </span>
@@ -66,7 +66,7 @@ export function Brain() {
           </div>
         </div>
 
-        <p className="mx-auto mt-12 max-w-2xl text-center text-base text-neutral-400 leading-relaxed">
+        <p className="mx-auto mt-12 max-w-2xl text-center text-base text-muted-foreground leading-relaxed">
           A CRM shows last week.{" "}
           <span className="text-brand">Otto shows now.</span>
         </p>

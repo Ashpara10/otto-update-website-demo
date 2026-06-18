@@ -6,7 +6,7 @@ import { DemoModalProvider } from "./demo-modal";
 export function Chrome({ children }: { children: ReactNode }) {
   return (
     <DemoModalProvider>
-      <div className="min-h-screen flex flex-col bg-dark text-neutral-100">
+      <div className="min-h-screen flex flex-col bg-dark text-heading">
         <Nav />
         <main className="flex-1">{children}</main>
         <Footer />

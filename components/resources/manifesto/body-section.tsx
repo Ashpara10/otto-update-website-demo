@@ -15,14 +15,14 @@ const manifestoParagraphs = [
 export default function BodySection() {
   return (
     <section className="bg-dark px-5 py-16 sm:px-8 sm:py-20">
-      <div className="mx-auto max-w-3xl space-y-8 text-base leading-8 text-neutral-200 sm:text-lg">
-        <p className=" font-medium tracking-tight text-neutral-100 text-xl md:text-2xl lg:text-3xl">
+      <div className="mx-auto max-w-3xl space-y-8 text-base leading-8 text-foreground/85 sm:text-lg">
+        <p className=" font-medium tracking-tight text-heading text-xl md:text-2xl lg:text-3xl">
           {manifestoParagraphs[0]}
         </p>
         <p>{manifestoParagraphs[1]}</p>
         <p>{manifestoParagraphs[2]}</p>
 
-        <div className="space-y-1 text-xl md:text-2xl font-medium tracking-tight lg:text-3xl text-neutral-100 ">
+        <div className="space-y-1 text-xl md:text-2xl font-medium tracking-tight lg:text-3xl text-heading ">
           <p>A closed deal is a rush.</p>
           <p>The call that lands. The handshake.</p>
           <p>That moment a buyer says yes — and you know you earned that.</p>
@@ -31,9 +31,9 @@ export default function BodySection() {
         <p>{manifestoParagraphs[3]}</p>
         <p>{manifestoParagraphs[4]}</p>
 
-        <div className="border-l-2 bg-brand-soft/40 border-brand pl-5 py-5 text-neutral-200">
+        <div className="border-l-2 bg-brand-soft/40 border-brand pl-5 py-5 text-foreground/85">
           <p>Open the CRM.</p>
-          <p className="font-semibold text-neutral-100">Type. Log. Update. Tag.</p>
+          <p className="font-semibold text-heading">Type. Log. Update. Tag.</p>
           <p>
             Write notes nobody will read so a dashboard somewhere turns green.
           </p>
@@ -42,7 +42,7 @@ export default function BodySection() {
         <p>{manifestoParagraphs[5]}</p>
         <p>{manifestoParagraphs[6]}</p>
 
-        <div className="rounded-xl border border-brand/20 bg-brand/10 p-6 text-neutral-100">
+        <div className="rounded-xl border border-brand/20 bg-brand/10 p-6 text-heading">
           <p>Admin work is not productivity.</p>
           <p>A green dashboard is not a healthy pipeline.</p>
           <p>
@@ -56,7 +56,7 @@ export default function BodySection() {
 
         <p>{manifestoParagraphs[7]}</p>
 
-        <div className="space-y-4 tracking-tight text-xl font-medium text-neutral-100 md:text-2xl lg:text-3xl">
+        <div className="space-y-4 tracking-tight text-xl font-medium text-heading md:text-2xl lg:text-3xl">
           <p>We pulsate when we sell.</p>
           <p>And our time should be spent doing just that.</p>
           <p className="pt-4">The Sales Tribe deserves a better future.</p>

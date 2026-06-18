@@ -32,6 +32,7 @@ type Plan = {
   ctaLabel: string;
   ctaClass: string;
   highlighted?: boolean;
+  usePrimary?: boolean;
 };
 
 function PlanCard({ plan, isAnnual }: { plan: Plan; isAnnual: boolean }) {
@@ -41,12 +42,12 @@ function PlanCard({ plan, isAnnual }: { plan: Plan; isAnnual: boolean }) {
         <span className="w-0.5 rounded-full h-4 bg-brand" /> {plan.name}
       </div>
       <div className="mb-4 mt-4 flex items-end gap-2">
-        <span className="text-4xl font-bold text-neutral-100">
+        <span className="text-4xl font-bold text-heading">
           {plan.price}
         </span>
-        <span className="text-base text-neutral-500">{plan.priceSuffix}</span>
+        <span className="text-base text-subheading">{plan.priceSuffix}</span>
       </div>
-      <div className="mb-6 text-sm text-neutral-500">
+      <div className="mb-6 text-sm text-subheading">
         {isAnnual ? "Billed annually" : plan.cadence}
       </div>
 
@@ -54,7 +55,7 @@ function PlanCard({ plan, isAnnual }: { plan: Plan; isAnnual: boolean }) {
         {plan.features.map((feature) => (
           <li key={feature} className="flex items-start gap-3">
             <GreenCheck />
-            <span className="text-sm font-medium text-neutral-200">
+            <span className="text-sm font-medium text-foreground/85">
               {feature}
             </span>
           </li>
@@ -62,7 +63,7 @@ function PlanCard({ plan, isAnnual }: { plan: Plan; isAnnual: boolean }) {
       </ul>
 
       <BookDemoButton
-        className={`mt-auto w-full py-3 rounded-lg font-medium transition-opacity hover:opacity-90 ${plan.ctaClass}`}
+        className={`${plan.usePrimary ? "btn-primary" : ""} mt-auto w-full py-3 rounded-lg font-medium ${plan.usePrimary ? "" : "transition-opacity hover:opacity-90 "}${plan.ctaClass}`}
       >
         {plan.ctaLabel}
       </BookDemoButton>
@@ -91,6 +92,7 @@ const ottoPlan: Plan = {
   priceSuffix: "/user/month",
   cadence: "Billed monthly",
   highlighted: true,
+  usePrimary: true,
   features: [
     "Morning briefing call",
     "Pre-meeting prep",
@@ -102,7 +104,7 @@ const ottoPlan: Plan = {
     "Auto follow-ups and email drafts",
   ],
   ctaLabel: "Get Started",
-  ctaClass: "bg-brand text-neutral-900",
+  ctaClass: "",
 };
 
 const enterprisePlan: Plan = {
@@ -119,7 +121,7 @@ const enterprisePlan: Plan = {
     "Priority support",
   ],
   ctaLabel: "Contact Sales",
-  ctaClass: "bg-neutral-100 text-neutral-900",
+  ctaClass: "bg-heading text-dark",
 };
 
 export function PricingCards() {
@@ -129,7 +131,7 @@ export function PricingCards() {
     <div className="flex w-full flex-col items-center">
       <div className="mb-10 flex items-center gap-4">
         <span
-          className={`text-lg font-medium ${!isAnnual ? "text-neutral-100" : "text-neutral-500"
+          className={`text-lg font-medium ${!isAnnual ? "text-heading" : "text-subheading"
             }`}
         >
           Monthly
@@ -146,7 +148,7 @@ export function PricingCards() {
           />
         </button>
         <span
-          className={`text-lg font-medium ${isAnnual ? "text-neutral-100" : "text-neutral-500"
+          className={`text-lg font-medium ${isAnnual ? "text-heading" : "text-subheading"
             }`}
         >
           Annually

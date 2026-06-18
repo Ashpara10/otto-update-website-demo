@@ -63,7 +63,7 @@ const heading: Variants = {
 function Pill({ label, variant }: { label: string; variant: "left" | "right" }) {
   const styles =
     variant === "left"
-      ? "border-white/10 bg-dark/[0.03] text-neutral-300"
+      ? "border-light-dark bg-dark/[0.03] text-foreground/85"
       : "border-mint/25 bg-mint/10 text-mint";
   return (
     <motion.span
@@ -101,13 +101,13 @@ export function Knowledge() {
               </motion.div>
               <motion.h2
                 variants={heading}
-                className="mt-4 text-4xl sm:text-5xl font-semibold tracking-[-0.02em] leading-[1.05] text-neutral-100"
+                className="mt-4 text-4xl sm:text-5xl font-semibold tracking-[-0.02em] leading-[1.05] text-heading"
               >
                 Otto knows each account.
               </motion.h2>
               <motion.p
                 variants={heading}
-                className="mt-5 text-base sm:text-lg leading-relaxed text-neutral-500 max-w-2xl mx-auto"
+                className="mt-5 text-base sm:text-lg leading-relaxed text-muted-foreground max-w-2xl mx-auto"
               >
                 A CRM can only hold what someone has time to type in. Otto keeps
                 track of what actually happens across the account, and hands the rep

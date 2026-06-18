@@ -68,8 +68,8 @@ function QuoteCard({ title, detail, action }: Card) {
       <span className="absolute inset-y-6 ml-3 left-0 w-1 rounded-full bg-rose-600/40" />
 
       <div className="min-w-0 flex-1 pl-2">
-        <p className="text-[15px] md:text-base tracking-tight font-medium text-neutral-300">{title}</p>
-        <p className=" text-sm text-neutral-500">{detail}</p>
+        <p className="text-[15px] md:text-base tracking-tight font-medium text-foreground/85">{title}</p>
+        <p className=" text-sm text-subheading">{detail}</p>
       </div>
 
       <span className="inline-flex items-center rounded-md bg-rose-500/5 px-2.5 py-1 text-sm font-medium text-rose-500/50 border border-dashed border-rose-500/20 whitespace-nowrap">
@@ -101,7 +101,7 @@ export function QuoteRisk() {
             </motion.div>
             <motion.h2
               variants={heading}
-              className="mt-4 text-2xl sm:text-3xl tracking-tight font-semibold  text-neutral-100"
+              className="mt-4 text-2xl sm:text-3xl tracking-tight font-semibold  text-heading"
             >
               Quotes are not <br /> lost. They
 
@@ -110,7 +110,7 @@ export function QuoteRisk() {
           </div>
           <motion.p
             variants={heading}
-            className=" text-base text-neutral-400 leading-relaxed mt-6  max-w-md"
+            className=" text-base text-muted-foreground leading-relaxed mt-6  max-w-md"
           >
             A quote rarely gets a no. It just goes quiet, and with a full route
             to cover, it is easy to miss. Otto watches for the cases below and

@@ -56,13 +56,13 @@ export function Trust() {
   return (
     <section id="trust" className="relative py-20 lg:py-28">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
-        <div className="text-[15px] font-medium flex items-center justify-center gap-3 text-brand">
-          <span className="w-0.5 rounded-full h-4 bg-brand" /> Security
+        <div className="text-[15px] font-medium flex items-center justify-center  text-brand">
+          <span className="w-0.5 rounded-full h-4 bg-brand mr-2" /> Security
         </div>
-        <h2 className="mx-auto mt-4 max-w-3xl text-center text-2xl md:text-3xl font-semibold text-neutral-100">
+        <h2 className="mx-auto mt-4 max-w-3xl text-center text-2xl md:text-3xl font-semibold text-heading">
           How Otto handles your data.
         </h2>
-        <p className="mx-auto mt-5 max-w-2xl text-center text-base text-neutral-400 leading-relaxed">
+        <p className="mx-auto mt-5 max-w-md text-center text-base text-muted-foreground leading-relaxed">
           Otto works with customer and account data, so here is how it is
           kept and controlled.
         </p>
@@ -71,9 +71,9 @@ export function Trust() {
           {CELLS.map((c) => (
             <div
               key={c.label}
-              className="flex items-center gap-3 rounded-2xl border border-light-dark bg-light-dark/20 cursor-pointer hover:bg-light-dark/40 px-5 py-4 text-base text-neutral-300 min-h-24"
+              className="flex items-center gap-3 rounded-2xl border border-light-dark bg-light-dark/20 cursor-pointer hover:bg-light-dark/40 px-5 py-4 text-base text-foreground/85 min-h-24"
             >
-              <span className="grid size-8 shrink-0 place-items-center text-neutral-500">
+              <span className="grid size-8 shrink-0 place-items-center text-subheading">
                 {c.icon}
               </span>
               {c.label}

@@ -35,12 +35,12 @@ export function BeforeAfter() {
           <div className="text-[15px] font-medium flex items-center justify-start gap-3 text-brand">
             <span className="w-0.5 rounded-full h-4 bg-brand" /> The difference
           </div>
-          <h2 className="mt-3 text-2xl sm:text-3xl tracking-tight font-semibold text-neutral-100">
+          <h2 className="mt-3 text-2xl sm:text-3xl tracking-tight font-semibold text-heading">
             What changes when <br /> the visit gets captured.
 
           </h2>
           {/* </div>
-          <p className="text-base leading-relaxed text-neutral-400 max-w-md">
+          <p className="text-base leading-relaxed text-muted-foreground max-w-md">
             When Otto captures the visit, the data lands in the system before
             it disappears. The rep stays on the phone. The manager sees the
             account move. Everyone stops chasing.
@@ -54,7 +54,7 @@ export function BeforeAfter() {
             </h4>
             <div className="divide-y divide-rose-500/15">
               {BEFORE.map((b) => (
-                <div key={b} className="flex items-center gap-3 py-3 text-[15px] text-neutral-300">
+                <div key={b} className="flex items-center gap-3 py-3 text-[15px] text-foreground/85">
                   <Cross />
                   {b}
                 </div>
@@ -67,7 +67,7 @@ export function BeforeAfter() {
             </h4>
             <div className="divide-y divide-brand/15">
               {AFTER.map((b) => (
-                <div key={b} className="flex items-center gap-3 py-3 text-[15px] text-neutral-300">
+                <div key={b} className="flex items-center gap-3 py-3 text-[15px] text-foreground/85">
                   <Check />
                   {b}
                 </div>

@@ -33,11 +33,11 @@ export function Coordinator() {
             <div className="text-[15px] font-medium flex items-start md:items-center justify-center gap-3 text-brand">
               <span className="w-0.5 rounded-full h-4 bg-brand" /> For sales coordinators
             </div>
-            <h2 className="mt-4 text-2xl sm:text-3xl  font-semibold text-neutral-100">
+            <h2 className="mt-4 text-2xl sm:text-3xl  font-semibold text-heading">
               Otto does not replace your  <br /> coordinator. It gives them better information.
             </h2>
           </div>
-          <p className="mt-5 md:max-w-2xl text-base text-neutral-400 leading-relaxed">
+          <p className="mt-5 md:max-w-2xl text-base text-muted-foreground leading-relaxed">
             Instead of chasing reps for what happened, coordinators get clean
             visit summaries, customer requests, pending follow-ups, and quote
             updates, ready to act on.
@@ -46,12 +46,12 @@ export function Coordinator() {
 
         <div className="mt-10 grid grid-cols-1 gap-5 rounded-2xl border border-light-dark bg-dark p-6 sm:p-10 md:grid-cols-2">
           <div>
-            <h4 className="mb-5 text-xs font-semibold tracking-[0.08em] text-neutral-500">
+            <h4 className="mb-5 text-xs font-semibold tracking-[0.08em] text-subheading">
               Today
             </h4>
             <div className="divide-y divide-light-dark">
               {OLD.map((c) => (
-                <div key={c} className="flex items-center gap-3 py-3 text-base text-neutral-300">
+                <div key={c} className="flex items-center gap-3 py-3 text-base text-foreground/85">
                   <Cross />
                   {c}
                 </div>
@@ -64,7 +64,7 @@ export function Coordinator() {
             </h4>
             <div className="divide-y divide-brand/15">
               {NEW.map((c) => (
-                <div key={c} className="flex items-center gap-3 py-3 text-base text-neutral-300">
+                <div key={c} className="flex items-center gap-3 py-3 text-base text-foreground/85">
                   <Check />
                   {c}
                 </div>

@@ -50,12 +50,12 @@ export default function TeamSection() {
   return (
     <>
       <Nav />
-      <main className="flex-grow pt-32 pb-24 md:pt-40 md:pb-32 px-4 mx-auto max-w-7xl w-full bg-dark text-neutral-100">
-        <div className="text-center mb-16 md:mb-20">
-          <p className="text-sm font-medium tracking-wide text-neutral-400 mb-5">
+      <main className="flex-grow pt-28 pb-20 md:pt-40 md:pb-32 px-5 sm:px-6 mx-auto max-w-7xl w-full bg-dark text-heading">
+        <div className="text-center mb-12 md:mb-20">
+          <p className="text-sm font-medium tracking-wide text-muted-foreground mb-4 md:mb-5">
             The Team
           </p>
-          <h1 className="text-3xl md:text-4xl font-semibold leading-tight text-neutral-100 tracking-tight">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold leading-tight text-heading tracking-tight">
             2 Co-Founders. 6 Companies Built. <br />
             1 Problem Both of them Lived.
           </h1>
@@ -65,24 +65,24 @@ export default function TeamSection() {
           {teamMembers.map((member) => (
             <div key={member.name} className="flex flex-col group">
               <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl md:rounded-[24px] bg-light-dark/40 mb-5 border border-light-dark flex items-center justify-center">
-                <span className="text-sm text-neutral-400">Image Pending</span>
+                <span className="text-sm text-muted-foreground">Image Pending</span>
               </div>
 
               <div className="px-1 mt-2">
-                <h3 className="text-xl font-medium text-neutral-100 mb-1.5">
+                <h3 className="text-xl font-medium text-heading mb-1.5">
                   {member.name}
                 </h3>
-                <p className="text-base font-medium text-neutral-100 mb-1.5">
+                <p className="text-base font-medium text-heading mb-1.5">
                   {member.title}
                 </p>
-                <p className="text-neutral-400 mb-5">{member.subtitle}</p>
+                <p className="text-muted-foreground mb-5">{member.subtitle}</p>
 
                 <div className="flex items-center gap-4">
                   <a
                     href={member.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-neutral-400 transition-colors hover:text-brand"
+                    className="text-muted-foreground transition-colors hover:text-brand"
                   >
                     <LinkedinIcon className="size-5" />
                   </a>
@@ -90,7 +90,7 @@ export default function TeamSection() {
                     href={member.twitter}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-neutral-400 transition-colors hover:text-brand"
+                    className="text-muted-foreground transition-colors hover:text-brand"
                   >
                     <XIcon className="size-5" />
                   </a>

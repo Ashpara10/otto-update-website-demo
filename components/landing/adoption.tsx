@@ -50,11 +50,11 @@ export function Adoption() {
             <div className="text-[15px] font-medium flex items-center justify-start gap-3 text-brand">
               <span className="w-0.5 rounded-full h-4 bg-brand" /> Why reps use it
             </div>
-            <h2 className="mt-4 text-2xl md:text-3xl font-semibold text-neutral-100">
+            <h2 className="mt-4 text-2xl md:text-3xl font-semibold text-heading">
               Reps already do <br /> this part out loud.
             </h2>
           </div>
-          <p className="mt-5 max-w-md text-base text-neutral-400 leading-relaxed">
+          <p className="mt-5 max-w-md text-base text-muted-foreground leading-relaxed">
             After a visit, reps already talk it through, to a coordinator, a
             teammate, or themselves. Otto listens to that same debrief and
             turns it into the CRM update and follow-ups.
@@ -70,10 +70,10 @@ export function Adoption() {
               <div className="mb-4 grid size-10 place-items-center rounded-md bg-brand/10 text-brand">
                 {c.icon}
               </div>
-              <h3 className="text-base font-medium tracking-[-0.02em] text-neutral-100">
+              <h3 className="text-base font-medium tracking-[-0.02em] text-heading">
                 {c.title}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-neutral-500">
+              <p className="mt-2 text-sm leading-relaxed text-subheading">
                 {c.body}
               </p>
             </div>

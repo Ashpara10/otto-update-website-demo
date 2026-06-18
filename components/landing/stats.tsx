@@ -90,7 +90,7 @@ export function Stats() {
               <p className="text-6xl font-bold tracking-[-0.03em] bg-gradient-to-b from-emerald-600 to-brand bg-clip-text text-transparent">
                 <CountUp to={s.value} suffix={s.suffix} />
               </p>
-              <p className="mt-6 text-base text-neutral-400 text-left leading-relaxed w-4/5">
+              <p className="mt-6 text-base text-muted-foreground text-left leading-relaxed w-4/5">
                 {s.caption}
               </p>
             </motion.div>

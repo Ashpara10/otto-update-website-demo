@@ -78,11 +78,11 @@ export function Positioning() {
             <div className="text-[15px] font-medium flex items-center justify-start gap-3 text-brand">
               <span className="w-0.5 rounded-full h-4 bg-brand" /> Where Otto fits
             </div>
-            <h2 className="mt-4 text-2xl md:text-3xl font-semibold text-neutral-100">
+            <h2 className="mt-4 text-2xl md:text-3xl font-semibold text-heading">
               Not another CRM. <br /> Not another dashboard.
             </h2>
           </div>
-          <p className="mt-5 max-w-md text-base text-neutral-400 leading-relaxed">
+          <p className="mt-5 max-w-md text-base text-muted-foreground leading-relaxed">
             You already have a CRM. The problem was never where the data goes.
             It is getting what happened in the field into the system before
             it disappears. Otto sits between the field and the tools you
@@ -92,11 +92,11 @@ export function Positioning() {
 
         <div className="mt-12 flex flex-col items-stretch gap-3 md:flex-row md:items-stretch">
           <div className="flex flex-1 flex-col items-center gap-3 rounded-2xl border border-light-dark bg-light-dark/40 px-5 py-6 text-center">
-            <span className="grid size-12 place-items-center rounded-xl border border-light-dark bg-dark text-neutral-500">
+            <span className="grid size-12 place-items-center rounded-xl border border-light-dark bg-dark text-subheading">
               <RepIcon />
             </span>
-            <p className="text-base font-medium text-neutral-300">The rep</p>
-            <p className="text-sm text-neutral-500">In the field</p>
+            <p className="text-base font-medium text-foreground/85">The rep</p>
+            <p className="text-sm text-subheading">In the field</p>
           </div>
 
           <div className="flex items-center justify-center text-brand/60 md:px-2">
@@ -108,7 +108,7 @@ export function Positioning() {
               <OttoIcon />
             </span>
             <p className="text-base font-semibold text-brand">Otto</p>
-            <p className="text-sm text-neutral-500">Captures &amp; structures the visit</p>
+            <p className="text-sm text-subheading">Captures &amp; structures the visit</p>
           </div>
 
           <div className="flex items-center justify-center text-brand/60 md:px-2">
@@ -116,11 +116,11 @@ export function Positioning() {
           </div>
 
           <div className="flex flex-1 flex-col items-center gap-3 rounded-2xl border border-light-dark bg-light-dark/40 px-5 py-6 text-center">
-            <span className="grid size-12 place-items-center rounded-xl border border-light-dark bg-dark text-neutral-500">
+            <span className="grid size-12 place-items-center rounded-xl border border-light-dark bg-dark text-subheading">
               <CrmIcon />
             </span>
-            <p className="text-base font-medium text-neutral-300">CRM &amp; ERP</p>
-            <p className="text-sm text-neutral-500">Always current</p>
+            <p className="text-base font-medium text-foreground/85">CRM &amp; ERP</p>
+            <p className="text-sm text-subheading">Always current</p>
           </div>
         </div>
 
@@ -136,10 +136,10 @@ export function Positioning() {
               <div className="mt-4 mb-4 grid size-12 place-items-center rounded-xl bg-brand/10 text-brand">
                 {s.icon}
               </div>
-              <p className="text-base font-semibold tracking-[-0.02em] text-neutral-100">
+              <p className="text-base font-semibold tracking-[-0.02em] text-heading">
                 {s.title}
               </p>
-              <p className="mt-1.5 text-sm leading-relaxed text-neutral-500">
+              <p className="mt-1.5 text-sm leading-relaxed text-subheading">
                 {s.body}
               </p>
             </div>

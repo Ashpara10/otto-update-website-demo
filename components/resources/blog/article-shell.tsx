@@ -23,7 +23,7 @@ function getBlockText(block: PortableTextBlock) {
 
 function BlogBody({ blocks }: { blocks: PortableTextBlock[] }) {
   return (
-    <div className="mt-10 space-y-6 text-base leading-8 text-neutral-200">
+    <div className="mt-10 space-y-6 text-base leading-8 text-muted-foreground">
       {blocks.map((block) => {
         const text = getBlockText(block);
 
@@ -41,7 +41,7 @@ function BlogBody({ blocks }: { blocks: PortableTextBlock[] }) {
           return (
             <h2
               key={block._key}
-              className="pt-4 text-2xl font-semibold tracking-tight text-neutral-100"
+              className="pt-4 text-2xl font-semibold tracking-tight text-heading"
             >
               {text}
             </h2>
@@ -52,7 +52,7 @@ function BlogBody({ blocks }: { blocks: PortableTextBlock[] }) {
           return (
             <h3
               key={block._key}
-              className="pt-2 text-xl font-semibold tracking-tight text-neutral-100"
+              className="pt-2 text-xl font-semibold tracking-tight text-heading"
             >
               {text}
             </h3>
@@ -63,7 +63,7 @@ function BlogBody({ blocks }: { blocks: PortableTextBlock[] }) {
           return (
             <blockquote
               key={block._key}
-              className="border-l-2 border-brand pl-5 text-neutral-100"
+              className="border-l-2 border-brand pl-5 text-heading"
             >
               {text}
             </blockquote>
@@ -90,12 +90,12 @@ export default function ArticleShell({
       <div className="mx-auto max-w-3xl">
         <Link
           href="/resources/blog"
-          className="text-sm text-neutral-400 transition-colors hover:text-brand"
+          className="text-sm text-muted-foreground transition-colors hover:text-brand"
         >
           ← Back to Blog
         </Link>
 
-        <div className="mt-8 flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.18em] text-neutral-400">
+        <div className="mt-8 flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.18em] text-muted-foreground">
           <span>
             Blog {post.number} of {posts.length}
           </span>
@@ -103,11 +103,11 @@ export default function ArticleShell({
           <span>Updated {post.updated}</span>
         </div>
 
-        <h1 className="mt-6 text-4xl font-semibold tracking-tight text-neutral-100 sm:text-5xl">
+        <h1 className="mt-6 text-4xl font-semibold tracking-tight text-heading sm:text-5xl">
           {post.title}
         </h1>
 
-        <p className="mt-6 text-lg leading-8 text-neutral-200">
+        <p className="mt-6 text-lg leading-8 text-foreground/85">
           {post.metaDescription}
         </p>
 
@@ -115,7 +115,7 @@ export default function ArticleShell({
           <div className="text-xs font-semibold uppercase tracking-[0.22em] text-brand">
             TLDR
           </div>
-          <p className="mt-4 text-base leading-8 text-neutral-200">
+          <p className="mt-4 text-base leading-8 text-foreground/85">
             {post.tldr}
           </p>
         </div>
@@ -123,7 +123,7 @@ export default function ArticleShell({
         <BlogBody blocks={post.body} />
 
         <div className="mt-10 rounded-xl border border-light-dark bg-light-dark/40 p-6 sm:p-8">
-          <p className="text-sm uppercase tracking-[0.22em] text-neutral-400">
+          <p className="text-sm uppercase tracking-[0.22em] text-muted-foreground">
             Keep reading
           </p>
           <div className="mt-5 grid gap-4 sm:grid-cols-2">
@@ -131,10 +131,10 @@ export default function ArticleShell({
               href={`/resources/blog/${next.slug}`}
               className="rounded-lg border border-light-dark bg-dark p-5 transition-colors hover:border-brand/35 hover:bg-light-dark/40"
             >
-              <span className="text-xs uppercase tracking-[0.18em] text-neutral-400">
+              <span className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
                 Read next
               </span>
-              <p className="mt-3 text-lg font-medium text-neutral-100">
+              <p className="mt-3 text-lg font-medium text-heading">
                 {next.title}
               </p>
             </Link>
@@ -142,10 +142,10 @@ export default function ArticleShell({
               href={`/resources/blog/${related.slug}`}
               className="rounded-lg border border-light-dark bg-dark p-5 transition-colors hover:border-brand/35 hover:bg-light-dark/40"
             >
-              <span className="text-xs uppercase tracking-[0.18em] text-neutral-400">
+              <span className="text-xs uppercase tracking-[0.18em] text-muted-foreground">
                 Related
               </span>
-              <p className="mt-3 text-lg font-medium text-neutral-100">
+              <p className="mt-3 text-lg font-medium text-heading">
                 {related.title}
               </p>
             </Link>

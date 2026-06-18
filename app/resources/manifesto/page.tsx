@@ -12,7 +12,7 @@ export const metadata = {
 
 export default function ManifestoPage() {
   return (
-    <div className="min-h-screen bg-dark text-neutral-100 flex flex-col">
+    <div className="min-h-screen bg-dark text-heading flex flex-col">
       <Nav />
       <main>
         <HeroSection />

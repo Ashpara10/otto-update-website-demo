@@ -26,6 +26,7 @@ import Link from "next/link";
 import { BookDemoButton } from "../book-demo-button";
 import Logo from "../logo";
 import { NavDropdown, type NavDropdownGroup } from "./nav-dropdown";
+import { ThemeToggle } from "../theme-toggle";
 
 const featuresGroup: NavDropdownGroup = {
   label: "Features",
@@ -177,14 +178,14 @@ function MobileGroup({
         aria-expanded={open}
         className="flex w-full items-center justify-between px-5 py-4 text-left"
       >
-        <span className="text-sm font-semibold text-neutral-100">
+        <span className="text-base font-medium text-heading">
           {group.label}
         </span>
         <HugeiconsIcon
           icon={ArrowDown01Icon}
           size={16}
           strokeWidth={2}
-          className={`text-neutral-500 transition-transform ${open ? "rotate-180" : ""}`}
+          className={`text-subheading transition-transform ${open ? "rotate-180" : ""}`}
         />
       </button>
       {open && (
@@ -194,9 +195,9 @@ function MobileGroup({
               <Link
                 href={item.href}
                 onClick={onNavigate}
-                className="flex items-start gap-3 rounded-xl px-5 py-3 text-neutral-300 hover:bg-light-dark transition"
+                className="flex items-start gap-3 rounded-xl px-5 py-3 text-foreground/85 hover:bg-light-dark transition"
               >
-                <span className="mt-0.5 grid size-8 shrink-0 place-items-center rounded-lg border border-light-dark bg-dark text-neutral-600">
+                <span className="mt-0.5 grid size-8 shrink-0 place-items-center rounded-lg border border-light-dark bg-dark text-subheading">
                   <HugeiconsIcon
                     icon={item.icon}
                     width={16}
@@ -205,10 +206,10 @@ function MobileGroup({
                   />
                 </span>
                 <span className="min-w-0">
-                  <span className="block text-sm font-semibold text-neutral-100">
+                  <span className="block text-sm font-semibold text-heading">
                     {item.label}
                   </span>
-                  <span className="mt-0.5 block text-xs leading-snug text-neutral-500">
+                  <span className="mt-0.5 block text-xs leading-snug text-subheading">
                     {item.description}
                   </span>
                 </span>
@@ -242,7 +243,7 @@ export function Nav() {
   };
 
   return (
-    <div className="fixed top-0 mx-auto inset-x-0 z-50 w-full border-b bg-dark border-light-dark">
+    <div className="fixed top-0 mx-auto inset-x-0 z-50 w-full border-b bg-background border-light-dark">
       <header className="mx-auto max-w-7xl w-full px-5 md:px-10 py-4">
         <nav className="flex items-center justify-between">
           <Link href="/" className="flex md:hidden items-center gap-2 shrink-0">
@@ -252,11 +253,11 @@ export function Nav() {
             <Logo />
           </Link>
 
-          <ul className="hidden md:flex items-center gap-1 text-base text-neutral-400">
+          <ul className="hidden md:flex items-center gap-1 text-[15px] text-neutral-600 dark:text-muted-foreground">
             <li>
               <Link
                 href="/"
-                className="px-4 py-2 rounded-full hover:text-neutral-100 hover:bg-light-dark transition"
+                className="px-4 py-2 rounded-full hover:text-heading hover:bg-light-dark transition"
               >
                 Home
               </Link>
@@ -270,7 +271,7 @@ export function Nav() {
             <li>
               <Link
                 href="/pricing"
-                className="px-4 py-2 rounded-full hover:text-neutral-100 hover:bg-light-dark transition"
+                className="px-4 py-2 rounded-full hover:text-heading hover:bg-light-dark transition"
               >
                 Pricing
               </Link>
@@ -281,16 +282,13 @@ export function Nav() {
           </ul>
 
           <div className="flex items-center justify-end gap-3 sm:gap-4 shrink-0">
-            <Link
-              href="/resources/contact"
-              className="hidden sm:inline-flex h-10 items-center px-3 text-[16px] font-medium text-neutral-600 hover:text-neutral-100 transition"
-            >
-              Sign in
-            </Link>
+            <div className="hidden sm:inline-flex">
+              <ThemeToggle />
+            </div>
             <div className="hidden sm:block w-px h-6 bg-light-dark" />
             <div className="hidden sm:inline-flex">
               <BookDemoButton
-                className="h-10 items-center rounded-full bg-brand px-4 text-[14px] font-medium text-lime-900 hover:bg-lime-400 transition"
+                className="btn-primary h-10 items-center rounded-full px-4 text-[14px] font-medium"
               >
                 Book a demo
               </BookDemoButton>
@@ -300,7 +298,7 @@ export function Nav() {
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileOpen}
               onClick={() => setMobileOpen((v) => !v)}
-              className="md:hidden grid size-10 place-items-center rounded-full border border-light-dark text-neutral-300 hover:bg-light-dark transition"
+              className="md:hidden grid size-10 place-items-center rounded-full border border-light-dark text-foreground/85 hover:bg-light-dark transition"
             >
               <HugeiconsIcon
                 icon={mobileOpen ? Cancel01Icon : Menu01Icon}
@@ -314,7 +312,7 @@ export function Nav() {
 
       {mobileOpen && (
         <div className="md:hidden border-t border-light-dark bg-dark max-h-[calc(100dvh-4rem)] overflow-y-auto">
-          <ul className="mx-auto max-w-7xl w-full px-5 py-2 text-[16px] font-medium text-neutral-300">
+          <ul className="mx-auto max-w-7xl w-full  py-2 text-base font-medium text-foreground/85">
             <li>
               <Link
                 href="/"
@@ -331,15 +329,6 @@ export function Nav() {
                 className="block rounded-full px-4 py-3 hover:bg-light-dark transition"
               >
                 Pricing
-              </Link>
-            </li>
-            <li className="sm:hidden">
-              <Link
-                href="/resources/contact"
-                onClick={closeMobile}
-                className="block rounded-full px-4 py-3 hover:bg-light-dark transition"
-              >
-                Sign in
               </Link>
             </li>
           </ul>
@@ -369,9 +358,12 @@ export function Nav() {
             />
           </div>
 
-          <div className="mx-auto max-w-7xl w-full px-5 py-4">
+          <div className="mx-auto max-w-7xl w-full px-5 py-4 space-y-3">
+            <div className="sm:hidden">
+              <ThemeToggle fullWidth />
+            </div>
             <BookDemoButton
-              className="inline-flex w-full h-12 items-center justify-center rounded-full bg-brand px-6 text-base font-semibold text-lime-900 hover:bg-lime-400 transition"
+              className="btn-primary inline-flex w-full h-12 items-center justify-center rounded-full px-6 text-base font-semibold"
             >
               Book a demo
             </BookDemoButton>

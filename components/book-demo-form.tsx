@@ -119,9 +119,9 @@ export function BookDemoForm({ onSuccess }: { onSuccess: () => void }) {
       <button
         type="submit"
         disabled={submitting}
-        className="mt-1 inline-flex items-center justify-center gap-2 rounded-full bg-brand px-7 py-3.5 text-base font-semibold text-dark disabled:cursor-not-allowed disabled:opacity-60"
+        className="mt-1 inline-flex dark items-center justify-center gap-2 rounded-full bg-brand px-7 py-3.5 text-base font-semibold text-dark disabled:cursor-not-allowed disabled:opacity-60"
       >
-        {submitting ? "Sending…" : "Request demo →"}
+        {submitting ? "Sending…" : "Request demo "}
       </button>
     </form>
   );

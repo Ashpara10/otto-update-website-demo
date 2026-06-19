@@ -31,7 +31,7 @@ export function DemoModalProvider({ children }: { children: React.ReactNode }) {
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent className="max-h-[90vh] overflow-y-auto border-light-dark bg-dark sm:max-w-lg">
           <DialogHeader>
-            <DialogTitle className="text-2xl tracking-tight text-foreground/85">
+            <DialogTitle className="text-2xl font-semibold tracking-tight text-foreground/85">
               Book a demo
             </DialogTitle>
             <DialogDescription className="text-muted-foreground">

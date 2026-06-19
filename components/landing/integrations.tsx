@@ -70,7 +70,7 @@ function EdgeFade({ side }: { side: "left" | "right" }) {
 
 export function Integrations() {
   return (
-    <section id="integrations" className="relative py-6 lg:py-8 overflow-hidden">
+    <section id="integrations" className="relative py-16 lg:py-28 overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <div className="text-[15px] font-medium flex items-center justify-center gap-3 text-brand">
           <span className="w-0.5 rounded-full h-4 bg-brand" /> Integrations

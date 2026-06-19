@@ -82,7 +82,7 @@ function ExpandedPanel({ item, isActive }: { item: Industry; isActive: boolean }
         }`}
     >
       <div className="overflow-hidden">
-        <div className="pt-3 min-h-[120px]">
+        <div className="pt-3 min-h-[170px]">
           <ul className="space-y-1 text-sm sm:text-base text-muted-foreground leading-relaxed">
             {item.points.map((pt) => (
               <li key={pt}>{pt}</li>
@@ -117,7 +117,7 @@ function IndustryRow({ item, isActive, onClick }: { item: Industry; isActive: bo
           </span>
           <div className="min-w-0 flex-1">
             <p
-              className={`text-base sm:text-lg font-semibold leading-snug transition-colors ${isActive ? "text-heading" : "text-heading/80"
+              className={` text-base sm:text-lg font-semibold leading-snug transition-colors ${isActive ? "text-heading" : "text-heading/80"
                 }`}
             >
               {item.title}
@@ -203,7 +203,7 @@ export function Industries() {
           </p>
         </div>
 
-        <div className="md:mt-10 mt-4 grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
+        <div className="md:mt-10 mt-4 grid lg:grid-cols-2 gap-10 lg:gap-16 items-stretch">
           <div className="order-2 lg:order-1">
             <div className="relative hidden lg:block aspect-[9/12] w-full mx-auto rounded-2xl overflow-hidden border border-light-dark bg-light-dark">
               <Image
@@ -217,11 +217,8 @@ export function Industries() {
             </div>
           </div>
 
-          <div className="flex flex-col order-1 lg:order-2">
-            <p className="text-muted-foreground text-base mb-6 sm:text-xl max-w-md leading-relaxed lg:hidden">
-              Otto is built for teams selling in the field, not sitting behind a desk.
-            </p>
-            <ul className="hidden lg:flex flex-col divide-y divide-light-dark">
+          <div className="hidden lg:flex flex-col order-1 lg:order-2 min-h-0">
+            <ul className="flex-1 min-h-0 overflow-y-auto divide-y divide-light-dark pr-2 scroll-thin">
               {industries.map((item, i) => (
                 <IndustryRow
                   key={item.title}
@@ -231,18 +228,23 @@ export function Industries() {
                 />
               ))}
             </ul>
+          </div>
 
-            <div className="flex flex-col space-y-16 lg:hidden">
+          <div className="flex flex-col order-1 lg:order-2 lg:hidden">
+            <p className="text-muted-foreground text-base mb-6 sm:text-xl max-w-md leading-relaxed">
+              Otto is built for teams selling in the field, not sitting behind a desk.
+            </p>
+            <div className="flex flex-col space-y-16">
               {industries.map((item) => (
                 <IndustryStack key={item.title} item={item} />
               ))}
             </div>
-
-            <p className="text-muted-foreground mt-8 text-base max-w-md leading-relaxed">
-              If your reps spend more time in customer facilities than in Salesforce, Otto was built for them.
-            </p>
           </div>
         </div>
+
+        <p className="mt-12 hidden lg:block text-center text-muted-foreground text-base max-w-2xl mx-auto leading-relaxed">
+          If your reps spend more time in customer facilities than in Salesforce, Otto was built for them.
+        </p>
       </div>
     </section>
   );

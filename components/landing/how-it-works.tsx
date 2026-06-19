@@ -69,31 +69,10 @@ function StepBlock({ step, index }: { step: Step; index: number }) {
   return (
     <div className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-12 lg:gap-16 items-center">
       <div className={`flex flex-col gap-5 ${isReversed ? "md:order-2" : ""}`}>
-        {/* <div className="inline-flex items-center gap-3 self-start">
-          <span className="grid size-9 place-items-center rounded-lg border border-brand/25 bg-brand/10 text-sm font-bold text-brand">
-            {number}
-          </span>
-          <span className="text-[13px] font-semibold tracking-[0.15em] uppercase text-brand">
-            Step
-          </span>
-        </div> */}
-
         <h3 className="text-xl sm:text-2xl lg:text-3xl font-semibold tracking-tight text-heading">
           {step.title.replace(/^\d+\.\s*/, "")}
         </h3>
 
-        {/* {step.variant === "quotes" ? (
-          <ul className="flex flex-col divide-y divide-light-dark rounded-2xl border border-light-dark bg-light-dark/40 px-5">
-            {step.items.map((line, i) => (
-              <li
-                key={i}
-                className="py-3 text-base sm:text-lg text-foreground/85 leading-relaxed"
-              >
-                {line}
-              </li>
-            ))}
-          </ul>
-        ) : ( */}
         <ul className="flex flex-col gap-2">
           {step.items.map((line, i) => (
             <li
@@ -107,7 +86,6 @@ function StepBlock({ step, index }: { step: Step; index: number }) {
             </li>
           ))}
         </ul>
-        {/* )} */}
 
         {step.body && (
           <p className="text-base sm:text-lg font-medium text-heading leading-relaxed">
@@ -117,13 +95,10 @@ function StepBlock({ step, index }: { step: Step; index: number }) {
       </div>
 
       <div
-        className={`relative w-full aspect-square max-w-xl mx-auto rounded-2xl overflow-hidden border border-light-dark bg-light-dark/40 ${isReversed ? "md:order-1" : ""
+        className={`relative w-full aspect-square max-w-md mx-auto rounded-2xl overflow-hidden border border-light-dark bg-light-dark/40 ${isReversed ? "md:order-1" : ""
           }`}
       >
         <Image src={step.image} fill alt="" sizes="(min-width: 768px) 50vw, 90vw" className="object-cover" />
-        {/* <div className="absolute inset-0 grid place-items-center text-subheading text-sm">
-          Step image
-        </div> */}
       </div>
     </div>
   );
@@ -132,6 +107,8 @@ function StepBlock({ step, index }: { step: Step; index: number }) {
 export function HowItWorks() {
   return (
     <section id="how" className="relative py-20 lg:py-28">
+      <div className="hidden md:flex pointer-events-none absolute blur-[250px] -right-[10%] dark:opacity-80 top-1/2 size-[400px] rounded-full bg-linear-to-b from-[var(--color-blob-from)] to-[var(--color-blob-to)] -z-1" />
+
       <div className="mx-auto max-w-7xl px-6 md:px-10">
         <div className="flex flex-col md:flex-row items-start md:items-end md:justify-between">
           <div>

@@ -1,5 +1,6 @@
 import { Nav } from "@/components/landing/nav";
 import { Footer } from "@/components/landing/footer";
+import Image from "next/image";
 
 const teamMembers = [
   {
@@ -7,16 +8,18 @@ const teamMembers = [
     title: "CEO / Co-Founder",
     subtitle:
       "15 years in sales | Didn't study the CRM problem. He lived it.",
-    linkedin: "#",
-    twitter: "#",
+    linkedin: "https://www.linkedin.com/in/omkarpandharkame",
+    // twitter: "#",`
+    image: "omkar.png",
   },
   {
     name: "Tanay Lakhani",
     title: "CPO / Co-Founder",
     subtitle:
       "Built product at Zillow. | Product instinct for what reps actually need.",
-    linkedin: "#",
-    twitter: "#",
+    linkedin: "https://www.linkedin.com/in/tanaylakhani/",
+    // twitter: "#",
+    image: "tanay.png",
   },
 ];
 
@@ -52,9 +55,9 @@ export default function TeamSection() {
       <Nav />
       <main className="flex-grow pt-28 pb-20 md:pt-40 md:pb-32 px-5 sm:px-6 mx-auto max-w-7xl w-full bg-dark text-heading">
         <div className="text-center mb-12 md:mb-20">
-          <p className="text-sm font-medium tracking-wide text-muted-foreground mb-4 md:mb-5">
-            The Team
-          </p>
+          <div className="text-[15px] font-medium flex items-center justify-center mb-6 gap-2 text-brand">
+            <span className="w-0.5 rounded-full h-4 bg-brand" /> The Team
+          </div>
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold leading-tight text-heading tracking-tight">
             2 Co-Founders. 6 Companies Built. <br />
             1 Problem Both of them Lived.
@@ -64,8 +67,8 @@ export default function TeamSection() {
         <div className="grid grid-cols-1 max-w-4xl mx-auto w-full sm:grid-cols-2 gap-6 lg:gap-12">
           {teamMembers.map((member) => (
             <div key={member.name} className="flex flex-col group">
-              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl md:rounded-[24px] bg-light-dark/40 mb-5 border border-light-dark flex items-center justify-center">
-                <span className="text-sm text-muted-foreground">Image Pending</span>
+              <div className="relative aspect-4/5 w-full overflow-hidden rounded-2xl md:rounded-[24px] bg-light-dark/40 mb-5 border border-light-dark flex items-center justify-center">
+                <Image src={`/team/${member.image}`} alt={member.name} fill className="object-cover" />
               </div>
 
               <div className="px-1 mt-2">
@@ -86,14 +89,14 @@ export default function TeamSection() {
                   >
                     <LinkedinIcon className="size-5" />
                   </a>
-                  <a
+                  {/* <a
                     href={member.twitter}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-muted-foreground transition-colors hover:text-brand"
                   >
                     <XIcon className="size-5" />
-                  </a>
+                  </a> */}
                 </div>
               </div>
             </div>

@@ -255,7 +255,7 @@ export function Nav() {
             <Logo />
           </Link>
 
-          <ul className="hidden md:flex items-center gap-1 text-[15px] text-neutral-600 dark:text-muted-foreground">
+          <ul className="hidden md:flex items-center gap-1 text-base text-neutral-600 dark:text-muted-foreground">
             <li>
               <Link
                 href="/"

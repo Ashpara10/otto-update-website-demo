@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import Logo from "../logo";
 
 type Message =
   | { kind: "user"; text: string }
@@ -95,11 +96,11 @@ export function AnswersInField() {
             <p className="text-lg sm:text-xl font-medium text-heading leading-relaxed">
               Otto gives reps answers while they are still with the customer.
             </p>
-            <p className="mt-3 text-lg sm:text-lg text-muted-foreground leading-relaxed">
+            <p className="mt-3 text-base sm:text-lg text-muted-foreground leading-relaxed">
               It connects to your product data, inventory, CRM, quotes, email, calendar, and customer history.
             </p>
 
-            <ul className="mt-5 list-inside list-disc space-y-2 text-base text-muted-foreground leading-relaxed">
+            <ul className="mt-5 list-inside list-disc space-y-2 text-base sm:text-lg text-muted-foreground leading-relaxed">
               <li>No callbacks.</li>
               <li>No digging through systems.</li>
               <li>No lost momentum.</li>
@@ -120,16 +121,17 @@ export function AnswersInField() {
 
             <div className="absolute inset-x-0 -bottom-42 flex items-end justify-center">
               <div
-                className="relative w-full max-w-[300px] sm:max-w-[340px] aspect-[9/16] rounded-t-[2.4rem] border border-white/20 overflow-hidden backdrop-blur-md [-webkit-mask-image:linear-gradient(to_top,transparent_0%,black_50%,black_60%,black_80%,black_100%)]"
-              // style={{
-              //   background:
-              //     "linear-gradient(180deg, rgba(20,20,20,0.78) 0%, rgba(20,20,20,0.55) 100%)",
-              // }}
+                className="relative w-full max-w-[300px] sm:max-w-[340px] aspect-9/16 rounded-t-[2.4rem] border border-white/20 overflow-hidden backdrop-blur-md [-webkit-mask-image:linear-gradient(to_top,transparent_0%,black_50%,black_60%,black_80%,black_100%)] flex flex-col"
+
               >
+                <div className="absolute top-4 z-10 p-4  mx-auto w-full flex items-center justify-center">
+
+                  <Logo onlyIcon className=" size-6 text-white drop-shadow-2xl shadow-black" />
+                </div>
                 <div className="absolute inset-0 bg-black" />
                 <div
                   ref={viewportRef}
-                  className="absolute inset-0 overflow-hidden pt-10 pb-4 px-5"
+                  className="absolute inset-0 overflow-hidden pt-16 pb-4 px-5"
                   style={{
                     maskImage:
                       "linear-gradient(to bottom, transparent 0%, black 14%, black 86%, transparent 100%)",
@@ -137,6 +139,7 @@ export function AnswersInField() {
                       "linear-gradient(to bottom, transparent 0%, black 14%, black 86%, transparent 100%)",
                   }}
                 >
+
                   <div
                     ref={columnRef}
                     className="flex flex-col gap-6 transition-transform duration-500 ease-out will-change-transform"

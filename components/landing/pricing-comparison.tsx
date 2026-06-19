@@ -121,13 +121,13 @@ export function PricingComparisonSection() {
           {/* After */}
           <div className="relative flex flex-col px-4 md:px-8">
             <div className="relative flex flex-col items-center pb-12 text-center">
-              <div className=" mb-6 rounded-full bg-brand text-lime-900 px-3 py-1 text-sm font-semibold  ">
+              <div className=" mb-6 rounded-full dark bg-brand text-lime-900 px-3 py-1 text-sm font-semibold  ">
                 Choose Otto
               </div>
               {/* <h3 className="mb-6 text-sm font-semibold tracking-widest text-neutral-500">
                 Otto
               </h3> */}
-              <div className="mb-2 text-5xl font-bold tracking-tight text-brand md:text-6xl">
+              <div className="mb-2 text-5xl font-bold dark tracking-tight text-brand md:text-6xl">
                 $99
               </div>
               <div className="text-sm font-medium text-subheading">

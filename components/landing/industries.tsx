@@ -9,7 +9,7 @@ import {
   ShoppingBag01Icon,
 } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 type IndustryIcon = typeof ShoppingBag01Icon;
 
@@ -24,7 +24,7 @@ type Industry = {
 
 const industries: Industry[] = [
   {
-    images: "/industries/item-1.png",
+    images: "/industries/item-2.png",
     title: "Industrial Distribution & Components",
     categories: "Industrial Distribution · Industrial Components",
     points: ["Thousands of parts.", "Constant questions."],
@@ -32,15 +32,15 @@ const industries: Industry[] = [
     icon: ShoppingBag01Icon,
   },
   {
-    images: "/industries/item-2.png",
-    title: "Manufacturing & Process Industries",
-    categories: "Manufacturing · Process Equipment · Industrial Gases",
+    images: "/industries/item-3.png",
+    title: "Process Industries",
+    categories: "Adhesives · Specialty Chemicals · Industrial Gases · Process Equipment · Manufacturing",
     points: ["Complex applications.", "Long customer relationships."],
     value: "Otto keeps conversations, account history, and next steps connected.",
     icon: Factory01Icon,
   },
   {
-    images: "/industries/item-3.png",
+    images: "/industries/item-4.png",
     title: "Electrical & Automation",
     categories: "Electrical · Automation & Controls",
     points: ["Specifications.", "Lead times.", "Compatibility questions."],
@@ -48,7 +48,7 @@ const industries: Industry[] = [
     icon: ElectricPlugsIcon,
   },
   {
-    images: "/industries/item-4.png",
+    images: "/industries/hvac.png",
     title: "HVAC & Construction",
     categories: "HVAC · Construction Supply",
     points: ["Schedules change.", "Priorities shift.", "Customers call from the job site."],
@@ -56,7 +56,7 @@ const industries: Industry[] = [
     icon: HardHatIcon,
   },
   {
-    images: "/industries/item-5.png",
+    images: "/industries/energy.png",
     title: "Energy & Utilities",
     categories: "Energy · Utilities",
     points: ["Critical operations.", "Long buying cycles."],
@@ -76,28 +76,22 @@ const industries: Industry[] = [
 const ROTATE_MS = 5000;
 
 function ExpandedPanel({ item, isActive }: { item: Industry; isActive: boolean }) {
-  const ref = useRef<HTMLDivElement | null>(null);
-  const [height, setHeight] = useState<number>(0);
-
-  useLayoutEffect(() => {
-    if (!ref.current) return;
-    setHeight(ref.current.scrollHeight);
-  }, [item.points, item.value, item.title]);
-
   return (
     <div
-      style={{ height: isActive ? height : 0 }}
-      className="overflow-hidden transition-[height] duration-500 ease-out"
+      className={`grid transition-[grid-template-rows] duration-500 ease-out ${isActive ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+        }`}
     >
-      <div ref={ref} className="pt-3">
-        <ul className="space-y-1 text-sm sm:text-base text-muted-foreground leading-relaxed">
-          {item.points.map((pt) => (
-            <li key={pt}>{pt}</li>
-          ))}
-        </ul>
-        <p className="mt-3 text-sm sm:text-base text-foreground/85">
-          {item.value}
-        </p>
+      <div className="overflow-hidden">
+        <div className="pt-3 min-h-[120px]">
+          <ul className="space-y-1 text-sm sm:text-base text-muted-foreground leading-relaxed">
+            {item.points.map((pt) => (
+              <li key={pt}>{pt}</li>
+            ))}
+          </ul>
+          <p className="mt-3 text-sm sm:text-base text-muted-foreground">
+            {item.value}
+          </p>
+        </div>
       </div>
     </div>
   );
@@ -128,7 +122,7 @@ function IndustryRow({ item, isActive, onClick }: { item: Industry; isActive: bo
             >
               {item.title}
             </p>
-            <p className="mt-1 text-sm sm:text-base text-subheading">
+            <p className="mt-1 text-sm sm:text-base text-muted-foreground">
               {item.categories}
             </p>
             <ExpandedPanel item={item} isActive={isActive} />
@@ -223,7 +217,7 @@ export function Industries() {
             </div>
           </div>
 
-          <div className="flex flex-col h-full order-1 lg:order-2">
+          <div className="flex flex-col order-1 lg:order-2">
             <p className="text-muted-foreground text-base mb-6 sm:text-xl max-w-md leading-relaxed lg:hidden">
               Otto is built for teams selling in the field, not sitting behind a desk.
             </p>

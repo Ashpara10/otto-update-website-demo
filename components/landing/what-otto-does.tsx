@@ -27,9 +27,12 @@ export function WhatOttoDoes() {
   return (
     <section
       id="v2-what-otto-does"
-      className="relative py-20 lg:py-28"
+      className="relative py-20 lg:py-28 overflow-hidden"
     >
-      <div className="mx-auto max-w-7xl px-6 md:px-10">
+      <div className="hidden md:flex -z-1 pointer-events-none dark absolute blur-[250px] inset-x-0 bottom-[10%] size-[400px] rounded-full bg-linear-to-b from-brand to-mint " />
+      {/* <div className="hidden md:flex -z-1 pointer-events-none dark absolute blur-[250px] -right-[10%] -top-[10%] size-[400px] rounded-full bg-linear-to-b from-[var(--color-blob-from)] to-[var(--color-blob-to)] -z-1" /> */}
+
+      <div className="mx-auto max-w-7xl px-6 z-1 md:px-10">
         <div className="max-w-3xl">
           <div className="text-[15px] font-medium flex items-center justify-start gap-3 text-brand">
             <span className="w-0.5 rounded-full h-4 bg-brand" /> What Otto does
@@ -43,7 +46,7 @@ export function WhatOttoDoes() {
           {ITEMS.map((item) => (
             <li
               key={item.text}
-              className="group relative flex flex-col gap-4 rounded-2xl border border-light-dark bg-light-dark/30 p-6 transition-colors hover:border-brand/40 hover:bg-light-dark/50"
+              className="group relative flex flex-col gap-4 rounded-2xl border border-light-dark bg-white dark:bg-dark p-6 transition-colors hover:border-brand/40 hover:bg-light-dark/50"
             >
               <span className="grid size-11 shrink-0 place-items-center rounded-xl border border-light-dark bg-dark text-brand">
                 <HugeiconsIcon icon={item.icon} size={22} strokeWidth={1.6} />

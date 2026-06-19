@@ -167,10 +167,10 @@ export default function MediaSection() {
                           src={item.logo}
                           alt={item.title}
                           className={cn(
-                            "object-contain h-32 grayscale invert opacity-60 transition-all duration-300",
+                            "object-contain h-32 grayscale dark:invert opacity-60 transition-all duration-300",
                             (item.publication === "Ascendants" ||
                               item.publication === "Medial") &&
-                            "invert-0 ",
+                            "invert dark:invert-0 ",
                             idx === 0 && "h-16"
                           )}
                         />

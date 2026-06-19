@@ -123,13 +123,14 @@ export default function CareersSection() {
                 href={`mailto:${APPLY_EMAIL}?subject=${encodeURIComponent(
                   `Application — ${role.title}`
                 )}`}
-                className="btn-primary group inline-flex items-center justify-center gap-1.5 rounded-full px-8 h-12 text-base font-medium md:shrink-0"
               >
-                Apply
-                <HugeiconsIcon
-                  icon={ArrowRight02Icon}
-                  className="size-5"
-                />
+                <button className="btn-primary group inline-flex items-center justify-center gap-1.5 rounded-full px-8 h-12 text-base font-medium md:shrink-0">
+                  Apply
+                  <HugeiconsIcon
+                    icon={ArrowRight02Icon}
+                    className="size-5"
+                  />
+                </button>
               </a>
             </motion.article>
           ))}

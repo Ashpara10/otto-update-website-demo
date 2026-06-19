@@ -115,27 +115,27 @@ export function NavDropdown({ group }: { group: NavDropdownGroup }) {
                   : "w-[360px] grid-cols-1";
               return (
                 <div
-                  className={`grid rounded-2xl border border-light-dark bg-dark shadow-[0_24px_60px_-20px_rgba(0,0,0,0.1)] overflow-hidden ${containerWidth}`}
+                  className={`grid rounded-2xl border border-light-dark bg-dark text-heading shadow-[0_24px_60px_-20px_rgba(0,0,0,0.1)] overflow-hidden ${containerWidth}`}
                 >
                   {group.feature && (
                     <Link
                       href={group.feature.cta.href}
                       onClick={() => setOpen(false)}
-                      className="relative flex flex-col gap-3 border-r border-light-dark bg-light-dark/20 p-4 transition"
+                      className="relative flex flex-col gap-3 border-r border-light-dark bg-light-dark/30 p-4 transition"
                     >
-                      <span className="grid h-20 w-full place-items-center rounded-xl border border-light-dark bg-dark text-muted-foreground text-sm font-semibold tracking-tight">
+                      <span className="grid h-20 w-full place-items-center rounded-xl border border-light-dark bg-dark text-heading/70 text-sm font-semibold tracking-tight">
                         Otto × {group.label}
                       </span>
 
                       <div className="px-2 space-y-2 mt-4">
 
-                        <span className="block text-[15px] font-medium text-foreground/85">
+                        <span className="block text-base font-semibold text-heading">
                           {group.feature.title}
                         </span>
-                        <span className="block text-[13px] leading-snug text-muted-foreground">
+                        <span className="block text-[13px] leading-snug text-foreground/80">
                           {group.feature.body}
                         </span>
-                        <span className="justify-self-end inline-flex items-center gap-1 text-xs font-medium text-brand-soft">
+                        <span className="justify-self-end inline-flex items-center gap-1 text-xs font-semibold text-brand">
                           {group.feature.cta.label} <HugeiconsIcon className="size-4" icon={ArrowRight02Icon} />
                         </span>
                       </div>
@@ -154,7 +154,7 @@ export function NavDropdown({ group }: { group: NavDropdownGroup }) {
                           onClick={() => setOpen(false)}
                           className="group flex items-start gap-3 rounded-xl p-3 hover:bg-light-dark/50 transition"
                         >
-                          <span className="mt-0.5 grid size-10 shrink-0 place-items-center rounded-lg border border-light-dark bg-dark text-subheading group-hover:border-brand-soft/20 group-hover:bg-brand-soft/10 group-hover:text-brand transition">
+                          <span className="mt-0.5 grid size-10 shrink-0 place-items-center rounded-lg border border-light-dark bg-light-dark/40 text-foreground/80 group-hover:border-brand-soft/30 group-hover:bg-brand-soft/15 group-hover:text-brand transition">
                             <HugeiconsIcon icon={item.icon}
 
                               className="size-4"
@@ -163,10 +163,10 @@ export function NavDropdown({ group }: { group: NavDropdownGroup }) {
                             />
                           </span>
                           <span className="min-w-0">
-                            <span className="block text-[15px] font-medium text-foreground/85">
+                            <span className="block text-base font-semibold text-heading">
                               {item.label}
                             </span>
-                            <span className="mt-0.5 block text-xs leading-relaxed text-muted-foreground">
+                            <span className="mt-0.5 block text-xs leading-relaxed text-foreground/70">
                               {item.description}
                             </span>
                           </span>

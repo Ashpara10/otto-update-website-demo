@@ -37,9 +37,9 @@ type Plan = {
 
 function PlanCard({ plan, isAnnual }: { plan: Plan; isAnnual: boolean }) {
   const inner = (
-    <div className="flex w-full flex-col rounded-2xl bg-dark h-full shadow-lg p-5 md:p-8">
+    <div className="flex w-full flex-col rounded-2xl bg-dark h-full dark:shadow-lg p-5 md:p-8">
       <div className="text-[15px]  font-medium flex items-center justify-start gap-3 text-brand">
-        <span className="w-0.5 rounded-full h-4 bg-brand" /> {plan.name}
+        {plan.name}
       </div>
       <div className="mb-4 mt-4 flex items-end gap-2">
         <span className="text-4xl font-bold text-heading">

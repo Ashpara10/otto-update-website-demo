@@ -290,6 +290,7 @@ export function Nav() {
             <div className="hidden sm:block w-px h-6 bg-light-dark" />
             <div className="hidden sm:inline-flex">
               <BookDemoButton
+                sourcePage="nav_desktop"
                 className="btn-primary h-10 items-center rounded-full px-4 text-[14px] font-medium"
               >
                 Book a demo
@@ -365,6 +366,7 @@ export function Nav() {
               <ThemeToggle fullWidth />
             </div>
             <BookDemoButton
+              sourcePage="nav_mobile"
               className="btn-primary inline-flex w-full h-12 items-center justify-center rounded-full px-6 text-base font-semibold"
             >
               Book a demo

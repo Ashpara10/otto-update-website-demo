@@ -16,7 +16,7 @@ export function FinalCTA() {
           Every opportunity visible.
         </p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-5">
-          <BookDemoButton className="btn-primary inline-flex h-12 items-center gap-2 rounded-full px-6 text-base font-medium">
+          <BookDemoButton sourcePage="homepage_closer" className="btn-primary inline-flex h-12 items-center gap-2 rounded-full px-6 text-base font-medium">
             Book a Demo
           </BookDemoButton>
         </div>

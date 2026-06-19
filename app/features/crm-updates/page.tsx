@@ -5,7 +5,7 @@ import { BookDemoButton } from "@/components/book-demo-button";
 export const metadata = {
   title: "CRM Updates · Otto",
   description:
-    "Otto captures every customer visit, phone call, follow-up, quote, and next step — and updates your CRM automatically. Finish the day without admin.",
+    "Otto captures every customer visit, phone call, follow-up, quote, and next step and updates your CRM automatically. Finish the day without admin.",
 };
 
 const heroBullets = [
@@ -95,7 +95,7 @@ export default function Page() {
             </p>
 
             <div className="mt-8">
-              <BookDemoButton className="btn-primary inline-flex h-12 items-center rounded-full px-6 text-base font-semibold">
+              <BookDemoButton sourcePage="feature_crm_updates" className="btn-primary inline-flex h-12 items-center rounded-full px-6 text-base font-semibold">
                 Book a Demo
               </BookDemoButton>
             </div>
@@ -188,7 +188,7 @@ export default function Page() {
             </div>
 
             <div className="mt-10">
-              <BookDemoButton className="btn-primary inline-flex h-12 items-center rounded-full px-6 text-base font-semibold">
+              <BookDemoButton sourcePage="feature_crm_updates" className="btn-primary inline-flex h-12 items-center rounded-full px-6 text-base font-semibold">
                 Book a Demo
               </BookDemoButton>
             </div>

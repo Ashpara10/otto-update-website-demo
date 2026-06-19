@@ -47,6 +47,7 @@ export function Footer() {
               An AI coordinator for  <br />industrial field sales teams.
             </p>
             <BookDemoButton
+              sourcePage="footer"
               className="btn-primary mt-6 inline-flex h-10 px-6 items-center rounded-full px-4 text-sm font-medium"
             >
               Book a demo

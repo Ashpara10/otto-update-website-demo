@@ -44,3 +44,4 @@ next-env.d.ts
 .agents/
 opencode.json
 opencode.json.bak
+.public-image-backup

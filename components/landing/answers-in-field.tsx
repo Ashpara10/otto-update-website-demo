@@ -10,7 +10,7 @@ type Message =
 
 const SCRIPT: Message[] = [
   { kind: "user", text: "Is this in stock?" },
-  { kind: "ai", text: "Yes — 14 units at the Cleveland warehouse. 6 more due in Friday from the regional DC." },
+  { kind: "ai", text: "Yes 14 units at the Cleveland warehouse. 6 more due in Friday from the regional DC." },
   { kind: "user", text: "What is the lead time?" },
   { kind: "ai", text: "Standard 3 business days from order. Expedited same-day if the customer needs it before Thursday." },
   { kind: "user", text: "What did we quote last time?" },

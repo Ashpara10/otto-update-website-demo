@@ -249,7 +249,7 @@
 }
 
 /* Scoped into @layer base so Tailwind's `utilities` layer (declared after
-     base) still wins — otherwise this non-layered reset strips padding/margins
+     base) still wins otherwise this non-layered reset strips padding/margins
      from shadcn components (e.g. the demo-modal inputs). Bespoke landing rules
      are non-layered and still override this.
      Gated behind `.otto-legacy` so the V2 landing in app/page.tsx is unaffected. */
@@ -2087,7 +2087,7 @@ body {
   font-family: var(--font-sans), sans-serif
 }
 
-/* nav CTA is now a <button>, not an <a> — strip UA chrome */
+/* nav CTA is now a <button>, not an <a> strip UA chrome */
 button.nav-cta {
   border: none;
   cursor: pointer;
@@ -2111,6 +2111,7 @@ input:-webkit-autofill:active {
   from {
     transform: translateX(0);
   }
+
   to {
     transform: translateX(calc(-100% - var(--gap)));
   }
@@ -2120,45 +2121,77 @@ input:-webkit-autofill:active {
   from {
     transform: translateY(0);
   }
+
   to {
     transform: translateY(calc(-100% - var(--gap)));
   }
 }
 
 @keyframes marquee-left {
-  from { transform: translateX(-50%); }
-  to   { transform: translateX(0); }
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
 }
+
 @keyframes marquee-right {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
 }
-.marquee-left  { animation: marquee-left  28s linear infinite; will-change: transform; }
-.marquee-right { animation: marquee-right 28s linear infinite; will-change: transform; }
-.marquee-left:hover, .marquee-right:hover { animation-play-state: paused; }
+
+.marquee-left {
+  animation: marquee-left 28s linear infinite;
+  will-change: transform;
+}
+
+.marquee-right {
+  animation: marquee-right 28s linear infinite;
+  will-change: transform;
+}
+
+.marquee-left:hover,
+.marquee-right:hover {
+  animation-play-state: paused;
+}
 
 @property --angle {
   syntax: '<angle>';
   inherits: false;
   initial-value: 0deg;
 }
+
 @keyframes logo-trail-spin {
-  from { --angle: 0deg; }
-  to   { --angle: 360deg; }
+  from {
+    --angle: 0deg;
+  }
+
+  to {
+    --angle: 360deg;
+  }
 }
+
 .logo-trail {
-  background: conic-gradient(
-    from var(--angle) at 50% 50%,
-    rgba(203,253,64,0)   0deg,
-    #CBFD40            40deg,
-    #00b386            120deg,
-    #CBFD40            200deg,
-    rgba(203,253,64,0) 280deg,
-    rgba(203,253,64,0) 360deg
-  );
+  background: conic-gradient(from var(--angle) at 50% 50%,
+      rgba(203, 253, 64, 0) 0deg,
+      #CBFD40 40deg,
+      #00b386 120deg,
+      #CBFD40 200deg,
+      rgba(203, 253, 64, 0) 280deg,
+      rgba(203, 253, 64, 0) 360deg);
   border-radius: 1rem;
   animation: logo-trail-spin 2.5s linear infinite;
 }
+
 @media (prefers-reduced-motion: reduce) {
-  .logo-trail { animation: none; }
+  .logo-trail {
+    animation: none;
+  }
 }

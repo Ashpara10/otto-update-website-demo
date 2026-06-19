@@ -5,6 +5,7 @@ import { DemoModalProvider } from "@/components/demo-modal-provider";
 import { ScrollFX } from "@/components/scroll-fx";
 import { Toaster } from "@/components/ui/sonner";
 import { ThemeProvider } from "@/components/theme-provider";
+import { GA4Script } from "@/components/ga4-script";
 
 // const outfit = Outfit({
 //   variable: "--font-sans",
@@ -21,7 +22,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Otto — Won in the field. Lost in the follow-up.",
+  title: "Otto Won in the field. Lost in the follow-up.",
   description:
     "Otto is an AI sales coordinator that field reps call after every visit. Your CRM stays current, quotes keep moving, and nothing slips.",
 };
@@ -33,6 +34,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={` ${inter.variable}`} suppressHydrationWarning>
+      <head>
+        <GA4Script />
+      </head>
       <body style={{ fontFamily: "var(--font-inter), system-ui, -apple-system, sans-serif" }} className="bg-background text-foreground">
         {/* <div className="" /> */}
         <ThemeProvider

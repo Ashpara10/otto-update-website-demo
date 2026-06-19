@@ -21,7 +21,7 @@ export const roles: Role[] = [
     title: "Founding Designer",
     tag: "UI/UX · Creative lead",
     blurb:
-      "Otto's surface is half product, half cinema — dashboards, voice calls, morning briefs. You'll shape what it feels like to have an AI chief of staff, from a 3 AM Slack ping to a live call mid-deal.",
+      "Otto's surface is half product, half cinema dashboards, voice calls, morning briefs. You'll shape what it feels like to have an AI chief of staff, from a 3 AM Slack ping to a live call mid-deal.",
     salary: "₹15L",
     salaryInr: 1500000,
     location: "Mumbai · Hybrid",
@@ -30,7 +30,7 @@ export const roles: Role[] = [
     title: "Senior Architect",
     tag: "Engineering · Founding hire",
     blurb:
-      "You'll architect the systems behind Otto's six agents — voice infra, memory, signal pipelines, real-time CRM sync. Python/FastAPI + async Postgres + Celery + a lot of LLM orchestration.",
+      "You'll architect the systems behind Otto's six agents voice infra, memory, signal pipelines, real-time CRM sync. Python/FastAPI + async Postgres + Celery + a lot of LLM orchestration.",
     salary: "₹25L",
     salaryInr: 2500000,
     location: "Mumbai · Hybrid",

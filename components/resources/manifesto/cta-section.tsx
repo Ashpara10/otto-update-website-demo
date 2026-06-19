@@ -17,6 +17,7 @@ export default function CtaSection() {
             In such a future, we built Otto.
           </p>
           <BookDemoButton
+            sourcePage="manifesto_cta"
             // onClick={show}
             className="btn-primary inline-flex rounded-full px-8 py-3 text-lg font-semibold"
           >

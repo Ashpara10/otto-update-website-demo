@@ -63,6 +63,7 @@ function PlanCard({ plan, isAnnual }: { plan: Plan; isAnnual: boolean }) {
       </ul>
 
       <BookDemoButton
+        sourcePage="pricing_page"
         className={`${plan.usePrimary ? "btn-primary" : ""} mt-auto w-full py-3 rounded-lg font-medium ${plan.usePrimary ? "" : "transition-opacity hover:opacity-90 "}${plan.ctaClass}`}
       >
         {plan.ctaLabel}

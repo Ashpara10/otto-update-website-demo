@@ -3,9 +3,9 @@ const manifestoParagraphs = [
   "That takes instinct. Empathy. Guts.",
   "And then? Then, we go home and type it all into a box.",
   "That feeling is why we got into sales. And why we stay.",
-  "But that feeling... it vaporises. Every single day. It dies in the thirty minutes after a great call — when instead of riding that momentum into the next conversation, we stop.",
+  "But that feeling... it vaporises. Every single day. It dies in the thirty minutes after a great call when instead of riding that momentum into the next conversation, we stop.",
   "The rush is dead. The instinct is frigid.",
-  "And we're doing data entry at 9 PM asking ourselves — when did selling stop being the job?",
+  "And we're doing data entry at 9 PM asking ourselves when did selling stop being the job?",
   "Updating geriatric software is not selling. It never was.",
   "We pulsate when we sell. And our time should be spent doing just that.",
   "The Sales Tribe deserves a better future.",
@@ -25,7 +25,7 @@ export default function BodySection() {
         <div className="space-y-1 text-xl md:text-2xl font-medium tracking-tight lg:text-3xl text-heading ">
           <p>A closed deal is a rush.</p>
           <p>The call that lands. The handshake.</p>
-          <p>That moment a buyer says yes — and you know you earned that.</p>
+          <p>That moment a buyer says yes and you know you earned that.</p>
         </div>
 
         <p>{manifestoParagraphs[3]}</p>

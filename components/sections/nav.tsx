@@ -12,7 +12,7 @@ export function Nav() {
           <a href="#leak">Quote risk</a>
           <a href="#manager">For managers</a>
           <a href="#icp">Who it&apos;s for</a>
-          <BookDemoButton className="nav-cta">Book a demo</BookDemoButton>
+          <BookDemoButton sourcePage="sections_nav" className="nav-cta">Book a demo</BookDemoButton>
         </div>
       </div>
     </nav>

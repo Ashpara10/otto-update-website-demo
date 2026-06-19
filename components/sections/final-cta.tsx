@@ -13,7 +13,7 @@ export function FinalCTA() {
           className="reveal"
           style={{ display: "flex", justifyContent: "center", gap: 18, flexWrap: "wrap", alignItems: "center" }}
         >
-          <BookDemoButton className="btn-primary">
+          <BookDemoButton sourcePage="sections_closer" className="btn-primary">
             Book a demo <span className="arr">→</span>
           </BookDemoButton>
         </div>

@@ -68,7 +68,7 @@ export default function TeamSection() {
           {teamMembers.map((member) => (
             <div key={member.name} className="flex flex-col group">
               <div className="relative aspect-4/5 w-full overflow-hidden rounded-2xl md:rounded-[24px] bg-light-dark/40 mb-5 border border-light-dark flex items-center justify-center">
-                <Image src={`/team/${member.image}`} alt={member.name} fill className="object-cover" />
+                <Image src={`/team/${member.image}`} alt={member.name} fill sizes="(max-width: 640px) 100vw, 50vw" priority className="object-cover" />
               </div>
 
               <div className="px-1 mt-2">

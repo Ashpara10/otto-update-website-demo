@@ -24,7 +24,7 @@ export function Hero() {
             <b>Your CRM stays current, quotes keep moving, and nothing slips after a visit.</b>
           </p>
           <div className="hero-cta">
-            <BookDemoButton className="btn-primary">
+            <BookDemoButton sourcePage="sections_hero" className="btn-primary">
               Book a demo <span className="arr">→</span>
             </BookDemoButton>
             <a href="#how" className="btn-ghost">

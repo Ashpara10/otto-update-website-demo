@@ -1,6 +1,7 @@
 "use client";
 
 import { useDemoModal } from "@/components/demo-modal-provider";
+import { trackBookDemoClick } from "@/lib/gtag";
 
 /**
  * A plain trigger that opens the demo modal. It carries no styling of its own —
@@ -10,13 +11,22 @@ import { useDemoModal } from "@/components/demo-modal-provider";
 export function BookDemoButton({
   className,
   children,
+  sourcePage,
 }: {
   className?: string;
   children: React.ReactNode;
+  sourcePage: string;
 }) {
   const { openDemo } = useDemoModal();
   return (
-    <button type="button" className={className} onClick={openDemo}>
+    <button
+      type="button"
+      className={className}
+      onClick={() => {
+        trackBookDemoClick(sourcePage);
+        openDemo();
+      }}
+    >
       {children}
     </button>
   );

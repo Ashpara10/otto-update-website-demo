@@ -10,7 +10,7 @@ function loadNeonUrl() {
       const m = readFileSync(file, "utf8").match(/^\s*NEON_DB\s*=\s*(.+)\s*$/m);
       if (m) return m[1].trim().replace(/^["']|["']$/g, "");
     } catch {
-      // file may not exist — keep looking
+      // file may not exist keep looking
     }
   }
   return null;

@@ -13,7 +13,7 @@ const DEMO_FROM = process.env.DEMO_FROM ?? "Otto <onboarding@resend.dev>";
 async function storeLead(data: ReturnType<typeof demoRequestSchema.parse>) {
   const connectionString = process.env.NEON_DB;
   if (!connectionString) {
-    console.warn("[demo] NEON_DB not set — skipping DB insert");
+    console.warn("[demo] NEON_DB not set skipping DB insert");
     return;
   }
   // Table is provisioned once via `npm run db:init` (scripts/init-db.mjs),
@@ -29,7 +29,7 @@ async function storeLead(data: ReturnType<typeof demoRequestSchema.parse>) {
 async function emailLead(data: ReturnType<typeof demoRequestSchema.parse>) {
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
-    console.warn("[demo] RESEND_API_KEY not set — skipping email");
+    console.warn("[demo] RESEND_API_KEY not set skipping email");
     return;
   }
   const resend = new Resend(apiKey);
@@ -50,7 +50,7 @@ async function emailLead(data: ReturnType<typeof demoRequestSchema.parse>) {
     from: DEMO_FROM,
     to: DEMO_TO,
     replyTo: data.email,
-    subject: `Otto demo request — ${data.company}`,
+    subject: `Otto demo request ${data.company}`,
     text: `New demo request for Otto (industrial field sales)\n\n${rows}`,
   });
 }

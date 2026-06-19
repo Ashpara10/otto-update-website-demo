@@ -2,6 +2,7 @@ import { Nav } from "@/components/landing/nav";
 import { Footer } from "@/components/landing/footer";
 import { PricingComparisonSection } from "@/components/landing/pricing-comparison";
 import { PricingCards } from "@/components/landing/pricing-cards";
+import { PricingViewTracker } from "@/components/pricing-view-tracker";
 
 export const metadata = {
   title: "Pricing · Otto",
@@ -12,6 +13,7 @@ export const metadata = {
 export default function PricingPage() {
   return (
     <div className="min-h-screen bg-dark text-heading">
+      <PricingViewTracker />
       <Nav />
       <main className="px-5 pb-20 pt-32 sm:px-8 sm:pb-24 sm:pt-36">
         <div className="mx-auto mt-8 max-w-4xl px-0 sm:px-4">

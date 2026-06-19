@@ -37,6 +37,7 @@ const Hero = () => {
 
                     <div className="flex flex-col sm:flex-row w-full justify-start items- items-start  gap-5  mt-8">
                         <BookDemoButton
+                            sourcePage="homepage_hero"
                             className="btn-primary inline-flex h-12 md:h-14  items-center rounded-full px-8 md:px-6 md:text-base font-semibold ">
                             Book a demo
                         </BookDemoButton>

@@ -127,7 +127,7 @@ export default function Page() {
             </p>
 
             <div className="mt-8">
-              <BookDemoButton className="btn-primary inline-flex h-12 items-center rounded-full px-6 text-base font-semibold">
+              <BookDemoButton sourcePage="feature_product_inquiry" className="btn-primary inline-flex h-12 items-center rounded-full px-6 text-base font-semibold">
                 Book a Demo
               </BookDemoButton>
             </div>
@@ -269,7 +269,7 @@ export default function Page() {
             </p>
 
             <div className="mt-8">
-              <BookDemoButton className="btn-primary inline-flex h-12 items-center rounded-full px-6 text-base font-semibold">
+              <BookDemoButton sourcePage="feature_product_inquiry" className="btn-primary inline-flex h-12 items-center rounded-full px-6 text-base font-semibold">
                 Book a Demo
               </BookDemoButton>
             </div>

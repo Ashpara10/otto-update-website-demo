@@ -39,6 +39,7 @@ export type FeaturePageShellProps = {
   comparisonRows: FeatureComparisonRow[];
   closeHeading: string;
   closeBody: string;
+  sourcePage: string;
 };
 
 const primaryCtaClass =
@@ -73,6 +74,7 @@ export function FeaturePageShell({
   comparisonRows,
   closeHeading,
   closeBody,
+  sourcePage,
 }: FeaturePageShellProps) {
   const [activeIndex, setActiveIndex] = useState(workflow.length - 1);
   const progress =
@@ -106,7 +108,7 @@ export function FeaturePageShell({
             </div>
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <BookDemoButton className={primaryCtaClass}>
+              <BookDemoButton sourcePage={sourcePage} className={primaryCtaClass}>
                 Book a Demo
               </BookDemoButton>
             </div>
@@ -267,7 +269,7 @@ export function FeaturePageShell({
               {closeBody}
             </p>
             <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <BookDemoButton className={primaryCtaClass}>
+              <BookDemoButton sourcePage={sourcePage} className={primaryCtaClass}>
                 Book a Demo
               </BookDemoButton>
             </div>

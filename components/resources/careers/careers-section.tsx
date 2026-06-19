@@ -121,7 +121,7 @@ export default function CareersSection() {
 
               <a
                 href={`mailto:${APPLY_EMAIL}?subject=${encodeURIComponent(
-                  `Application — ${role.title}`
+                  `Application ${role.title}`
                 )}`}
               >
                 <button className="btn-primary group inline-flex items-center justify-center gap-1.5 rounded-full px-8 h-12 text-base font-medium md:shrink-0">
